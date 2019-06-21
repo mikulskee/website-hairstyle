@@ -10,6 +10,10 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     /* scrollbar-width: none */
 }
+
+body {
+    overflow-x: hidden;
+}
 ::-webkit-scrollbar { 
     /* display: none;  */
 }
