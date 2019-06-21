@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5b2f2f7750b3483119a172ab4c7012cd",
+    "revision": "6d7fca45069e2dc3e9b3c4dbf4686f8e",
     "url": "/website-hairstyle/index.html"
   },
   {
-    "revision": "cee4375ef58cf35873b8",
-    "url": "/website-hairstyle/static/js/2.d21bccf8.chunk.js"
+    "revision": "5fe5f3048778a51cde7b",
+    "url": "/website-hairstyle/static/js/2.516f8dda.chunk.js"
   },
   {
-    "revision": "eef672a72d4147bd780d",
-    "url": "/website-hairstyle/static/js/main.16b2a119.chunk.js"
+    "revision": "451a4e5020c9b6398ebc",
+    "url": "/website-hairstyle/static/js/main.0ac6b5c9.chunk.js"
   },
   {
     "revision": "143d2c65843dcc6e13a9",
@@ -58,10 +58,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "5e27e4074d2e9bdfd3227d7d87b0fc04",
     "url": "/website-hairstyle/static/media/girl-two.5e27e407.svg"
-  },
-  {
-    "revision": "17acdfdea149f78f5f9ee1f1628bcf93",
-    "url": "/website-hairstyle/static/media/hero-image-mobile.17acdfde.png"
   },
   {
     "revision": "2542e5cfa929a7bd267eeb00abd4b996",
