@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import IconSVG from "../IconSVG/IconSVG";
 import iconFacebook from "../../assets/images/icon-facebook.svg";
-import iconInstagram from "../../assets/images/icon-instagram.svg";
+import iconInstagram from "../../assets/images/icon-instagram2.svg";
 
 const StyledLink = styled.a`
   cursor: pointer;

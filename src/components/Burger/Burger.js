@@ -22,7 +22,7 @@ const StyledBurger = styled.button`
     height: 2px;
     background-color: black;
     display: block;
-    @media only screen and (min-width: 768px) and (min-height: 700px) {
+    @media (min-width: 768px) and (min-height: 700px) {
       width: 30px;
     }
   }
@@ -48,7 +48,7 @@ const StyledBurger = styled.button`
         return "animate-transform-after-false .5s linear forwards";
       }
     }};
-    @media only screen and (min-width: 768px) and (min-height: 700px) {
+    @media (min-width: 768px) and (min-height: 700px) {
       transform: translateY(8px);
     }
   }
@@ -62,7 +62,7 @@ const StyledBurger = styled.button`
         return "animate-transform-before-false .5s linear forwards";
       }
     }};
-    @media only screen and (min-width: 768px) and (min-height: 700px) {
+    @media (min-width: 768px) and (min-height: 700px) {
       transform: translateY(-8px);
     }
   }
@@ -143,82 +143,13 @@ const StyledBurger = styled.button`
     }
   }
 
-  @media only screen and (min-width: 768px) and (min-height: 700px) {
-    @keyframes animate-transform-before {
-      0% {
-        transform: translateY(-8px) rotate(0);
-      }
-
-      25% {
-        transform: translateY(0) rotate(0);
-      }
-      40% {
-        transform: translateY(0) rotate(0);
-      }
-      65% {
-        transform: translateY(0) rotate(-45deg);
-      }
-      100% {
-        transform: translateY(0) rotate(-45deg);
-      }
-    }
-    @keyframes animate-transform-after {
-      0% {
-        transform: translateY(8px) rotate(0);
-      }
-      25% {
-        transform: translateY(0) rotate(0);
-      }
-      40% {
-        transform: translateY(0) rotate(0);
-      }
-      65% {
-        transform: translateY(0) rotate(45deg);
-      }
-      100% {
-        transform: translateY(0) rotate(45deg);
-      }
-    }
-    @keyframes animate-transform-after-false {
-      0% {
-        transform: translateY(0) rotate(45deg);
-      }
-      25% {
-        transform: translateY(0) rotate(0);
-      }
-      40% {
-        transform: translateY(0) rotate(0);
-      }
-      65% {
-        transform: translateY(8px) rotate(0);
-      }
-      100% {
-        transform: translateY(8px) rotate(0);
-      }
-    }
-    @keyframes animate-transform-before-false {
-      0% {
-        transform: translateY(0) rotate(-45deg);
-      }
-      25% {
-        transform: translateY(0) rotate(0);
-      }
-      40% {
-        transform: translateY(0) rotate(0);
-      }
-      65% {
-        transform: translateY(-8px) rotate(0);
-      }
-      100% {
-        transform: translateY(-8px) rotate(0);
-      }
-    }
+  @media screen and (min-width: 1024px) {
+    display: none;
   }
 `;
 
 const Burger = props => {
   const { handleButton, isOpen, id } = props;
-
   return (
     <StyledBurger onClick={handleButton} isOpen={isOpen} id={id}>
       <div />
