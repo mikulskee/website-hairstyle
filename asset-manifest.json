@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/website-hairstyle/static/js/main.0ac6b5c9.chunk.js",
-    "main.js.map": "/website-hairstyle/static/js/main.0ac6b5c9.chunk.js.map",
+    "main.js": "/website-hairstyle/static/js/main.ffe8f2e7.chunk.js",
+    "main.js.map": "/website-hairstyle/static/js/main.ffe8f2e7.chunk.js.map",
     "runtime~main.js": "/website-hairstyle/static/js/runtime~main.235c998d.js",
     "runtime~main.js.map": "/website-hairstyle/static/js/runtime~main.235c998d.js.map",
-    "static/js/2.516f8dda.chunk.js": "/website-hairstyle/static/js/2.516f8dda.chunk.js",
-    "static/js/2.516f8dda.chunk.js.map": "/website-hairstyle/static/js/2.516f8dda.chunk.js.map",
+    "static/js/2.f09cdbe7.chunk.js": "/website-hairstyle/static/js/2.f09cdbe7.chunk.js",
+    "static/js/2.f09cdbe7.chunk.js.map": "/website-hairstyle/static/js/2.f09cdbe7.chunk.js.map",
     "index.html": "/website-hairstyle/index.html",
-    "precache-manifest.bc4b72779e9b1d3c398fa1cec0438040.js": "/website-hairstyle/precache-manifest.bc4b72779e9b1d3c398fa1cec0438040.js",
+    "precache-manifest.827f68e618567fba8e1b70002018b5b2.js": "/website-hairstyle/precache-manifest.827f68e618567fba8e1b70002018b5b2.js",
     "service-worker.js": "/website-hairstyle/service-worker.js",
     "static/media/Marta1.svg": "/website-hairstyle/static/media/Marta1.155e190f.svg",
     "static/media/Marta2.svg": "/website-hairstyle/static/media/Marta2.a56f54c3.svg",
@@ -27,7 +27,7 @@
     "static/media/logo-main-white.svg": "/website-hairstyle/static/media/logo-main-white.bf4166ea.svg",
     "static/media/logo-main.svg": "/website-hairstyle/static/media/logo-main.c6784122.svg",
     "static/media/motto-girl.png": "/website-hairstyle/static/media/motto-girl.b0ef79e2.png",
-    "static/media/video-hair.mp4": "/website-hairstyle/static/media/video-hair.a4057763.mp4",
+    "static/media/video-hair.webm": "/website-hairstyle/static/media/video-hair.310788d8.webm",
     "static/media/video-hair2.mp4": "/website-hairstyle/static/media/video-hair2.24670d86.mp4"
   }
 }

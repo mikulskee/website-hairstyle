@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6d7fca45069e2dc3e9b3c4dbf4686f8e",
+    "revision": "cb5d0f4d6a8709c5ed05a9602ed5dae7",
     "url": "/website-hairstyle/index.html"
   },
   {
-    "revision": "5fe5f3048778a51cde7b",
-    "url": "/website-hairstyle/static/js/2.516f8dda.chunk.js"
+    "revision": "61e2c509280f7d0d4f9a",
+    "url": "/website-hairstyle/static/js/2.f09cdbe7.chunk.js"
   },
   {
-    "revision": "451a4e5020c9b6398ebc",
-    "url": "/website-hairstyle/static/js/main.0ac6b5c9.chunk.js"
+    "revision": "b445ea8878b8142b6116",
+    "url": "/website-hairstyle/static/js/main.ffe8f2e7.chunk.js"
   },
   {
     "revision": "143d2c65843dcc6e13a9",
@@ -88,8 +88,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/website-hairstyle/static/media/motto-girl.b0ef79e2.png"
   },
   {
-    "revision": "a4057763feb813a9c0ecf3ba2f76b6fc",
-    "url": "/website-hairstyle/static/media/video-hair.a4057763.mp4"
+    "revision": "310788d8341faa84070943de041237b9",
+    "url": "/website-hairstyle/static/media/video-hair.310788d8.webm"
   },
   {
     "revision": "24670d861a5fbcb5258258e574b775d1",
