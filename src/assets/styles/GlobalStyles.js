@@ -10,9 +10,9 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     /* scrollbar-width: none */
 }
-
 body {
-    overflow-x: hidden;
+    height: 100vh;
+    overflow: ${({ isScrollable }) => (isScrollable ? "visible" : "hidden")};
 }
 ::-webkit-scrollbar { 
     /* display: none;  */

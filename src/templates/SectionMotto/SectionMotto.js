@@ -27,7 +27,7 @@ const Aside = styled.aside`
 `;
 
 const Motto = styled.h2`
-  font-family: "Pacifico";
+  font-family: "Pacifico", sans-serif;
   color: #de617a;
   font-weight: 300;
   letter-spacing: 2px;

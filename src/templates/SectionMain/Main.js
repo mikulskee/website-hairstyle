@@ -5,9 +5,11 @@ import girlTwo from "../../assets/images/girl-two.svg";
 import girlThree from "../../assets/images/girl-three.svg";
 import blob from "../../assets/images/blob.svg";
 import blob2 from "../../assets/images/blob2.svg";
-import videoHair from "../../assets/images/video-hair.mp4";
-import videoHair2 from "../../assets/images/video-hair2.mp4";
 import IconSVG from "../../components/IconSVG/IconSVG";
+import dotted from "../../assets/images/dotted-pattern.svg";
+import IconIMG from "../../components/IconIMG/IconIMG";
+import casualOne from "../../assets/images/casual-girl-1.jpg";
+import casualTwo from "../../assets/images/casual-girl-2.jpg";
 import { Title } from "../../components/Title/Title";
 import { Article } from "../../components/Article/Article";
 
@@ -18,13 +20,20 @@ const StyledMain = styled.main`
   z-index: -3;
   display: flex;
   flex-direction: column;
+  border-bottom: 10px dotted white;
   @media only screen and (orientation: landscape) and (min-width: 667px) {
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 40px;
   }
 `;
-
+const StyledTitle = styled(Title)`
+  transform: ${({ isVisible }) =>
+    isVisible ? "translatey(0)" : "translatey(35%)"};
+  opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
+  transition: transform 0.35s ease-out, opacity 0.6s ease-out;
+  will-change: transform, opacity;
+`;
 const StyledWrapper = styled.div`
   position: relative;
   display: flex;
@@ -33,7 +42,9 @@ const StyledWrapper = styled.div`
   height: 30vh;
   min-height: 380px;
   padding: 150px 5px 0;
-  overflow: hidden;
+
+  h1 {
+  }
   @media only screen and (orientation: landscape) {
     min-height: 400px;
   }
@@ -59,6 +70,13 @@ const StyledWrapper = styled.div`
     right: 2px;
     z-index: -4;
   }
+  div.dotted {
+    position: absolute;
+    width: 30%;
+    bottom: -10%;
+    left: 5%;
+    z-index: -3;
+  }
 `;
 
 const GirlOne = styled(IconSVG)`
@@ -74,14 +92,12 @@ const GirlOne = styled(IconSVG)`
   will-change: transform, opacity;
 
   @media only screen and (orientation: landscape) {
-      transform: ${({ isVisible }) =>
-    isVisible ? "translate(-100%, -10%)" : "translate(-170%, -10%)"};
- 
-
+    transform: ${({ isVisible }) =>
+      isVisible ? "translate(-100%, -10%)" : "translate(-170%, -10%)"};
   }
   @media only screen and (orientation: landscape) and (min-width: 667px) {
-       transform: ${({ isVisible }) =>
-    isVisible ? "translate(-60%, -50%)" : "translate(-130%, -50%)"};
+    transform: ${({ isVisible }) =>
+      isVisible ? "translate(-60%, -50%)" : "translate(-130%, -50%)"};
   }
 `;
 
@@ -108,75 +124,61 @@ const GirlThree = styled(IconSVG)`
   will-change: transform, opacity;
   max-width: 130px;
   @media only screen and (orientation: landscape) {
-      transform: ${({ isVisible }) =>
-    isVisible ? "translate(130%, 10%)" : "translate(150%, 10%)"};
+    transform: ${({ isVisible }) =>
+      isVisible ? "translate(130%, 10%)" : "translate(150%, 10%)"};
   }
   @media only screen and (orientation: landscape) and (min-width: 667px) {
-      transform: ${({ isVisible }) =>
-    isVisible ? "translate(110%, 15%)" : "translate(140%, 15%)"};
+    transform: ${({ isVisible }) =>
+      isVisible ? "translate(110%, 15%)" : "translate(140%, 15%)"};
   }
 `;
 
 const StyledArticle = styled(Article)`
-  transform: ${({ scrollRatio }) =>
-    scrollRatio
-      ? `translateY(-${scrollRatio}px) rotate(2deg)`
-      : "translateY(0) rotate(2deg)"};
-  transition: transform 0.35s linear;
-  will-change: transform;
+  border-bottom: 10px double white;
   @media only screen and (orientation: landscape) and (min-width: 667px) {
     width: 40%;
     order: 1;
     margin: 140px 0 30px 20px;
   }
 `;
+
+const PicsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 40vh;
+  width: 100%;
+  overflow: hidden;
+
+  @media only screen and (orientation: landscape) {
+    order: 3;
+    height: 50vh;
+    width: 50%;
+    align-self: center;
+    margin-left: 10px;
+  }
+
+  div {
+    height: 100%;
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    transform: ${({ isVisible }) => (isVisible ? "scale(1)" : "scale(1.5)")};
+    transition: transform 0.5s 0.15s linear;
+
+    img {
+      max-height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-25%);
+    }
+  }
+`;
 const StyledArticle2 = styled(Article)`
-transform: ${({ scrollRatio }) =>
-    scrollRatio
-      ? `translateY(-${scrollRatio}px) rotate(2deg)`
-      : "translateY(0) rotate(2deg)"};
-  transition: transform 0.35s linear;
-  will-change: transform;
   @media only screen and (orientation: landscape) and (min-width: 667px) {
     width: 40%;
     order: 4;
   }
-`;
-
-const VideoWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 0 auto 40px;
-  height: 200%;
-
-  @media only screen and (orientation: landscape) and (min-width: 667px) {
-    width: 50%;
-    margin: 40px 0 30px 20px;
-    order: 3;
-  }
-
-  video:nth-child(1) {
-    transform: translate(0, -12%);
-  }
-  video:nth-child(2) {
-    transform: translate(0, 12%);
-  }
-`;
-
-const Video = styled.video`
-  width: 40%;
-  max-width: 180px;
-  height: 10%;
-  display: block;
-  box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
-`;
-
-const StyledTitle = styled(Title)`
-  transform: ${({ isVisible }) =>
-    isVisible ? "translatey(0)" : "translatey(35%)"};
-  opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
-  transition: transform 0.35s ease-out, opacity 0.6s ease-out;
-  will-change: transform, opacity;
 `;
 
 class Main extends Component {
@@ -185,9 +187,7 @@ class Main extends Component {
     girlOneIsVisible: false,
     girlTwoIsVisible: false,
     girlThreeIsVisible: false,
-    videoOneIsVisible: false,
-    scrollRatio: "",
-    scrollRatioArticle2: "",
+    picsWrapperisVisible: false
   };
 
   componentDidMount() {
@@ -195,11 +195,10 @@ class Main extends Component {
     window.addEventListener("scroll", this.handleShowGirlOne);
     window.addEventListener("scroll", this.handleShowGirlTwo);
     window.addEventListener("scroll", this.handleShowGirlThree);
-    window.addEventListener("scroll", this.handleShowVideoOne);
-    window.addEventListener("scroll", this.handleShowVideoTwo);
+    window.addEventListener("scroll", this.handleShowPics);
   }
 
-handleShowTitle = () => {
+  handleShowTitle = () => {
     const h1main = document.querySelector("h1.main");
     let topH1 = h1main.getBoundingClientRect().top;
     let heightH1 = h1main.getBoundingClientRect().height;
@@ -213,14 +212,14 @@ handleShowTitle = () => {
         titleIsVisible: false
       });
     }
-};
+  };
 
-handleShowGirlOne = () => {
-     const girlOne = document.querySelector(".girlone");
-  
-     let topGirlOne = girlOne.getBoundingClientRect().top +10;
-     if (topGirlOne <= window.innerHeight) {
-        this.setState({
+  handleShowGirlOne = () => {
+    const girlOne = document.querySelector(".girlone");
+
+    let topGirlOne = girlOne.getBoundingClientRect().top + 10;
+    if (topGirlOne <= window.innerHeight) {
+      this.setState({
         girlOneIsVisible: true
       });
     } else {
@@ -228,64 +227,49 @@ handleShowGirlOne = () => {
         girlOneIsVisible: false
       });
     }
-};
+  };
 
-handleShowGirlTwo = () => {
-     const girlTwo = document.querySelector(".girltwo");
-     let topGirlTwo = girlTwo.getBoundingClientRect().top +10;
-     if (topGirlTwo <= window.innerHeight) {
+  handleShowGirlTwo = () => {
+    const girlTwo = document.querySelector(".girltwo");
+    let topGirlTwo = girlTwo.getBoundingClientRect().top + 10;
+    if (topGirlTwo <= window.innerHeight) {
       this.setState({
         girlTwoIsVisible: true
       });
-     } else {
+    } else {
       this.setState({
         girlTwoIsVisible: false
       });
-      }
-};
+    }
+  };
 
-handleShowGirlThree = () => {
-  const girlThree = document.querySelector(".girlthree");
-  let topGirlThree = girlThree.getBoundingClientRect().top +10;
-  if (topGirlThree <= window.innerHeight) {
+  handleShowGirlThree = () => {
+    const girlThree = document.querySelector(".girlthree");
+    let topGirlThree = girlThree.getBoundingClientRect().top + 10;
+    if (topGirlThree <= window.innerHeight) {
       this.setState({
         girlThreeIsVisible: true
       });
-  } else {
+    } else {
       this.setState({
         girlThreeIsVisible: false
       });
     }
-};
+  };
 
-handleShowVideoOne = () => {
-  const videoOne = document.querySelector(".videoone");
-  let topVideoOne = videoOne.getBoundingClientRect().top +10;
-  if (topVideoOne <= window.innerHeight) {
+  handleShowPics = () => {
+    const picsWrapper = document.querySelector(".picswrapper");
+    let topPicsWrapper = picsWrapper.getBoundingClientRect().top + 10;
+    if (topPicsWrapper <= window.innerHeight) {
       this.setState({
-        videoOneIsVisible: true
+        picsWrapperisVisible: true
       });
-  } else {
+    } else {
       this.setState({
-        videoOneIsVisible: false
+        picsWrapperisVisible: false
       });
     }
-};
-
-
-
-
-  
-
-  
-
-    
-
-    
-
-    
-
-    
+  };
 
   render() {
     return (
@@ -311,6 +295,7 @@ handleShowVideoOne = () => {
           />
           <IconSVG className={"blob"} src={blob} />
           <IconSVG className={"blob2"} src={blob2} />
+          <IconSVG className={"dotted"} src={dotted} />
         </StyledWrapper>
         <StyledArticle
           className={"articleone"}
@@ -323,13 +308,25 @@ handleShowVideoOne = () => {
             keratyny, będącej naturalnym składnikiem budulcowym włosów.
           </p>
         </StyledArticle>
-        <VideoWrapper>
-          <Video className={"videoone"} src={videoHair} autoPlay playsinline loop muted />
-          <Video src={videoHair2} autoPlay playsinline loop muted />
-        </VideoWrapper>
+        <PicsWrapper
+          className={"picswrapper"}
+          isVisible={this.state.picsWrapperisVisible}
+        >
+          <IconIMG
+            className={"casualone"}
+            src={casualOne}
+            alt={"Dziewczyna po prostowaniu włosów"}
+          />
+          <IconIMG
+            className={"casualtwo"}
+            src={casualTwo}
+            alt={"Dziewczyna po prostowaniu włosów"}
+          />
+        </PicsWrapper>
         <StyledArticle2
-        className={"articletwo"}
-        scrollRatio={this.state.scrollRatio}>
+          className={"articletwo"}
+          scrollRatio={this.state.scrollRatio}
+        >
           <p>
             <strong>Preparaty keratynowe</strong>, używane podczas zabiegu,
             zawierają nie tylko keratynę, lecz także{" "}

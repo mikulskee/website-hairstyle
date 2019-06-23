@@ -3,7 +3,7 @@ import styled from "styled-components";
 import GlobalStyles from "../assets/styles/GlobalStyles";
 import Header from "../components/Header/Header";
 import Main from "./SectionMain/Main";
-import About from "./SectionAbout/About";
+// import About from "./SectionAbout/About";
 import SectionMotto from "./SectionMotto/SectionMotto";
 import Footer from "./Footer/Footer";
 import IconSVG from "../components/IconSVG/IconSVG";
@@ -13,7 +13,7 @@ const Loader = styled.div`
   position: fixed;
   transform: ${({ isLoaded }) =>
     isLoaded ? "translatey(-110%)" : "translatey(0)"};
-  transition: transform 0.25s 3s linear;
+  transition: transform 0.35s 3s linear;
   top: 0;
   left: 0;
   height: 100vh;
@@ -25,6 +25,7 @@ const Loader = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  overflow: hidden;
 
   div.logo {
     width: 80vw;
@@ -50,31 +51,30 @@ const Loader = styled.div`
 
 const MainWrapper = styled.div`
   position: absolute;
-  display: ${({ mainWrapper }) => (mainWrapper ? "block" : "none")};
   width: 100%;
   height: 100%;
-  opacity: ${({ mainWrapper }) => (mainWrapper ? "1" : "0")};
-  transform: ${({ mainWrapper }) => (mainWrapper ? "scale(1)" : "scale(1.2)")};
-  transition: transform 0.35s 0.2s ease-out, opacity 0.35s 0.2s ease-out;
 `;
 
 class MainTemplate extends Component {
   state = {
     isLoaded: false,
-    mainWrapper: false
+    isScrollable: false,
+    windowScrollY: ""
   };
 
   componentDidMount() {
     setTimeout(() => {
+      window.scrollTo(0, 0);
       this.setState({
         isLoaded: true
       });
     }, 500);
+
     setTimeout(() => {
       this.setState({
-        mainWrapper: true
+        isScrollable: true
       });
-    }, 3500);
+    }, 3600);
   }
 
   render() {
@@ -85,12 +85,12 @@ class MainTemplate extends Component {
         </Loader>
         <MainWrapper
           isLoaded={this.state.isLoaded}
-          mainWrapper={this.state.mainWrapper}
+          isVisible={this.state.isVisible}
         >
-          <GlobalStyles />
-          <Header />
+          <GlobalStyles isScrollable={this.state.isScrollable} />
+          <Header isLoaded={this.state.isLoaded} />
           <Main />
-          <About />
+          {/* <About /> */}
           <SectionMotto />
           <Footer />
         </MainWrapper>

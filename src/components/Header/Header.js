@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import styled from "styled-components";
-import HeroPhotoMobile from "../../assets/images/hero-image-mobile.png";
 import HeroPhoto from "../../assets/images/hero-image.png";
 import Burger from "../Burger/Burger";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
@@ -15,6 +13,17 @@ const StyledWrapper = styled.header`
   position: relative;
   height: 100vh;
   overflow: hidden;
+  ::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.15);
+    z-index: -2;
+  }
 
   /* DESKTOP */
 
@@ -137,17 +146,14 @@ const StyledBackground = styled.div`
   top: 0;
   left: 0;
   z-index: -10;
-  background-image: url(${HeroPhotoMobile});
+  background-image: url(${HeroPhoto});
   background-repeat: no-repeat;
   background-position: 50% 0%;
   background-size: cover;
-  transform: ${({ scrollRatio, translateRatio }) =>
-    scrollRatio && scrollRatio > 1
-      ? `translate3d(0, ${translateRatio}px, 0) scale(${scrollRatio})`
-      : `translate3d(0, 0, 0)scale(1)`};
-
-  transition: transform ease-out 0.6s;
-  will-change: transform;
+  transform: ${({ isLoaded }) =>
+    isLoaded ? " translatex(0) scale(1)" : "translatex(-10%) scale(1.3)"};
+  opacity: ${({ isLoaded }) => (isLoaded ? "1" : "0")};
+  transition: transform 0.45s 3.25s ease-out, opacity 0.35s 3.25s ease-out;
 
   @media only screen and (min-width: 768px) and (orientation: portrait) {
     background-position: 45% 0;
@@ -156,7 +162,6 @@ const StyledBackground = styled.div`
     background-position: 53% 0;
   }
   @media only screen and (min-width: 1024px) and (min-height: 769px) and (orientation: landscape) {
-    background-image: url(${HeroPhoto});
     background-position: 65% 0;
   }
 `;
@@ -164,46 +169,7 @@ const StyledBackground = styled.div`
 class Header extends Component {
   state = {
     isOpen: false,
-    id: 0,
-    scrollRatio: "",
-    translateRatio: ""
-  };
-
-  componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
-  }
-
-  handleScroll = () => {
-    let headerHeight = ReactDOM.findDOMNode(
-      this.refs["header"]
-    ).getBoundingClientRect().height;
-    let headerOffset =
-      ReactDOM.findDOMNode(this.refs["header"]).getBoundingClientRect().top *
-      -1;
-    const scrollTempo = 7000;
-    const translateTempo = 200;
-    let scrollRatio =
-      Math.round((headerOffset / scrollTempo + 1) * 10000) / 10000;
-    const maxRatio = Math.round((headerHeight / scrollTempo + 1) * 100) / 100;
-    let translateRatio = Math.floor(headerOffset / translateTempo + 1);
-    const maxTranslateRatio = Math.floor(headerHeight / translateTempo + 1);
-
-    if (headerOffset >= headerHeight) {
-      this.setState(() => ({
-        scrollRatio: maxRatio,
-        translateRatio: maxTranslateRatio
-      }));
-    } else if (window.scrollY === 0) {
-      this.setState(() => ({
-        scrollRatio: 0,
-        translateRatio: 0
-      }));
-    } else {
-      this.setState(() => ({
-        scrollRatio,
-        translateRatio
-      }));
-    }
+    id: 0
   };
 
   render() {
@@ -215,8 +181,9 @@ class Header extends Component {
     };
 
     return (
-      <StyledWrapper ref="header" isOpen={this.state.isOpen}>
+      <StyledWrapper isOpen={this.state.isOpen}>
         <StyledBackground
+          isLoaded={this.props.isLoaded}
           scrollRatio={this.state.scrollRatio}
           translateRatio={this.state.translateRatio}
         />

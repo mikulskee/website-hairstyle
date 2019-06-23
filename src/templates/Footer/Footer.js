@@ -6,6 +6,7 @@ import iconInstagram from "../../assets/images/icon-instagram2.svg";
 import IconSVG from "../../components/IconSVG/IconSVG";
 
 const StyledFooter = styled.footer`
+  border-top: 10px dotted white;
   background-color: #000;
   padding: 20px 0;
   overflow: hidden;
@@ -66,7 +67,7 @@ const Footer = () => {
           <IconSVG src={iconInstagram} className={"instagram"} />
         </StyledLink>
       </StyledWrapper>
-      <Paragraph>© 2019 Mateusz Mikulski. All rgihts reserved.</Paragraph>
+      <Paragraph>© 2019 Mateusz Mikulski. All rights reserved.</Paragraph>
     </StyledFooter>
   );
 };
