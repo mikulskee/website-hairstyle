@@ -1,22 +1,19 @@
 {
   "files": {
-    "main.js": "/website-hairstyle/static/js/main.ffe8f2e7.chunk.js",
-    "main.js.map": "/website-hairstyle/static/js/main.ffe8f2e7.chunk.js.map",
+    "main.js": "/website-hairstyle/static/js/main.cd8465f3.chunk.js",
+    "main.js.map": "/website-hairstyle/static/js/main.cd8465f3.chunk.js.map",
     "runtime~main.js": "/website-hairstyle/static/js/runtime~main.235c998d.js",
     "runtime~main.js.map": "/website-hairstyle/static/js/runtime~main.235c998d.js.map",
-    "static/js/2.f09cdbe7.chunk.js": "/website-hairstyle/static/js/2.f09cdbe7.chunk.js",
-    "static/js/2.f09cdbe7.chunk.js.map": "/website-hairstyle/static/js/2.f09cdbe7.chunk.js.map",
+    "static/js/2.a2061f16.chunk.js": "/website-hairstyle/static/js/2.a2061f16.chunk.js",
+    "static/js/2.a2061f16.chunk.js.map": "/website-hairstyle/static/js/2.a2061f16.chunk.js.map",
     "index.html": "/website-hairstyle/index.html",
-    "precache-manifest.827f68e618567fba8e1b70002018b5b2.js": "/website-hairstyle/precache-manifest.827f68e618567fba8e1b70002018b5b2.js",
+    "precache-manifest.55f530e291ab84aa55ff8306a8e54fc6.js": "/website-hairstyle/precache-manifest.55f530e291ab84aa55ff8306a8e54fc6.js",
     "service-worker.js": "/website-hairstyle/service-worker.js",
-    "static/media/Marta1.svg": "/website-hairstyle/static/media/Marta1.155e190f.svg",
-    "static/media/Marta2.svg": "/website-hairstyle/static/media/Marta2.a56f54c3.svg",
     "static/media/blob.svg": "/website-hairstyle/static/media/blob.41fda4ff.svg",
     "static/media/blob2.svg": "/website-hairstyle/static/media/blob2.b0b9dd1f.svg",
-    "static/media/blob3.svg": "/website-hairstyle/static/media/blob3.6d7e189d.svg",
-    "static/media/blob4.svg": "/website-hairstyle/static/media/blob4.327ac58c.svg",
-    "static/media/certificate.svg": "/website-hairstyle/static/media/certificate.f0759715.svg",
-    "static/media/certificate2.svg": "/website-hairstyle/static/media/certificate2.38d60e8b.svg",
+    "static/media/casual-girl-1.jpg": "/website-hairstyle/static/media/casual-girl-1.70d49214.jpg",
+    "static/media/casual-girl-2.jpg": "/website-hairstyle/static/media/casual-girl-2.a301c4e4.jpg",
+    "static/media/dotted-pattern.svg": "/website-hairstyle/static/media/dotted-pattern.41484ed9.svg",
     "static/media/girl-one.svg": "/website-hairstyle/static/media/girl-one.da52373a.svg",
     "static/media/girl-three.svg": "/website-hairstyle/static/media/girl-three.2667dc2d.svg",
     "static/media/girl-two.svg": "/website-hairstyle/static/media/girl-two.5e27e407.svg",
@@ -26,8 +23,6 @@
     "static/media/lines-pattern.svg": "/website-hairstyle/static/media/lines-pattern.19ccb419.svg",
     "static/media/logo-main-white.svg": "/website-hairstyle/static/media/logo-main-white.bf4166ea.svg",
     "static/media/logo-main.svg": "/website-hairstyle/static/media/logo-main.c6784122.svg",
-    "static/media/motto-girl.png": "/website-hairstyle/static/media/motto-girl.b0ef79e2.png",
-    "static/media/video-hair.webm": "/website-hairstyle/static/media/video-hair.310788d8.webm",
-    "static/media/video-hair2.mp4": "/website-hairstyle/static/media/video-hair2.24670d86.mp4"
+    "static/media/motto-girl.png": "/website-hairstyle/static/media/motto-girl.b0ef79e2.png"
   }
 }
