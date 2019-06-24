@@ -1,13 +1,11 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
-import GlobalStyles from "../assets/styles/GlobalStyles";
-import Header from "../components/Header/Header";
-import Main from "./SectionMain/Main";
-// import About from "./SectionAbout/About";
-import SectionMotto from "./SectionMotto/SectionMotto";
-import Footer from "./Footer/Footer";
+import HomeTemplate from "./HomeTemplate/HomeTemplate";
+import About from "./SectionAbout/About";
 import IconSVG from "../components/IconSVG/IconSVG";
 import Logo from "../assets/images/logo-main-white.svg";
+import ContactTemplate from "./ContactTemplate/ContactTemplate";
 
 const Loader = styled.div`
   position: fixed;
@@ -49,17 +47,10 @@ const Loader = styled.div`
   }
 `;
 
-const MainWrapper = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-`;
-
 class MainTemplate extends Component {
   state = {
     isLoaded: false,
-    isScrollable: false,
-    windowScrollY: ""
+    isScrollable: false
   };
 
   componentDidMount() {
@@ -83,17 +74,38 @@ class MainTemplate extends Component {
         <Loader isLoaded={this.state.isLoaded}>
           <IconSVG className={"logo"} src={Logo} />
         </Loader>
-        <MainWrapper
-          isLoaded={this.state.isLoaded}
-          isVisible={this.state.isVisible}
-        >
-          <GlobalStyles isScrollable={this.state.isScrollable} />
-          <Header isLoaded={this.state.isLoaded} />
-          <Main />
-          {/* <About /> */}
-          <SectionMotto />
-          <Footer />
-        </MainWrapper>
+        <Router>
+          <Switch>
+            <Route
+              path="/"
+              exact
+              render={props => (
+                <HomeTemplate
+                  {...props}
+                  isLoaded={this.state.isLoaded}
+                  isScrollable={this.state.isScrollable}
+                />
+              )}
+            />
+            <Route
+              path="/about"
+              exact
+              render={props => (
+                <About {...props} isScrollable={this.state.isScrollable} />
+              )}
+            />
+            <Route
+              path="/contact"
+              exact
+              render={props => (
+                <ContactTemplate
+                  {...props}
+                  isScrollable={this.state.isScrollable}
+                />
+              )}
+            />
+          </Switch>
+        </Router>
       </>
     );
   }

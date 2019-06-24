@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import logoMain from "../../assets/images/logo-main.svg";
 import IconSVG from "../IconSVG/IconSVG";
+import { Link } from "react-router-dom";
 
 const StyledHeader = styled.div`
   margin-top: 30px;
@@ -28,7 +29,7 @@ const StyledHeader = styled.div`
   }
 `;
 
-const StyledNav = styled.ul`
+const StyledUl = styled.ul`
   height: 100%;
   color: black;
   list-style: none;
@@ -38,15 +39,14 @@ const StyledNav = styled.ul`
   justify-content: center;
 
   @media only screen and (min-width: 500px) and (orientation: landscape) {
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding: 50px 85px 20px 85px;
   }
 
   @media only screen and (min-height: 811px) and (orientation: portrait) {
     justify-content: start;
+    padding-top: 100px;
   }
 `;
 
@@ -57,12 +57,11 @@ const StyledLink = styled.li`
   text-align: center;
   display: flex;
   align-items: center;
-  margin-bottom: 12%;
+  margin-bottom: 15%;
   border: 2px solid black;
   cursor: pointer;
 
   @media only screen and (min-width: 500px) and (orientation: landscape) {
-    flex-basis: 40%;
     margin: 10px;
   }
   @media only screen and (min-height: 811px) and (orientation: portrait) {
@@ -115,11 +114,24 @@ const StyledLink = styled.li`
   }
 `;
 
-const titles = ["home", "o mnie", "opinie", "kontakt"];
+const titles = [
+  {
+    title: "home",
+    path: "/"
+  },
+  {
+    title: "o mnie",
+    path: "/about"
+  },
+  {
+    title: "kontakt",
+    path: "/contact"
+  }
+];
 
-const MenuLink = titles.map(title => (
-  <StyledLink key={title}>
-    <a href="/">{title}</a>
+const MenuLink = titles.map(site => (
+  <StyledLink key={site.title}>
+    <Link to={site.path}>{site.title}</Link>
   </StyledLink>
 ));
 
@@ -129,7 +141,7 @@ const NavigationMenu = props => {
       <StyledHeader isOpen={props.isOpen}>
         <IconSVG src={logoMain} />
       </StyledHeader>
-      <StyledNav>{MenuLink}</StyledNav>
+      <StyledUl>{MenuLink}</StyledUl>
     </>
   );
 };

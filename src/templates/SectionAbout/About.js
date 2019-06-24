@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { Title } from "../../components/Title/Title";
 import IconSVG from "../../components/IconSVG/IconSVG";
+import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
+import Burger from "../../components/Burger/Burger";
+import GlobalStyles from "../../assets/styles/GlobalStyles";
 import { Article } from "../../components/Article/Article";
 import marta from "../../assets/images/Marta1.svg";
 import marta2 from "../../assets/images/Marta2.svg";
@@ -12,12 +14,15 @@ import certificate from "../../assets/images/certificate.svg";
 import certificate2 from "../../assets/images/certificate2.svg";
 
 const Section = styled.section`
+  margin: 0;
   min-height: 100vh;
+  max-width: 100vh;
   position: relative;
   background-color: #e5dede;
-  z-index: -2;
+  z-index: 1;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   @media only screen and (orientation: landscape) and (min-width: 667px) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -118,45 +123,48 @@ const StyledWrapper2 = styled.div`
     padding: 30px;
   }
 `;
-const StyledTitle = styled(Title)`
-  transform: ${({ isVisible }) =>
-    isVisible ? "translatey(0)" : "translatey(15%)"};
-  opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
-  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+const StyledUpperWrapper = styled.div`
+  margin-top: 10px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  div:nth-child(1) {
+    display: flex;
+  }
 `;
 
 class About extends Component {
   state = {
-    titleIsVisible: false
+    isOpen: false,
+    id: 0
   };
 
-  componentDidMount() {
-    window.addEventListener("scroll", this.handleShowTitle);
-  }
-
-  handleShowTitle = () => {
-    let top = ReactDOM.findDOMNode(this.refs["title"]).getBoundingClientRect()
-      .top;
-    let height = ReactDOM.findDOMNode(
-      this.refs["title"]
-    ).getBoundingClientRect().height;
-    let middle = top + height;
-    if (middle <= window.innerHeight) {
-      this.setState({
-        titleIsVisible: true
-      });
-    } else {
-      this.setState({
-        titleIsVisible: false
-      });
-    }
-  };
   render() {
+    const handleButton = () => {
+      this.setState(prevState => ({
+        isOpen: !prevState.isOpen,
+        id: prevState.id + 1
+      }));
+
+      console.log("ok");
+    };
+
     return (
       <Section>
-        <StyledTitle ref="title" isVisible={this.state.titleIsVisible}>
-          kim jestem?
-        </StyledTitle>
+        <GlobalStyles isScrollable={this.props.isScrollable} />
+        <Title>kim jestem?</Title>
+        <BurgerMenu isOpen={this.state.isOpen} />
+        <StyledUpperWrapper>
+          <div>
+            <Burger
+              handleButton={handleButton}
+              isOpen={this.state.isOpen}
+              id={this.state.id}
+            />
+          </div>
+        </StyledUpperWrapper>
         <StyledWrapper>
           <IconSVG src={marta} className={"marta"} />
           <IconSVG src={marta2} className={"marta2"} />

@@ -183,6 +183,7 @@ const StyledArticle2 = styled(Article)`
 
 class Main extends Component {
   state = {
+    rendered: false,
     titleIsVisible: false,
     girlOneIsVisible: false,
     girlTwoIsVisible: false,
@@ -198,6 +199,13 @@ class Main extends Component {
     window.addEventListener("scroll", this.handleShowPics);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleShowTitle);
+    window.removeEventListener("scroll", this.handleShowGirlOne);
+    window.removeEventListener("scroll", this.handleShowGirlTwo);
+    window.removeEventListener("scroll", this.handleShowGirlThree);
+    window.removeEventListener("scroll", this.handleShowPics);
+  }
   handleShowTitle = () => {
     const h1main = document.querySelector("h1.main");
     let topH1 = h1main.getBoundingClientRect().top;
@@ -212,6 +220,8 @@ class Main extends Component {
         titleIsVisible: false
       });
     }
+
+    console.log("aaaa");
   };
 
   handleShowGirlOne = () => {
