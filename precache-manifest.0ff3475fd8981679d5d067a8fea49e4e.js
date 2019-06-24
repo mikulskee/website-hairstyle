@@ -1,19 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3d28547dcf705738a3ffd56816533c30",
+    "revision": "58a1dd9d7222bfbb533a7c7e59b5eb04",
     "url": "/website-hairstyle/index.html"
   },
   {
-    "revision": "1519b5f13d4679f9a6b6",
-    "url": "/website-hairstyle/static/js/2.a2061f16.chunk.js"
+    "revision": "83426ec94d4e10d3535b",
+    "url": "/website-hairstyle/static/js/2.17403cf9.chunk.js"
   },
   {
-    "revision": "4151e60b2e77da38a454",
-    "url": "/website-hairstyle/static/js/main.cd8465f3.chunk.js"
+    "revision": "22c416a35d2a2d97f8ee",
+    "url": "/website-hairstyle/static/js/main.7c13e85c.chunk.js"
   },
   {
     "revision": "143d2c65843dcc6e13a9",
     "url": "/website-hairstyle/static/js/runtime~main.235c998d.js"
+  },
+  {
+    "revision": "155e190faa27b564bedcd68c219e2fef",
+    "url": "/website-hairstyle/static/media/Marta1.155e190f.svg"
+  },
+  {
+    "revision": "a56f54c34c070cf61cfa457c8a291bd3",
+    "url": "/website-hairstyle/static/media/Marta2.a56f54c3.svg"
   },
   {
     "revision": "41fda4ff99d11bdb87182af53b02ed27",
@@ -24,12 +32,28 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/website-hairstyle/static/media/blob2.b0b9dd1f.svg"
   },
   {
+    "revision": "6d7e189ded34f794bc0ebb4df75c79cd",
+    "url": "/website-hairstyle/static/media/blob3.6d7e189d.svg"
+  },
+  {
+    "revision": "327ac58c9b16551edde7a4a9d49c2af0",
+    "url": "/website-hairstyle/static/media/blob4.327ac58c.svg"
+  },
+  {
     "revision": "70d49214ca0b0f2ccf4388671f7dd8ef",
     "url": "/website-hairstyle/static/media/casual-girl-1.70d49214.jpg"
   },
   {
     "revision": "a301c4e4d21f22a9e680130c4f11c110",
     "url": "/website-hairstyle/static/media/casual-girl-2.a301c4e4.jpg"
+  },
+  {
+    "revision": "f07597158bc2070c74d083c3d5f4ae88",
+    "url": "/website-hairstyle/static/media/certificate.f0759715.svg"
+  },
+  {
+    "revision": "38d60e8b2a7979f2467bdc1f25838b8a",
+    "url": "/website-hairstyle/static/media/certificate2.38d60e8b.svg"
   },
   {
     "revision": "41484ed933e8c53a98a7702060924668",
