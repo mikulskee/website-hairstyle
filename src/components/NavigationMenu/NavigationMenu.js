@@ -53,7 +53,6 @@ const StyledUl = styled.ul`
 const StyledLink = styled.li`
   position: relative;
   display: block;
-  padding: 10px 20px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -91,6 +90,7 @@ const StyledLink = styled.li`
     text-decoration: none;
     color: black;
     display: block;
+    padding: 10px 20px;
     font-family: "Lato", sans-serif;
     font-weight: 500;
     text-transform: uppercase;
@@ -114,34 +114,29 @@ const StyledLink = styled.li`
   }
 `;
 
-const titles = [
-  {
-    title: "home",
-    path: "/"
-  },
-  {
-    title: "o mnie",
-    path: "/about"
-  },
-  {
-    title: "kontakt",
-    path: "/contact"
-  }
-];
-
-const MenuLink = titles.map(site => (
-  <StyledLink key={site.title}>
-    <Link to={site.path}>{site.title}</Link>
-  </StyledLink>
-));
-
 const NavigationMenu = props => {
   return (
     <>
       <StyledHeader isOpen={props.isOpen}>
         <IconSVG src={logoMain} />
       </StyledHeader>
-      <StyledUl>{MenuLink}</StyledUl>
+      <StyledUl>
+        <StyledLink>
+          <Link to={"/"} onClick={props.hideBurgerMenu}>
+            home
+          </Link>
+        </StyledLink>
+        <StyledLink>
+          <Link to={"/about"} onClick={props.hideBurgerMenu}>
+            o mnie
+          </Link>
+        </StyledLink>
+        <StyledLink>
+          <Link to={"/contact"} onClick={props.hideBurgerMenu}>
+            kontakt
+          </Link>
+        </StyledLink>
+      </StyledUl>
     </>
   );
 };

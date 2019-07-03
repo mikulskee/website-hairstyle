@@ -220,8 +220,6 @@ class Main extends Component {
         titleIsVisible: false
       });
     }
-
-    console.log("aaaa");
   };
 
   handleShowGirlOne = () => {
@@ -333,10 +331,7 @@ class Main extends Component {
             alt={"Dziewczyna po prostowaniu włosów"}
           />
         </PicsWrapper>
-        <StyledArticle2
-          className={"articletwo"}
-          scrollRatio={this.state.scrollRatio}
-        >
+        <StyledArticle2 className={"articletwo"}>
           <p>
             <strong>Preparaty keratynowe</strong>, używane podczas zabiegu,
             zawierają nie tylko keratynę, lecz także{" "}

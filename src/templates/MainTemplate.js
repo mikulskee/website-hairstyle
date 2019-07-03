@@ -1,56 +1,71 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import styled from "styled-components";
 import HomeTemplate from "./HomeTemplate/HomeTemplate";
-import About from "./SectionAbout/About";
+import AboutTemplate from "./AboutTemplate/AboutTemplate";
 import IconSVG from "../components/IconSVG/IconSVG";
+import { Loader } from "../components/Loader/Loader";
 import Logo from "../assets/images/logo-main-white.svg";
 import ContactTemplate from "./ContactTemplate/ContactTemplate";
+import TemplateLoader from "../components/TemplateLoader/TemplateLoader";
+import BurgerMenu from "../components/BurgerMenu/BurgerMenu";
+import Burger from "../components/Burger/Burger";
+import SocialMenu from "../components/SocialMenu/SocialMenu";
+import styled from "styled-components";
 
-const Loader = styled.div`
-  position: fixed;
-  transform: ${({ isLoaded }) =>
-    isLoaded ? "translatey(-110%)" : "translatey(0)"};
-  transition: transform 0.35s 3s linear;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  color: white;
-  background-color: black;
+const StyledUpperWrapper = styled.div`
+  position: absolute;
+  margin-top: 10px;
   display: flex;
-  flex-direction: column;
+  width: 100%;
   align-items: center;
-  justify-content: center;
-  z-index: 9999;
+  justify-content: space-between;
+
+  div:nth-child(1) {
+    display: flex;
+  }
+`;
+
+const RouterWrapper = styled.div`
   overflow: hidden;
-
-  div.logo {
-    width: 80vw;
-    max-width: 300px;
-    transform: ${({ isLoaded }) =>
-      isLoaded ? "translatey(-10%)" : "translatey(0)"};
-    opacity: ${({ isLoaded }) => (isLoaded ? "1" : "0")};
-    transition: opacity 0.5s 1.8s ease-out, transform 0.5s 1.8s linear;
-  }
-
-  ::after {
-    content: "";
-    right: ${({ isLoaded }) => (isLoaded ? "20%" : "80%")};
-    top: 50%;
-    left: 20%;
-    transition: right 1s 0.25s linear, opacity 0.3s 1.3s linear;
-    opacity: ${({ isLoaded }) => (isLoaded ? "0" : "1")};
-    position: fixed;
-    height: 4px;
-    background-color: #fff;
-  }
+  width: 100vw;
 `;
 
 class MainTemplate extends Component {
   state = {
     isLoaded: false,
-    isScrollable: false
+    isScrollable: false,
+    isOpen: false,
+    id: 0
+  };
+
+  handleButton = () => {
+    this.setState(prevState => ({
+      isOpen: !prevState.isOpen,
+      id: prevState.id + 1,
+      isScrollable: !prevState.isScrollable
+    }));
+  };
+
+  hideBurgerMenu = () => {
+    window.scrollTo(0, 0);
+    const loader = document.querySelector(".template-loader div");
+    loader.classList.add("active");
+    this.setState({
+      isScrollable: false
+    });
+
+    setTimeout(() => {
+      loader.classList.remove("active");
+      this.setState({
+        isScrollable: true
+      });
+    }, 4100);
+
+    setTimeout(() => {
+      this.setState({
+        isOpen: false
+      });
+    }, 1500);
   };
 
   componentDidMount() {
@@ -68,44 +83,74 @@ class MainTemplate extends Component {
     }, 3600);
   }
 
+  componentWillUnmount() {
+    this.setState({
+      isLoaded: false
+    });
+  }
+
   render() {
     return (
       <>
         <Loader isLoaded={this.state.isLoaded}>
           <IconSVG className={"logo"} src={Logo} />
         </Loader>
-        <Router>
-          <Switch>
-            <Route
-              path="/"
-              exact
-              render={props => (
-                <HomeTemplate
-                  {...props}
-                  isLoaded={this.state.isLoaded}
-                  isScrollable={this.state.isScrollable}
+        <TemplateLoader className={"template-loader"} />
+
+        <RouterWrapper>
+          <Router basename={process.env.PUBLIC_URL}>
+            <BurgerMenu
+              isOpen={this.state.isOpen}
+              hideBurgerMenu={this.hideBurgerMenu}
+            />
+            <StyledUpperWrapper className={"upperWrapper"}>
+              <div>
+                <SocialMenu />
+              </div>
+              <div>
+                <Burger
+                  handleButton={this.handleButton}
+                  isOpen={this.state.isOpen}
+                  id={this.state.id}
                 />
-              )}
-            />
-            <Route
-              path="/about"
-              exact
-              render={props => (
-                <About {...props} isScrollable={this.state.isScrollable} />
-              )}
-            />
-            <Route
-              path="/contact"
-              exact
-              render={props => (
-                <ContactTemplate
-                  {...props}
-                  isScrollable={this.state.isScrollable}
-                />
-              )}
-            />
-          </Switch>
-        </Router>
+              </div>
+            </StyledUpperWrapper>
+            <Switch>
+              <Route
+                path="/"
+                exact
+                render={props => (
+                  <HomeTemplate
+                    {...props}
+                    isLoaded={this.state.isLoaded}
+                    isScrollable={this.state.isScrollable}
+                  />
+                )}
+              />
+              <Route
+                path="/about"
+                exact
+                render={props => (
+                  <AboutTemplate
+                    {...props}
+                    isScrollable={this.state.isScrollable}
+                    isLoaded={this.state.isLoaded}
+                  />
+                )}
+              />
+              <Route
+                path="/contact"
+                exact
+                render={props => (
+                  <ContactTemplate
+                    {...props}
+                    isScrollable={this.state.isScrollable}
+                  />
+                )}
+              />
+            </Switch>
+          </Router>
+        </RouterWrapper>
       </>
     );
   }

@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import HeroPhoto from "../../assets/images/hero-image.png";
-import Burger from "../Burger/Burger";
-import BurgerMenu from "../BurgerMenu/BurgerMenu";
-import SocialMenu from "../SocialMenu/SocialMenu";
 import Button from "../Button/Button";
 import linesPattern from "../../assets/images/lines-pattern.svg";
 import IconSVG from "../IconSVG/IconSVG";
@@ -53,27 +50,15 @@ const StyledWrapper = styled.header`
   }
 `;
 
-const StyledUpperWrapper = styled.div`
-  margin-top: 10px;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-
-  div:nth-child(1) {
-    display: flex;
-  }
-`;
-
 const Wrapper = styled.div`
   position: relative;
   display: flex;
   width: 70%;
   height: 70%;
-  transform: translate(0);
+  margin-top: 55px;
   align-items: center;
   justify-content: center;
-  z-index: 3;
+  z-index: 1;
   flex-direction: column;
 
   svg {
@@ -141,7 +126,7 @@ const Wrapper = styled.div`
 
 const StyledBackground = styled.div`
   position: absolute;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   top: 0;
   left: 0;
@@ -167,39 +152,12 @@ const StyledBackground = styled.div`
 `;
 
 class Header extends Component {
-  state = {
-    isOpen: false,
-    id: 0
-  };
+  state = {};
 
   render() {
-    const handleButton = () => {
-      this.setState(prevState => ({
-        isOpen: !prevState.isOpen,
-        id: prevState.id + 1
-      }));
-    };
-
     return (
-      <StyledWrapper isOpen={this.state.isOpen}>
-        <StyledBackground
-          isLoaded={this.props.isLoaded}
-          scrollRatio={this.state.scrollRatio}
-          translateRatio={this.state.translateRatio}
-        />
-        <BurgerMenu isOpen={this.state.isOpen} />
-        <StyledUpperWrapper>
-          <div>
-            <SocialMenu />
-          </div>
-          <div>
-            <Burger
-              handleButton={handleButton}
-              isOpen={this.state.isOpen}
-              id={this.state.id}
-            />
-          </div>
-        </StyledUpperWrapper>
+      <StyledWrapper isOpen={this.props.isOpen}>
+        <StyledBackground isLoaded={this.props.isLoaded} />
         <Wrapper>
           <IconSVG className={"logo"} src={logoMain} />
           <Button content={"umów się na wizytę"} />

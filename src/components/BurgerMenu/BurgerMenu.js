@@ -6,7 +6,7 @@ const StyledWrapper = styled.div`
   width: 100%;
   height: 100vh;
   background-color: #c1c9d0;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(106%)")};
@@ -20,7 +20,10 @@ const StyledWrapper = styled.div`
 const BurgerMenu = props => {
   return (
     <StyledWrapper isOpen={props.isOpen}>
-      <NavigationMenu isOpen={props.isOpen} />
+      <NavigationMenu
+        isOpen={props.isOpen}
+        hideBurgerMenu={props.hideBurgerMenu}
+      />
     </StyledWrapper>
   );
 };

@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Title } from "../../components/Title/Title";
+
 import IconSVG from "../../components/IconSVG/IconSVG";
-import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
-import Burger from "../../components/Burger/Burger";
-import GlobalStyles from "../../assets/styles/GlobalStyles";
+
 import { Article } from "../../components/Article/Article";
+import { Title } from "../../components/Title/Title";
+
+import GlobalStyles from "../../assets/styles/GlobalStyles";
+
 import marta from "../../assets/images/Marta1.svg";
 import marta2 from "../../assets/images/Marta2.svg";
 import blob3 from "../../assets/images/blob3.svg";
@@ -23,6 +25,7 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transition: transform 0.8s linear;
   @media only screen and (orientation: landscape) and (min-width: 667px) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -123,83 +126,52 @@ const StyledWrapper2 = styled.div`
     padding: 30px;
   }
 `;
-const StyledUpperWrapper = styled.div`
-  margin-top: 10px;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: flex-end;
 
-  div:nth-child(1) {
-    display: flex;
-  }
-`;
-
-class About extends Component {
-  state = {
-    isOpen: false,
-    id: 0
-  };
+class AboutTemplate extends Component {
+  state = {};
 
   render() {
-    const handleButton = () => {
-      this.setState(prevState => ({
-        isOpen: !prevState.isOpen,
-        id: prevState.id + 1
-      }));
-
-      console.log("ok");
-    };
-
     return (
-      <Section>
-        <GlobalStyles isScrollable={this.props.isScrollable} />
-        <Title>kim jestem?</Title>
-        <BurgerMenu isOpen={this.state.isOpen} />
-        <StyledUpperWrapper>
-          <div>
-            <Burger
-              handleButton={handleButton}
-              isOpen={this.state.isOpen}
-              id={this.state.id}
-            />
-          </div>
-        </StyledUpperWrapper>
-        <StyledWrapper>
-          <IconSVG src={marta} className={"marta"} />
-          <IconSVG src={marta2} className={"marta2"} />
-          <IconSVG src={blob3} className={"blob3"} />
-          <IconSVG src={blob4} className={"blob4"} />
-        </StyledWrapper>
-        <StyledArticle1>
-          <p>
-            Posiadam certyfikaty marki <strong>Amazon Keratin</strong>, które
-            otrzymałam po ukończeniu kursu, gdzie zdobyłam wiedzę, jak
-            profesjonalnie wykonywać zabiegi polegające na rekonstrukcji włosów.
-            Wszystkie zabiegi wykonuję z <strong>najwyższą starannością</strong>
-            , skupiając szczególną uwagę na sterylności narzędzi, których
-            używam.
-          </p>
-        </StyledArticle1>
-        <StyledWrapper2>
-          <IconSVG src={certificate} className={"certificate"} />
-          <IconSVG src={certificate2} className={"certificate2"} />
-        </StyledWrapper2>
-        <StyledArticle2>
-          <p>
-            Stawiam na rozwój, śledzę nowinki techniczne i{" "}
-            <strong>najnowsze trendy fryzjerskie</strong>. Chcąc podnosić swoje
-            kwalifikacje w najbliższej przyszłości planuję uczestnictwo w
-            kursach <strong>przedłużania włosów</strong> oraz{" "}
-            <strong>upięć okolicznościowych</strong>.
-          </p>
-        </StyledArticle2>
-      </Section>
+      <>
+        <Section>
+          <GlobalStyles isScrollable={this.props.isScrollable} />
+          <Title>kim jestem?</Title>
+          <StyledWrapper>
+            <IconSVG src={marta} className={"marta"} />
+            <IconSVG src={marta2} className={"marta2"} />
+            <IconSVG src={blob3} className={"blob3"} />
+            <IconSVG src={blob4} className={"blob4"} />
+          </StyledWrapper>
+          <StyledArticle1>
+            <p>
+              Posiadam certyfikaty marki <strong>Amazon Keratin</strong>, które
+              otrzymałam po ukończeniu kursu, gdzie zdobyłam wiedzę, jak
+              profesjonalnie wykonywać zabiegi polegające na rekonstrukcji
+              włosów. Wszystkie zabiegi wykonuję z{" "}
+              <strong>najwyższą starannością</strong>, skupiając szczególną
+              uwagę na sterylności narzędzi, których używam.
+            </p>
+          </StyledArticle1>
+          <StyledWrapper2>
+            <IconSVG src={certificate} className={"certificate"} />
+            <IconSVG src={certificate2} className={"certificate2"} />
+          </StyledWrapper2>
+          <StyledArticle2>
+            <p>
+              Stawiam na rozwój, śledzę nowinki techniczne i{" "}
+              <strong>najnowsze trendy fryzjerskie</strong>. Chcąc podnosić
+              swoje kwalifikacje w najbliższej przyszłości planuję uczestnictwo
+              w kursach <strong>przedłużania włosów</strong> oraz{" "}
+              <strong>upięć okolicznościowych</strong>.
+            </p>
+          </StyledArticle2>
+        </Section>
+      </>
     );
   }
 }
 
-export default About;
+export default AboutTemplate;
 
 // Profesjonalizm to dla mnie nie tylko znajomość technik, ale również najlepsze kosmetyki. Dlatego też współpracuję z firmą, która oferuje produkty najlepszej jakości, w skład których wchodzą naturalne składniki pochodzenia roślinnego.
 // to jest zawarte w sekcji main
