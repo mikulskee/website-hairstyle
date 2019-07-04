@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ac20260e6dbe4afaea208b4993f23f2c",
+    "revision": "6cf201d06e565517a35e2ee9531fc63d",
     "url": "/website-hairstyle/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/website-hairstyle/static/js/2.db9c9a7b.chunk.js"
   },
   {
-    "revision": "cc2df07e8d115a5a4a06",
-    "url": "/website-hairstyle/static/js/main.26bb39ba.chunk.js"
+    "revision": "c736eb1660edaea4502b",
+    "url": "/website-hairstyle/static/js/main.0cdcd4d4.chunk.js"
   },
   {
     "revision": "143d2c65843dcc6e13a9",
