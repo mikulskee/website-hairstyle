@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "26ae3faa520624a9d56163c5f7649ed6",
+    "revision": "2ddd50470aa688a4e649af15e28424ab",
     "url": "/website-hairstyle/index.html"
   },
   {
-    "revision": "ebdea0ea86bb64b32247",
-    "url": "/website-hairstyle/static/js/2.db9c9a7b.chunk.js"
+    "revision": "3620b6ba078abbd715c8",
+    "url": "/website-hairstyle/static/js/2.debb4a57.chunk.js"
   },
   {
-    "revision": "fcd1479bda34881a63f7",
-    "url": "/website-hairstyle/static/js/main.25eb4e1d.chunk.js"
+    "revision": "d9d7a00763ad43e8fada",
+    "url": "/website-hairstyle/static/js/main.86a5fe50.chunk.js"
   },
   {
     "revision": "143d2c65843dcc6e13a9",
