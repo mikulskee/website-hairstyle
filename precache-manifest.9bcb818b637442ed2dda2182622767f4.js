@@ -1,27 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0638f80efdcbb00f141f52d6299c781c",
+    "revision": "761a1dcfe0fcbfc37ef8a41973526ef7",
     "url": "/website-hairstyle/index.html"
   },
   {
-    "revision": "3830a110838f566d525d",
-    "url": "/website-hairstyle/static/js/2.9fd37c04.chunk.js"
+    "revision": "e56a7594a8fb52afb828",
+    "url": "/website-hairstyle/static/js/2.02d67f9a.chunk.js"
   },
   {
-    "revision": "a816546c149fce6a0007",
-    "url": "/website-hairstyle/static/js/main.221cf786.chunk.js"
+    "revision": "73710239cd3cb1ebe830",
+    "url": "/website-hairstyle/static/js/main.5aceaaa5.chunk.js"
   },
   {
     "revision": "143d2c65843dcc6e13a9",
     "url": "/website-hairstyle/static/js/runtime~main.235c998d.js"
-  },
-  {
-    "revision": "155e190faa27b564bedcd68c219e2fef",
-    "url": "/website-hairstyle/static/media/Marta1.155e190f.svg"
-  },
-  {
-    "revision": "a56f54c34c070cf61cfa457c8a291bd3",
-    "url": "/website-hairstyle/static/media/Marta2.a56f54c3.svg"
   },
   {
     "revision": "41fda4ff99d11bdb87182af53b02ed27",
@@ -48,12 +40,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/website-hairstyle/static/media/casual-girl-2.a301c4e4.jpg"
   },
   {
-    "revision": "f07597158bc2070c74d083c3d5f4ae88",
-    "url": "/website-hairstyle/static/media/certificate.f0759715.svg"
+    "revision": "ac1721d08b0606e6dcbb2706d6a222b5",
+    "url": "/website-hairstyle/static/media/certificate1.ac1721d0.png"
   },
   {
-    "revision": "38d60e8b2a7979f2467bdc1f25838b8a",
-    "url": "/website-hairstyle/static/media/certificate2.38d60e8b.svg"
+    "revision": "44117c085e993c2051332d8acc2250a1",
+    "url": "/website-hairstyle/static/media/certificate2.44117c08.png"
   },
   {
     "revision": "41484ed933e8c53a98a7702060924668",
@@ -102,5 +94,13 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "b0ef79e28fa6578de0777f6a8695d131",
     "url": "/website-hairstyle/static/media/motto-girl.b0ef79e2.png"
+  },
+  {
+    "revision": "cdc5457fb9da2b1ade7f24c6397ef871",
+    "url": "/website-hairstyle/static/media/owner.cdc5457f.png"
+  },
+  {
+    "revision": "734484afcc7e5df76609585b3b906069",
+    "url": "/website-hairstyle/static/media/owner2.734484af.png"
   }
 ]);
