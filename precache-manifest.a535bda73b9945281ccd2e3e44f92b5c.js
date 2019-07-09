@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9c92eed1a590a2ab0cf1b29fa00bb0e0",
+    "revision": "acfcc203a65ef9a95cf16e27da751132",
     "url": "/website-hairstyle/index.html"
   },
   {
-    "revision": "6148b0fa7eda9187b5d4",
-    "url": "/website-hairstyle/static/js/2.d9487f4a.chunk.js"
+    "revision": "6a13a81ab1d42c08480d",
+    "url": "/website-hairstyle/static/js/2.c3957d3e.chunk.js"
   },
   {
-    "revision": "46665218e5a759f75036",
-    "url": "/website-hairstyle/static/js/main.d2edf8ff.chunk.js"
+    "revision": "985573ab5a8f7b8037a3",
+    "url": "/website-hairstyle/static/js/main.55306638.chunk.js"
   },
   {
     "revision": "143d2c65843dcc6e13a9",
@@ -48,24 +48,28 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/website-hairstyle/static/media/certificate2.44117c08.png"
   },
   {
-    "revision": "41484ed933e8c53a98a7702060924668",
-    "url": "/website-hairstyle/static/media/dotted-pattern.41484ed9.svg"
+    "revision": "0025f424a71e40cf7fef36fe3a04df04",
+    "url": "/website-hairstyle/static/media/dots.0025f424.svg"
   },
   {
-    "revision": "da52373afd73ede191c7ee6e6b64ab6b",
-    "url": "/website-hairstyle/static/media/girl-one.da52373a.svg"
+    "revision": "f1c3ccc1b1e4b6add02f6dfc3a5ad0df",
+    "url": "/website-hairstyle/static/media/dots2.f1c3ccc1.svg"
   },
   {
-    "revision": "2667dc2df57df40676953435781ccb9a",
-    "url": "/website-hairstyle/static/media/girl-three.2667dc2d.svg"
+    "revision": "d7a116634b3a2457f17d96df0f1869f0",
+    "url": "/website-hairstyle/static/media/girl-one-min.d7a11663.png"
   },
   {
-    "revision": "5e27e4074d2e9bdfd3227d7d87b0fc04",
-    "url": "/website-hairstyle/static/media/girl-two.5e27e407.svg"
+    "revision": "a087e80eb01b1881a99860824a8a7b7e",
+    "url": "/website-hairstyle/static/media/girl-three-min.a087e80e.png"
   },
   {
-    "revision": "2542e5cfa929a7bd267eeb00abd4b996",
-    "url": "/website-hairstyle/static/media/hero-image.2542e5cf.png"
+    "revision": "45c00865dc559de124e6c49c7ed6d393",
+    "url": "/website-hairstyle/static/media/girl-two-min.45c00865.png"
+  },
+  {
+    "revision": "17c00f80fb1dcf338c00609338cb4685",
+    "url": "/website-hairstyle/static/media/hero-image-min.17c00f80.png"
   },
   {
     "revision": "f45ea3eddc6c08a1b2f73fd624fe59db",
