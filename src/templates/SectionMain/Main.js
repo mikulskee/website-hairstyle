@@ -1,17 +1,20 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import girlOne from "../../assets/images/girl-one.svg";
-import girlTwo from "../../assets/images/girl-two.svg";
-import girlThree from "../../assets/images/girl-three.svg";
+import girlOne from "../../assets/images/girl-one-min.png";
+import girlTwo from "../../assets/images/girl-two-min.png";
+import girlThree from "../../assets/images/girl-three-min.png";
 import blob from "../../assets/images/blob.svg";
 import blob2 from "../../assets/images/blob2.svg";
 import IconSVG from "../../components/IconSVG/IconSVG";
-import dotted from "../../assets/images/dotted-pattern.svg";
+import dotted from "../../assets/images/dots.svg";
+import dotted2 from "../../assets/images/dots2.svg";
 import IconIMG from "../../components/IconIMG/IconIMG";
 import casualOne from "../../assets/images/casual-girl-1.jpg";
 import casualTwo from "../../assets/images/casual-girl-2.jpg";
 import { Title } from "../../components/Title/Title";
 import { Article } from "../../components/Article/Article";
+import { TweenMax } from "gsap/TweenMax";
+import { TimelineMax } from "gsap/TimelineMax";
 
 const StyledMain = styled.main`
   position: relative;
@@ -20,120 +23,94 @@ const StyledMain = styled.main`
   z-index: -3;
   display: flex;
   flex-direction: column;
-  border-bottom: 10px dotted white;
+  ::after {
+    position: absolute;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 10px;
+    width: 100%;
+    border-bottom: 10px dotted white;
+  }
   @media only screen and (orientation: landscape) and (min-width: 667px) {
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 40px;
   }
 `;
-const StyledTitle = styled(Title)`
-  transform: ${({ isVisible }) =>
-    isVisible ? "translatey(0)" : "translatey(35%)"};
-  opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
-  transition: transform 0.35s ease-out, opacity 0.6s ease-out;
-  will-change: transform, opacity;
-`;
+
 const StyledWrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30vh;
-  min-height: 380px;
-  padding: 150px 5px 0;
+  height: 10vh;
+  min-height: 300px;
+  padding: 0 5px 0;
+  margin-top: 150px;
 
-  h1 {
-  }
-  @media only screen and (orientation: landscape) {
-    min-height: 400px;
-  }
   @media only screen and (orientation: landscape) and (min-width: 667px) {
     width: 55%;
     order: 2;
-  }
-  @media only screen and (orientation: portrait) and (min-height: 700px) {
-    min-height: 440px;
   }
 
   div.blob {
     position: absolute;
     width: 85%;
-    top: 127px;
+    top: -20px;
     right: 3px;
     z-index: -3;
   }
   div.blob2 {
     position: absolute;
     width: 80%;
-    top: 130px;
+    top: 0;
     right: 2px;
-    z-index: -4;
+    z-index: -3;
   }
   div.dotted {
     position: absolute;
-    width: 30%;
-    bottom: -10%;
+    width: 35%;
+    bottom: 0;
     left: 5%;
     z-index: -3;
   }
-`;
-
-const GirlOne = styled(IconSVG)`
-  position: absolute;
-  z-index: 2;
-  width: 40%;
-  max-width: 160px;
-
-  transform: ${({ isVisible }) =>
-    isVisible ? "translate(-70%, -20%)" : "translate(-140%, -20%)"};
-  opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
-  transition: transform 0.65s ease-out, opacity 0.65s linear;
-  will-change: transform, opacity;
-
-  @media only screen and (orientation: landscape) {
-    transform: ${({ isVisible }) =>
-      isVisible ? "translate(-100%, -10%)" : "translate(-170%, -10%)"};
+  div.dotted2 {
+    position: absolute;
+    width: 12%;
+    top: -15%;
+    right: 5%;
+    z-index: -3;
   }
-  @media only screen and (orientation: landscape) and (min-width: 667px) {
-    transform: ${({ isVisible }) =>
-      isVisible ? "translate(-60%, -50%)" : "translate(-130%, -50%)"};
-  }
-`;
 
-const GirlTwo = styled(IconSVG)`
-  position: absolute;
-  z-index: 1;
-  width: 60%;
-  transform: ${({ isVisible }) =>
-    isVisible ? "translate(0, 30%)" : "translate(0, 60%)"};
-  opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
-  transition: transform 0.65s 0.25s ease-out, opacity 0.65s 0.25s linear;
-  will-change: transform, opacity;
-  max-width: 300px;
-`;
-
-const GirlThree = styled(IconSVG)`
-  position: absolute;
-  width: 32%;
-  z-index: 2;
-  transform: ${({ isVisible }) =>
-    isVisible ? "translate(100%, 20%)" : "translate(100%, 0)"};
-  opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
-  transition: transform 0.65s 0.15s ease-out, opacity 0.65s 0.15s linear;
-  will-change: transform, opacity;
-  max-width: 130px;
-  @media only screen and (orientation: landscape) {
-    transform: ${({ isVisible }) =>
-      isVisible ? "translate(130%, 10%)" : "translate(150%, 10%)"};
+  .girl-one {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 37%;
+    z-index: 3;
+    box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
+    visibility: hidden;
   }
-  @media only screen and (orientation: landscape) and (min-width: 667px) {
-    transform: ${({ isVisible }) =>
-      isVisible ? "translate(110%, 15%)" : "translate(140%, 15%)"};
+  .girl-two {
+    position: absolute;
+    width: 70%;
+    z-index: 2;
+    box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
+    visibility: hidden;
+  }
+  .girl-three {
+    position: absolute;
+    top: 50px;
+    right: 15px;
+    width: 30%;
+    z-index: 3;
+    box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
   }
 `;
 
 const StyledArticle = styled(Article)`
+  margin-top: 10px;
   border-bottom: 10px double white;
   @media only screen and (orientation: landscape) and (min-width: 667px) {
     width: 40%;
@@ -143,34 +120,34 @@ const StyledArticle = styled(Article)`
 `;
 
 const PicsWrapper = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   height: 40vh;
   width: 100%;
   overflow: hidden;
 
-  @media only screen and (orientation: landscape) {
+  @media only screen and (orientation: landscape) and (min-width: 568px) {
     order: 3;
     height: 50vh;
-    width: 50%;
+    width: 100%;
     align-self: center;
     margin-left: 10px;
   }
-
-  div {
-    height: 100%;
+  @media only screen and (orientation: landscape) and (min-width: 667px) {
     width: 50%;
+    height: 70vh;
+  }
+  div {
     position: relative;
+    width: 50%;
     overflow: hidden;
-    transform: ${({ isVisible }) => (isVisible ? "scale(1)" : "scale(1.5)")};
-    transition: transform 0.5s 0.15s linear;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     img {
-      max-height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translateX(-25%);
+      height: 100%;
+      display: block;
     }
   }
 `;
@@ -182,133 +159,78 @@ const StyledArticle2 = styled(Article)`
 `;
 
 class Main extends Component {
-  state = {
-    rendered: false,
-    titleIsVisible: false,
-    girlOneIsVisible: false,
-    girlTwoIsVisible: false,
-    girlThreeIsVisible: false,
-    picsWrapperisVisible: false
-  };
+  state = {};
 
   componentDidMount() {
-    window.addEventListener("scroll", this.handleShowTitle);
-    window.addEventListener("scroll", this.handleShowGirlOne);
-    window.addEventListener("scroll", this.handleShowGirlTwo);
-    window.addEventListener("scroll", this.handleShowGirlThree);
-    window.addEventListener("scroll", this.handleShowPics);
+    const girlOne = document.querySelector(".girl-one");
+    const girlTwo = document.querySelector(".girl-two");
+    const girlThree = document.querySelector(".girl-three");
+    const casual = document.querySelectorAll(".casual");
+    const picswrapper = document.querySelector(".picswrapper");
+
+    const tlGirlOne = new TimelineMax({ reversed: true });
+    const tlGirlTwo = new TimelineMax({ reversed: true });
+    const tlGirlThree = new TimelineMax({ reversed: true });
+
+    const tweenCasual = TweenMax.from(casual, 0.7, {
+      scale: 1.4,
+      transformOrigin: "center center"
+    });
+
+    tlGirlOne.set(girlOne, { visibility: "visible" });
+    tlGirlOne.from(girlOne, 1, { opacity: 0, x: -80 });
+
+    tlGirlTwo.set(girlTwo, { visibility: "visible" });
+    tlGirlTwo.from(girlTwo, 1, { opacity: 0, y: 80 });
+
+    tlGirlThree.set(girlThree, { visibility: "visible" });
+    tlGirlThree.from(girlThree, 1, { opacity: 0, y: -80 });
+
+    window.addEventListener("scroll", () => {
+      let topGirlOne = girlOne.getBoundingClientRect().top + 10;
+      let topGirlTwo = girlOne.getBoundingClientRect().top + 10;
+      let topGirlThree = girlOne.getBoundingClientRect().top + 10;
+      let topPicsWrapper = picswrapper.getBoundingClientRect().top + 10;
+
+      topGirlOne <= window.innerHeight ? tlGirlOne.play() : tlGirlOne.reverse();
+      topGirlTwo <= window.innerHeight ? tlGirlTwo.play() : tlGirlTwo.reverse();
+      topGirlThree <= window.innerHeight
+        ? tlGirlThree.play()
+        : tlGirlThree.reverse();
+      topPicsWrapper <= window.innerHeight
+        ? tweenCasual.play()
+        : tweenCasual.reverse();
+    });
   }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleShowTitle);
-    window.removeEventListener("scroll", this.handleShowGirlOne);
-    window.removeEventListener("scroll", this.handleShowGirlTwo);
-    window.removeEventListener("scroll", this.handleShowGirlThree);
-    window.removeEventListener("scroll", this.handleShowPics);
-  }
-  handleShowTitle = () => {
-    const h1main = document.querySelector("h1.main");
-    let topH1 = h1main.getBoundingClientRect().top;
-    let heightH1 = h1main.getBoundingClientRect().height;
-    let middleH1 = topH1 + heightH1 / 2;
-    if (middleH1 <= window.innerHeight) {
-      this.setState({
-        titleIsVisible: true
-      });
-    } else {
-      this.setState({
-        titleIsVisible: false
-      });
-    }
-  };
-
-  handleShowGirlOne = () => {
-    const girlOne = document.querySelector(".girlone");
-
-    let topGirlOne = girlOne.getBoundingClientRect().top + 10;
-    if (topGirlOne <= window.innerHeight) {
-      this.setState({
-        girlOneIsVisible: true
-      });
-    } else {
-      this.setState({
-        girlOneIsVisible: false
-      });
-    }
-  };
-
-  handleShowGirlTwo = () => {
-    const girlTwo = document.querySelector(".girltwo");
-    let topGirlTwo = girlTwo.getBoundingClientRect().top + 10;
-    if (topGirlTwo <= window.innerHeight) {
-      this.setState({
-        girlTwoIsVisible: true
-      });
-    } else {
-      this.setState({
-        girlTwoIsVisible: false
-      });
-    }
-  };
-
-  handleShowGirlThree = () => {
-    const girlThree = document.querySelector(".girlthree");
-    let topGirlThree = girlThree.getBoundingClientRect().top + 10;
-    if (topGirlThree <= window.innerHeight) {
-      this.setState({
-        girlThreeIsVisible: true
-      });
-    } else {
-      this.setState({
-        girlThreeIsVisible: false
-      });
-    }
-  };
-
-  handleShowPics = () => {
-    const picsWrapper = document.querySelector(".picswrapper");
-    let topPicsWrapper = picsWrapper.getBoundingClientRect().top + 10;
-    if (topPicsWrapper <= window.innerHeight) {
-      this.setState({
-        picsWrapperisVisible: true
-      });
-    } else {
-      this.setState({
-        picsWrapperisVisible: false
-      });
-    }
-  };
 
   render() {
     return (
       <StyledMain>
-        <StyledTitle className={"main"} isVisible={this.state.titleIsVisible}>
+        <Title className={"main"}>
           prostowanie <br /> keratynowe
-        </StyledTitle>
+        </Title>
         <StyledWrapper>
-          <GirlOne
-            className={"girlone"}
+          <IconIMG
             src={girlOne}
-            isVisible={this.state.girlOneIsVisible}
+            className={"girl-one"}
+            alt={"dziewczyna z prostymi włosami"}
           />
-          <GirlTwo
-            className={"girltwo"}
+          <IconIMG
             src={girlTwo}
-            isVisible={this.state.girlTwoIsVisible}
+            className={"girl-two"}
+            alt={"dziewczyna z prostymi włosami"}
           />
-          <GirlThree
-            className={"girlthree"}
+          <IconIMG
             src={girlThree}
-            isVisible={this.state.girlThreeIsVisible}
+            className={"girl-three"}
+            alt={"dziewczyna z prostymi włosami"}
           />
           <IconSVG className={"blob"} src={blob} />
           <IconSVG className={"blob2"} src={blob2} />
           <IconSVG className={"dotted"} src={dotted} />
+          <IconSVG className={"dotted2"} src={dotted2} />
         </StyledWrapper>
-        <StyledArticle
-          className={"articleone"}
-          scrollRatio={this.state.scrollRatio}
-        >
+        <StyledArticle className={"articleone"}>
           <p>
             <strong>Amazon Keratin</strong> to zabieg keratynowy, którego celem
             jest odbudowa struktury włosów, ich intensywne odżywienie i
@@ -316,20 +238,21 @@ class Main extends Component {
             keratyny, będącej naturalnym składnikiem budulcowym włosów.
           </p>
         </StyledArticle>
-        <PicsWrapper
-          className={"picswrapper"}
-          isVisible={this.state.picsWrapperisVisible}
-        >
-          <IconIMG
-            className={"casualone"}
-            src={casualOne}
-            alt={"Dziewczyna po prostowaniu włosów"}
-          />
-          <IconIMG
-            className={"casualtwo"}
-            src={casualTwo}
-            alt={"Dziewczyna po prostowaniu włosów"}
-          />
+        <PicsWrapper className={"picswrapper"}>
+          <div>
+            <IconIMG
+              className={"casual"}
+              src={casualOne}
+              alt={"Dziewczyna po prostowaniu włosów"}
+            />
+          </div>
+          <div>
+            <IconIMG
+              className={"casual"}
+              src={casualTwo}
+              alt={"Dziewczyna po prostowaniu włosów"}
+            />
+          </div>
         </PicsWrapper>
         <StyledArticle2 className={"articletwo"}>
           <p>

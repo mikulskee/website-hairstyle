@@ -13,7 +13,10 @@ class HomeTemplate extends Component {
     return (
       <>
         <GlobalStyles isScrollable={this.props.isScrollable} />
-        <Header isLoaded={this.props.isLoaded} />
+        <Header
+          showAbout={this.props.showAbout}
+          handleAboutMount={this.props.handleAboutMount}
+        />
         <Main />
         <SectionMotto />
         <Footer />

@@ -1,11 +1,12 @@
 import React from "react";
+import styled from "styled-components";
+
+const StyledIMG = styled.img`
+  display: block;
+`;
 
 const IconIMG = ({ className, src, alt }) => {
-  return (
-    <div className={className}>
-      <img src={src} alt={alt} />
-    </div>
-  );
+  return <StyledIMG className={className} src={src} alt={alt} />;
 };
 
 export default IconIMG;

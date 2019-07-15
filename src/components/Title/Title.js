@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const Title = styled.h1`
   position: absolute;
-  font-family: "Lato", sans-serif;
+  font-family: "DM Serif Display", serif;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 30px;
   color: white;
   margin: 40px 0 0 40px;
   z-index: 1;

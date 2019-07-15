@@ -1,25 +1,42 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import HeroPhoto from "../../assets/images/hero-image.png";
+// import HeroPhoto from "../../assets/images/hero-image.png";
+import HeroPhotoMin from "../../assets/images/hero-image-min.png";
 import Button from "../Button/Button";
 import linesPattern from "../../assets/images/lines-pattern.svg";
 import IconSVG from "../IconSVG/IconSVG";
 import logoMain from "../../assets/images/logo-main.svg";
+import simpleParallax from "simple-parallax-js";
 
 const StyledWrapper = styled.header`
   position: relative;
-  height: 100vh;
+  height: 88vh;
+  width: 100vw;
   overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: -10;
+
   ::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url(${HeroPhotoMin});
+    background-size: cover;
+    background-position-x: 50%;
+    transition: background-size 0.5s linear;
+  }
+  ::after {
     position: absolute;
+    z-index: 2;
     top: 0;
     left: 0;
     content: "";
     display: block;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.15);
-    z-index: -2;
+    background-color: rgba(0, 0, 0, 0.2);
   }
 
   /* DESKTOP */
@@ -30,8 +47,6 @@ const StyledWrapper = styled.header`
     left: 0;
     margin: 0;
     opacity: 0;
-    transition: opacity 0.15s ease-in-out;
-    will-change: opacity;
 
     @media only screen and (min-width: 640px) and (orientation: landscape) {
       opacity: 1;
@@ -51,7 +66,9 @@ const StyledWrapper = styled.header`
 `;
 
 const Wrapper = styled.div`
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   width: 70%;
   height: 70%;
@@ -61,9 +78,9 @@ const Wrapper = styled.div`
   z-index: 1;
   flex-direction: column;
 
-  svg {
+  .logo {
     width: 270px;
-    transform: translateX(-10%);
+    transform: translate(-10%, 0);
 
     .e,
     .f,
@@ -78,7 +95,6 @@ const Wrapper = styled.div`
     .o {
       opacity: 0;
       transition: opacity 0.2s ease-in-out;
-      will-change: opacity;
 
       @media only screen and (min-width: 568px) and (orientation: landscape) {
         opacity: 1;
@@ -124,42 +140,28 @@ const Wrapper = styled.div`
   }
 `;
 
-const StyledBackground = styled.div`
-  position: absolute;
-  min-height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: -10;
-  background-image: url(${HeroPhoto});
-  background-repeat: no-repeat;
-  background-position: 50% 0%;
-  background-size: cover;
-  transform: ${({ isLoaded }) =>
-    isLoaded ? " translatex(0) scale(1)" : "translatex(-10%) scale(1.3)"};
-  opacity: ${({ isLoaded }) => (isLoaded ? "1" : "0")};
-  transition: transform 0.45s 3.25s ease-out, opacity 0.35s 3.25s ease-out;
-
-  @media only screen and (min-width: 768px) and (orientation: portrait) {
-    background-position: 45% 0;
-  }
-  @media only screen and (min-width: 375px) and (min-height: 812px) and (orientation: portrait) {
-    background-position: 53% 0;
-  }
-  @media only screen and (min-width: 1024px) and (min-height: 769px) and (orientation: landscape) {
-    background-position: 65% 0;
-  }
-`;
-
 class Header extends Component {
   state = {};
 
+  componentDidMount() {
+    let image = document.querySelector(".cover-photo");
+    new simpleParallax(image, {
+      scale: 1.5,
+      delay: 0.55,
+      orientation: "down",
+      overflow: true
+    });
+  }
+
   render() {
     return (
-      <StyledWrapper isOpen={this.props.isOpen}>
-        <StyledBackground isLoaded={this.props.isLoaded} />
-        <Wrapper>
-          <IconSVG className={"logo"} src={logoMain} />
+      <StyledWrapper showAbout={this.props.showAbout}>
+        <Wrapper showAbout={this.props.showAbout}>
+          <IconSVG
+            className={"logo"}
+            src={logoMain}
+            showAbout={this.props.showAbout}
+          />
           <Button content={"umów się na wizytę"} />
         </Wrapper>
         <IconSVG className={"lines"} src={linesPattern} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 
 const StyledBurger = styled.button`
@@ -11,14 +11,12 @@ const StyledBurger = styled.button`
   text-align: center;
   background: none;
   border: none;
-  padding: 20px 30px;
+  padding: 20px 32px;
   z-index: 9999;
   cursor: pointer;
 
-  div,
-  ::before,
-  ::after {
-    width: 25px;
+  div {
+    width: 28px;
     height: 2px;
     background-color: black;
     display: block;
@@ -27,134 +25,33 @@ const StyledBurger = styled.button`
     }
   }
 
-  ::after,
-  ::before {
-    content: "";
+  div:nth-child(1),
+  div:nth-child(3) {
     display: block;
     position: absolute;
   }
-
-  div {
-    opacity: ${({ isOpen, id }) => (isOpen && id !== 0 ? "0" : "1")};
-    transition: opacity 0.25s linear;
+  div:nth-child(1) {
+    transform: translateY(-350%);
   }
-
-  ::after {
-    transform: translateY(6px);
-    animation: ${({ isOpen, id }) => {
-      if (isOpen && id !== 0) {
-        return "animate-transform-after .5s linear forwards";
-      } else if (!isOpen && id !== 0) {
-        return "animate-transform-after-false .5s linear forwards";
-      }
-    }};
-    @media (min-width: 768px) and (min-height: 700px) {
-      transform: translateY(8px);
-    }
-  }
-
-  ::before {
-    transform: translateY(-6px);
-    animation: ${({ isOpen, id }) => {
-      if (isOpen && id !== 0) {
-        return "animate-transform-before .5s linear forwards";
-      } else if (!isOpen && id !== 0) {
-        return "animate-transform-before-false .5s linear forwards";
-      }
-    }};
-    @media (min-width: 768px) and (min-height: 700px) {
-      transform: translateY(-8px);
-    }
-  }
-
-  @keyframes animate-transform-before {
-    0% {
-      transform: translateY(-6px) rotate(0);
-    }
-
-    25% {
-      transform: translateY(0) rotate(0);
-    }
-    40% {
-      transform: translateY(0) rotate(0);
-    }
-    65% {
-      transform: translateY(0) rotate(-45deg);
-    }
-    100% {
-      transform: translateY(0) rotate(-45deg);
-    }
-  }
-  @keyframes animate-transform-after {
-    0% {
-      transform: translateY(6px) rotate(0);
-    }
-    25% {
-      transform: translateY(0) rotate(0);
-    }
-    40% {
-      transform: translateY(0) rotate(0);
-    }
-    65% {
-      transform: translateY(0) rotate(45deg);
-    }
-    100% {
-      transform: translateY(0) rotate(45deg);
-    }
-  }
-  @keyframes animate-transform-after-false {
-    0% {
-      transform: translateY(0) rotate(45deg);
-    }
-    25% {
-      transform: translateY(0) rotate(0);
-    }
-    40% {
-      transform: translateY(0) rotate(0);
-    }
-    65% {
-      transform: translateY(6px) rotate(0);
-    }
-    100% {
-      transform: translateY(6px) rotate(0);
-      @media only screen and (min-width: 768px) and (orientation: portrait) {
-        transform: translateY(8px) rotate(0);
-      }
-    }
-  }
-  @keyframes animate-transform-before-false {
-    0% {
-      transform: translateY(0) rotate(-45deg);
-    }
-    25% {
-      transform: translateY(0) rotate(0);
-    }
-    40% {
-      transform: translateY(0) rotate(0);
-    }
-    65% {
-      transform: translateY(-6px) rotate(0);
-    }
-    100% {
-      transform: translateY(-6px) rotate(0);
-      @media only screen and (min-width: 768px) and (orientation: portrait) {
-        transform: translateY(-8px) rotate(0);
-      }
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    display: none;
+  div:nth-child(3) {
+    transform: translateY(350%);
   }
 `;
 
-const Burger = props => {
-  const { handleButton, isOpen, id } = props;
-  return (
-    <StyledBurger onClick={handleButton} isOpen={isOpen} id={id}>
-      <div />
-    </StyledBurger>
-  );
-};
+class Burger extends Component {
+  state = {};
+
+  componentDidMount() {}
+
+  render() {
+    return (
+      <StyledBurger className={"burger"}>
+        <div />
+        <div />
+        <div />
+      </StyledBurger>
+    );
+  }
+}
 
 export default Burger;

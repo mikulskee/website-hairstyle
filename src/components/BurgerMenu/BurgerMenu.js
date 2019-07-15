@@ -9,8 +9,7 @@ const StyledWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(106%)")};
-  transition: transform 0.25s linear;
+  transform: translateX(100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,11 +18,8 @@ const StyledWrapper = styled.div`
 
 const BurgerMenu = props => {
   return (
-    <StyledWrapper isOpen={props.isOpen}>
-      <NavigationMenu
-        isOpen={props.isOpen}
-        hideBurgerMenu={props.hideBurgerMenu}
-      />
+    <StyledWrapper className={"burgerMenu"}>
+      <NavigationMenu setLoader={props.setLoader} />
     </StyledWrapper>
   );
 };

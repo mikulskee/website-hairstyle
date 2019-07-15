@@ -2,16 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import logoMain from "../../assets/images/logo-main.svg";
 import IconSVG from "../IconSVG/IconSVG";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const StyledHeader = styled.div`
   margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
-  transform: ${({ isOpen }) => (isOpen ? "translateY(0)" : "translateY(20%)")};
-  transition: opacity 0.5s 0.3s ease, transform 0.5s 0.3s ease;
+  opacity: 0;
+  transform: translateY(20%);
   svg {
     width: 240px;
     transform: translateX(-10%);
@@ -51,14 +50,10 @@ const StyledUl = styled.ul`
 `;
 
 const StyledLink = styled.li`
-  position: relative;
-  display: block;
+  margin-bottom: 15%;
   text-align: center;
   display: flex;
   align-items: center;
-  margin-bottom: 15%;
-  border: 2px solid black;
-  cursor: pointer;
 
   @media only screen and (min-width: 500px) and (orientation: landscape) {
     margin: 10px;
@@ -72,21 +67,10 @@ const StyledLink = styled.li`
     width: 200px;
   }
 
-  ::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-5%, 12%);
-    display: block;
-    content: "";
-    height: 110%;
-    width: 110%;
-    background-color: #cd97c4;
-    z-index: -1;
-    transition: transform 0.25s ease, width 0.25s ease, height 0.25s ease;
-  }
-
   a {
+    cursor: pointer;
+    border: 2px solid black;
+    position: relative;
     text-decoration: none;
     color: black;
     display: block;
@@ -98,6 +82,27 @@ const StyledLink = styled.li`
     letter-spacing: 3px;
     height: 100%;
     width: 100%;
+
+    ::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-5%, 12%);
+      display: block;
+      content: "";
+      height: 110%;
+      width: 110%;
+      background-color: #cd97c4;
+      z-index: -1;
+      transition: transform 0.25s ease, width 0.25s ease, height 0.25s ease;
+    }
+
+    :hover::before {
+      transform: translate(0, 0);
+      height: 100%;
+      width: 100%;
+    }
+
     @media only screen and (min-width: 500px) and (orientation: landscape) {
       font-size: 14px;
     }
@@ -107,7 +112,7 @@ const StyledLink = styled.li`
     }
   }
 
-  :hover::before {
+  a.active::before {
     transform: translate(0, 0);
     height: 100%;
     width: 100%;
@@ -117,24 +122,24 @@ const StyledLink = styled.li`
 const NavigationMenu = props => {
   return (
     <>
-      <StyledHeader isOpen={props.isOpen}>
+      <StyledHeader className={"logo"}>
         <IconSVG src={logoMain} />
       </StyledHeader>
       <StyledUl>
         <StyledLink>
-          <Link to={"/"} onClick={props.hideBurgerMenu}>
+          <NavLink to={"/"} exact onClick={props.setLoader}>
             home
-          </Link>
+          </NavLink>
         </StyledLink>
         <StyledLink>
-          <Link to={"/about"} onClick={props.hideBurgerMenu}>
+          <NavLink to={"/about"} onClick={props.setLoader}>
             o mnie
-          </Link>
+          </NavLink>
         </StyledLink>
         <StyledLink>
-          <Link to={"/contact"} onClick={props.hideBurgerMenu}>
+          <NavLink to={"/contact"} onClick={props.setLoader}>
             kontakt
-          </Link>
+          </NavLink>
         </StyledLink>
       </StyledUl>
     </>

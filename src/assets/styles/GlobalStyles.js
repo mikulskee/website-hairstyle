@@ -12,7 +12,10 @@ const GlobalStyle = createGlobalStyle`
 }
 body {
     height: 100vh;
-    overflow: ${({ isScrollable }) => (isScrollable ? "visible" : "hidden")};
+}
+
+#root {
+    overflow:hidden;
 }
 ::-webkit-scrollbar { 
     /* display: none;  */
