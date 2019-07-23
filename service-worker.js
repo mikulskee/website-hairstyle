@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/website-hairstyle/precache-manifest.30a867bfda43b05e142c2405ac36f508.js"
+  "/website-hairstyle/precache-manifest.cbb2e337c2f760da544061349f2d83f3.js"
 );
 
 self.addEventListener('message', (event) => {
