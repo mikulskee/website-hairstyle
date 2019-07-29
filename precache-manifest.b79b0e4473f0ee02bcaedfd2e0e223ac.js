@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ed0da3df47215c066c51a414c036baa7",
+    "revision": "900f566d590d375ff6b3dfea6dcb5ec4",
     "url": "/website-hairstyle/index.html"
   },
   {
-    "revision": "ab538b6c6fa2926bfd65",
-    "url": "/website-hairstyle/static/js/2.9f99dd27.chunk.js"
+    "revision": "7b90f1d1b89e41eef387",
+    "url": "/website-hairstyle/static/js/2.92a840af.chunk.js"
   },
   {
-    "revision": "d2db45663c0475b4310d",
-    "url": "/website-hairstyle/static/js/main.a8a0f93e.chunk.js"
+    "revision": "c68ed8144be0bb38d1ea",
+    "url": "/website-hairstyle/static/js/main.32473345.chunk.js"
   },
   {
     "revision": "143d2c65843dcc6e13a9",
@@ -48,12 +48,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/website-hairstyle/static/media/certificate2.44117c08.png"
   },
   {
+    "revision": "42a7ee42dfed1b98932b141ae2ad5b8b",
+    "url": "/website-hairstyle/static/media/contact-template-girl.42a7ee42.jpg"
+  },
+  {
     "revision": "0025f424a71e40cf7fef36fe3a04df04",
     "url": "/website-hairstyle/static/media/dots.0025f424.svg"
   },
   {
     "revision": "f1c3ccc1b1e4b6add02f6dfc3a5ad0df",
     "url": "/website-hairstyle/static/media/dots2.f1c3ccc1.svg"
+  },
+  {
+    "revision": "44ad5c441daf8b68f5cac4e33ad37960",
+    "url": "/website-hairstyle/static/media/girl-in-grapes.44ad5c44.jpg"
   },
   {
     "revision": "d7a116634b3a2457f17d96df0f1869f0",
@@ -66,6 +74,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "45c00865dc559de124e6c49c7ed6d393",
     "url": "/website-hairstyle/static/media/girl-two-min.45c00865.png"
+  },
+  {
+    "revision": "3a38ade431a117a45bee948801a2261d",
+    "url": "/website-hairstyle/static/media/hands-with-grapes.3a38ade4.jpg"
   },
   {
     "revision": "17c00f80fb1dcf338c00609338cb4685",
