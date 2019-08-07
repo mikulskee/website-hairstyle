@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8bd0f6aa7b46bbf3ed492d4e0937b3b2",
+    "revision": "4ee9831656f954b1c6a739275269db3b",
     "url": "/website-hairstyle/index.html"
   },
   {
-    "revision": "f9a0c9c5cc839d8fe741",
-    "url": "/website-hairstyle/static/js/2.7185a5be.chunk.js"
+    "revision": "098acafc88b8fee30731",
+    "url": "/website-hairstyle/static/js/2.40816b8e.chunk.js"
   },
   {
-    "revision": "2864ef4d34c8cb96bcf9",
-    "url": "/website-hairstyle/static/js/main.1655869b.chunk.js"
+    "revision": "c746a00750b8ca78fb2e",
+    "url": "/website-hairstyle/static/js/main.202f8ae9.chunk.js"
   },
   {
     "revision": "143d2c65843dcc6e13a9",
@@ -26,10 +26,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "6d7e189ded34f794bc0ebb4df75c79cd",
     "url": "/website-hairstyle/static/media/blob3.6d7e189d.svg"
-  },
-  {
-    "revision": "327ac58c9b16551edde7a4a9d49c2af0",
-    "url": "/website-hairstyle/static/media/blob4.327ac58c.svg"
   },
   {
     "revision": "70d49214ca0b0f2ccf4388671f7dd8ef",
