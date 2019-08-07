@@ -24,8 +24,8 @@ const StyledButton = styled.button`
     width: 106%;
     height: 110%;
     background-color: #cd97c4;
-    z-index: -1;
-    transition: transform 0.25s ease, width 0.25s ease, height 0.25s ease;
+    z-index: -2;
+    transition: transform 0.25s ease;
   }
 
   :hover::before {

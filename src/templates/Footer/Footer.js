@@ -6,7 +6,6 @@ import iconInstagram from "../../assets/images/icon-instagram2.svg";
 import IconSVG from "../../components/IconSVG/IconSVG";
 
 const StyledFooter = styled.footer`
-  border-top: 10px dotted white;
   background-color: #000;
   padding: 20px 0;
   overflow: hidden;

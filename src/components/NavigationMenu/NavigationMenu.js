@@ -38,7 +38,6 @@ const StyledUl = styled.ul`
   justify-content: center;
 
   @media only screen and (min-width: 500px) and (orientation: landscape) {
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
   }
@@ -46,6 +45,10 @@ const StyledUl = styled.ul`
   @media only screen and (min-height: 811px) and (orientation: portrait) {
     justify-content: start;
     padding-top: 100px;
+  }
+
+  @media only screen and (orientation: landscape) {
+    flex-direction: row;
   }
 `;
 
@@ -55,7 +58,7 @@ const StyledLink = styled.li`
   display: flex;
   align-items: center;
 
-  @media only screen and (min-width: 500px) and (orientation: landscape) {
+  @media only screen and (min-width: 480px) and (orientation: landscape) {
     margin: 10px;
   }
   @media only screen and (min-height: 811px) and (orientation: portrait) {

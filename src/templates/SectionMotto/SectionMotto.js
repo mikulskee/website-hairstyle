@@ -4,7 +4,7 @@ import mottoGirl from "../../assets/images/motto-girl.png";
 
 const Aside = styled.aside`
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-image: url(${mottoGirl});
   background-size: cover;
   background-repeat: no-repeat;
@@ -13,7 +13,8 @@ const Aside = styled.aside`
   min-height: 300px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  flex-direction: column;
   ::before {
     content: "";
     position: absolute;
@@ -23,6 +24,10 @@ const Aside = styled.aside`
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.65);
+  }
+
+  .secondary {
+    transform: translateY(100%);
   }
 `;
 
@@ -35,10 +40,166 @@ const Motto = styled.h2`
   font-size: 20px;
 `;
 
+const DotsWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10;
+  width: 400%;
+  /* to shirnk - change width to smaller */
+  transform: translateY(-100%);
+  flex-wrap: nowrap;
+
+  @media only screen and (orientation: landscape) and (min-width: 667px) {
+    width: 300%;
+  }
+  span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    flex-grow: 0;
+  }
+`;
 const SectionMotto = () => {
   return (
     <Aside>
+      <DotsWrapper>
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+      </DotsWrapper>
       <Motto>get hair straight naturally</Motto>
+      <DotsWrapper className={"secondary"}>
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+      </DotsWrapper>
     </Aside>
   );
 };

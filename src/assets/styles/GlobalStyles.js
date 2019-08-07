@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
 }
 body {
     height: 100vh;
+    overflow: ${({ isScrollable }) => (isScrollable ? "visible" : "hidden")}
 }
 
 #root {

@@ -6,7 +6,8 @@ import Button from "../Button/Button";
 import linesPattern from "../../assets/images/lines-pattern.svg";
 import IconSVG from "../IconSVG/IconSVG";
 import logoMain from "../../assets/images/logo-main.svg";
-import simpleParallax from "simple-parallax-js";
+import Parallax from "react-rellax";
+import { TimelineMax } from "gsap/TimelineMax";
 
 const StyledWrapper = styled.header`
   position: relative;
@@ -17,15 +18,18 @@ const StyledWrapper = styled.header`
   left: 0;
   z-index: -10;
 
-  ::before {
-    content: "";
+  .cover-photo {
+    will-change: transform, opacity;
     display: block;
     width: 100%;
     height: 100%;
     background-image: url(${HeroPhotoMin});
     background-size: cover;
-    background-position-x: 50%;
-    transition: background-size 0.5s linear;
+    background-position-x: 45%;
+    /* transition: transform 0.65s ease-out; */
+    @media only screen and (orientation: portrait) and (min-width: 375px) {
+      background-position-x: 50%;
+    }
   }
   ::after {
     position: absolute;
@@ -64,7 +68,6 @@ const StyledWrapper = styled.header`
     }
   }
 `;
-
 const Wrapper = styled.div`
   position: absolute;
   top: 0;
@@ -78,7 +81,14 @@ const Wrapper = styled.div`
   z-index: 1;
   flex-direction: column;
 
-  .logo {
+  .button {
+    will-change: transform, opacity;
+    visibility: hidden;
+  }
+
+  .logo-main {
+    will-change: transform, opacity;
+    visibility: hidden;
     width: 270px;
     transform: translate(-10%, 0);
 
@@ -141,28 +151,51 @@ const Wrapper = styled.div`
 `;
 
 class Header extends Component {
-  state = {};
+  state = {
+    isVisible: false
+  };
 
   componentDidMount() {
-    let image = document.querySelector(".cover-photo");
-    new simpleParallax(image, {
-      scale: 1.5,
-      delay: 0.55,
-      orientation: "down",
-      overflow: true
+    const coverPhoto = document.querySelector(".cover-photo");
+    const logo = document.querySelector(".logo-main");
+    const button = document.querySelector(".button");
+
+    const tlHomeMount = new TimelineMax({
+      reversed: false
+    });
+
+    tlHomeMount
+      .addPause()
+      // .set(coverPhoto, { visibility: "visible" })
+      .set(logo, { visibility: "visible" })
+      .set(button, { visibility: "visible" })
+      .from(coverPhoto, 0.7, {
+        opacity: 0,
+        scale: 1.2,
+        transformOrigin: 0
+      })
+      .from(logo, 0.7, { opacity: 0, y: 50 }, "-=0.55")
+      .from(button, 0.7, { opacity: 0, y: 50 }, "-=0.5")
+      .set(coverPhoto, { clearProps: "all" });
+
+    setTimeout(() => {
+      tlHomeMount.play();
+    }, 1800);
+
+    this.setState({
+      isVisible: true
     });
   }
 
   render() {
     return (
-      <StyledWrapper showAbout={this.props.showAbout}>
-        <Wrapper showAbout={this.props.showAbout}>
-          <IconSVG
-            className={"logo"}
-            src={logoMain}
-            showAbout={this.props.showAbout}
-          />
-          <Button content={"umów się na wizytę"} />
+      <StyledWrapper>
+        <Parallax className={"cover-photo"} speed={-1.8} />
+        <Wrapper>
+          <IconSVG className={"logo-main"} src={logoMain} />
+          <div className="button">
+            <Button content={"umów się na wizytę"} />
+          </div>
         </Wrapper>
         <IconSVG className={"lines"} src={linesPattern} />
       </StyledWrapper>

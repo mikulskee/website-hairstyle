@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomeTemplate from "./HomeTemplate/HomeTemplate";
 import AboutTemplate from "./AboutTemplate/AboutTemplate";
-import IconSVG from "../components/IconSVG/IconSVG";
-import { Loader } from "../components/Loader/Loader";
-import Logo from "../assets/images/logo-main-white.svg";
+// import IconSVG from "../components/IconSVG/IconSVG";
+// import { Loader } from "../components/Loader/Loader";
+// import Logo from "../assets/images/logo-main-white.svg";
 import ContactTemplate from "./ContactTemplate/ContactTemplate";
 import TemplateLoader from "../components/TemplateLoader/TemplateLoader";
 import BurgerMenu from "../components/BurgerMenu/BurgerMenu";
@@ -16,7 +16,7 @@ import { Power1 } from "gsap/EasePack";
 
 const StyledUpperWrapper = styled.div`
   position: absolute;
-  margin-top: 10px;
+  padding: 10px 0;
   display: flex;
   width: 100%;
   align-items: center;
@@ -33,10 +33,20 @@ const RouterWrapper = styled.div`
 `;
 
 class MainTemplate extends Component {
-  state = { isOpen: false };
+  state = {
+    isOpen: false,
+    isScrollable: true,
+    aboutTemplateMounted: ""
+  };
+
+  handleAboutTemplateMount = () => {
+    this.setState({
+      aboutTemplateMounted: ""
+    });
+  };
 
   componentDidMount() {
-    ////// Burger Menu
+    ////// Burger Menu Animation
     const burger = document.querySelector(".burger");
     const li = document.querySelectorAll("li");
     const burgerMenu = document.querySelector(".burgerMenu");
@@ -49,6 +59,9 @@ class MainTemplate extends Component {
 
     tlBurger
       .addPause()
+      .set(burgerMenu, { clearProps: "all" })
+      .set(burgers, { clearProps: "all" })
+      .set(burgerMenuLogo, { clearProps: "all" })
       .addLabel("start")
       .to(burgers[0], 0.15, { css: { transform: "translatey(0)" } })
       .to(burgers[2], 0.15, { css: { transform: "translatey(0)" } }, "start")
@@ -65,26 +78,14 @@ class MainTemplate extends Component {
         "endTransformMenu"
       );
 
-    const handleBurger = _ => {
-      this.setState(prevState => ({
-        isOpen: !prevState.isOpen
-      }));
-      this.state.isOpen ? tlBurger.play() : tlBurger.reverse();
-    };
-
-    //////Burger Menu
+    //////Burger Menu Animation
     //
     //
     //
-    //////Set Template
+    //////Set Template Animation
     const templateLoader = document.querySelector(".template-loader");
     const spans = document.querySelectorAll(".template-loader h2 span");
     const tlTemplateLoader = new TimelineMax();
-
-    const handleTemplateLoader = () => {
-      console.log("leci");
-      tlTemplateLoader.play(false);
-    };
 
     tlTemplateLoader
       .addPause()
@@ -96,7 +97,11 @@ class MainTemplate extends Component {
         ease: Power1.easeInOut,
         css: { transform: "translateY(0)" }
       })
-      .set(spans, { css: { animation: "wave-text 0.7s infinite alternate" } })
+      .set(
+        spans,
+        { css: { animation: "wave-text 0.7s infinite alternate" } },
+        "-=0.05"
+      )
       .to(templateLoader, 0.45, {
         delay: 1,
         ease: Power1.easeInOut,
@@ -104,6 +109,22 @@ class MainTemplate extends Component {
       })
       .set(spans, { clearProps: "all" })
       .set(templateLoader, { clearProps: "all" });
+
+    //////Set Template
+
+    const handleTemplateLoader = () => {
+      tlTemplateLoader.play(false);
+    };
+
+    const handleBurger = _ => {
+      this.setState(prevState => ({
+        isOpen: !prevState.isOpen,
+        isScrollable: !prevState.isScrollable
+      }));
+      this.state.isOpen ? tlBurger.play() : tlBurger.reverse();
+    };
+
+    burger.addEventListener("click", handleBurger);
 
     li.forEach(li => {
       li.addEventListener("click", e => {
@@ -115,8 +136,6 @@ class MainTemplate extends Component {
         }
       });
     });
-    burger.addEventListener("click", handleBurger);
-    //////Set Template
   }
 
   render() {
@@ -144,10 +163,10 @@ class MainTemplate extends Component {
                 exact
                 render={props => (
                   <HomeTemplate
-                  // {...props}
-                  // isScrollable={this.state.isScrollable}
-                  // showAbout={this.state.showAbout}
-                  // handleAboutMount={this.handleAboutMount}
+                    {...props}
+                    isScrollable={this.state.isScrollable}
+                    // showAbout={this.state.showAbout}
+                    // handleAboutMount={this.handleAboutMount}
                   />
                 )}
               />
@@ -156,10 +175,12 @@ class MainTemplate extends Component {
                 exact
                 render={props => (
                   <AboutTemplate
-                  // {...props}
-                  // isScrollable={this.state.isScrollable}
-                  // showAbout={this.state.showAbout}
-                  // handleAboutMount={this.handleAboutMount}
+                    {...props}
+                    isScrollable={this.state.isScrollable}
+                    aboutTemplateMounted={this.state.aboutTemplateMounted}
+                    handleAboutTemplateMount={this.handleAboutTemplateMount}
+                    // showAbout={this.state.showAbout}
+                    // handleAboutMount={this.handleAboutMount}
                   />
                 )}
               />
@@ -168,8 +189,8 @@ class MainTemplate extends Component {
                 exact
                 render={props => (
                   <ContactTemplate
-                  // {...props}
-                  // isScrollable={this.state.isScrollable}
+                    {...props}
+                    isScrollable={this.state.isScrollable}
                   />
                 )}
               />

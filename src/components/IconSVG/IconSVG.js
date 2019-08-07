@@ -1,10 +1,10 @@
 import React from "react";
 import SVG from "react-inlinesvg";
 
-const IconSVG = ({ className, src, isVisible, showAbout, ...props }) => {
+const IconSVG = ({ className, src, ...props }) => {
   return (
     <div {...props} className={className}>
-      <SVG src={src} isVisible={isVisible} showAbout={showAbout} />
+      <SVG src={src} />
     </div>
   );
 };
