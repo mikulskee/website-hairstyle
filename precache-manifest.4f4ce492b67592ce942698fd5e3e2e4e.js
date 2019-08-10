@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "06d63e6ba3eec150b5fa879049dbfa2d",
+    "revision": "450cf4c0b68b4766b22785100189288a",
     "url": "/website-hairstyle/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/website-hairstyle/static/js/2.39042650.chunk.js"
   },
   {
-    "revision": "c26f71dd7f712d3ba797",
-    "url": "/website-hairstyle/static/js/main.6d9e7344.chunk.js"
+    "revision": "7f0e7352b8ef6dba6dae",
+    "url": "/website-hairstyle/static/js/main.f9c9fa26.chunk.js"
   },
   {
     "revision": "143d2c65843dcc6e13a9",
@@ -56,8 +56,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/website-hairstyle/static/media/dots2.f1c3ccc1.svg"
   },
   {
-    "revision": "44ad5c441daf8b68f5cac4e33ad37960",
-    "url": "/website-hairstyle/static/media/girl-in-grapes.44ad5c44.jpg"
+    "revision": "1830a2d0ec44494cc7cfc5dafcc649dd",
+    "url": "/website-hairstyle/static/media/girl-in-grapes.1830a2d0.jpg"
   },
   {
     "revision": "d7a116634b3a2457f17d96df0f1869f0",
