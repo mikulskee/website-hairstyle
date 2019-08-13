@@ -5,6 +5,7 @@ import iconFacebook from "../../assets/images/icon-facebook.svg";
 import iconInstagram from "../../assets/images/icon-instagram2.svg";
 
 const StyledLink = styled.a`
+  visibility: ${({ socialMenu }) => (socialMenu ? "visible" : "hidden")};
   cursor: pointer;
   padding: 10px 20px;
   @media only screen and (min-width: 1024px) and (orientation: portrait) {
@@ -32,13 +33,19 @@ const StyledLink = styled.a`
   }
 `;
 
-const SocialMenu = () => {
+const SocialMenu = props => {
   return (
     <>
-      <StyledLink href={"https://instagram.com/ale.prossste"}>
+      <StyledLink
+        href={"https://instagram.com/ale.prossste"}
+        socialMenu={props.socialMenu}
+      >
         <IconSVG className={"insta"} src={iconInstagram} />
       </StyledLink>
-      <StyledLink href={"https://facebook.com/ale.prosssto"}>
+      <StyledLink
+        href={"https://facebook.com/ale.prosssto"}
+        socialMenu={props.socialMenu}
+      >
         <IconSVG className={"face"} src={iconFacebook} />
       </StyledLink>
     </>

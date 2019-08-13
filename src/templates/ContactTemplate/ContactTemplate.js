@@ -12,6 +12,7 @@ import blob3 from "../../assets/images/blob3.svg";
 import dots from "../../assets/images/dots2.svg";
 import handsWithGrapes from "../../assets/images/hands-with-grapes.jpg";
 import Footer from "../../templates/Footer/Footer";
+import ContactInfo from "../../components/ContactInfo/ContactInfo";
 import { TimelineMax } from "gsap/TimelineMax";
 
 const Contact = styled.section`
@@ -27,16 +28,27 @@ const Contact = styled.section`
     width: 90%;
     margin: 0 auto;
     box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
+    @media only screen and (orientation: landscape) {
+      width: 70%;
+    }
   }
 `;
 
 const Header = styled.header`
-  height: 65vh;
+  height: 364px;
   position: relative;
   width: 100%;
   margin-top: 70px;
-  @media only screen and (min-width: 375px) and (min-height: 812px) {
-    height: 51vh;
+  @media only screen and (min-width: 360px) {
+    height: 390px;
+  }
+  @media only screen and (min-width: 375px) {
+    height: 420px;
+  }
+  @media only screen and (orientation: landscape) {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
   }
 
   div.contact-girl {
@@ -58,6 +70,12 @@ const Header = styled.header`
     @media only screen and (min-width: 414px) {
       width: 372px;
       height: 287px;
+    }
+    @media only screen and (orientation: landscape) {
+      width: 385px;
+      height: 257px;
+      top: -8px;
+      left: -60px;
     }
   }
   div.grapes-girl {
@@ -82,6 +100,13 @@ const Header = styled.header`
     @media only screen and (min-width: 414px) {
       width: 207px;
       height: 263px;
+    }
+    @media only screen and (orientation: landscape) {
+      top: 6px;
+      right: 60px;
+    }
+    @media only screen and (orientation: landscape) and (min-width: 812px) {
+      right: 113px;
     }
 
     h1 {
@@ -126,6 +151,10 @@ const Header = styled.header`
     top: 50%;
     left: 20%;
     visibility: hidden;
+    @media only screen and (orientation: landscape) {
+      width: 51%;
+      max-width: 330px;
+    }
   }
 
   .blob.orange {
@@ -133,6 +162,7 @@ const Header = styled.header`
     top: 0;
     left: 30%;
     transform: rotate(90deg);
+    max-width: 320px;
   }
 
   .dots {
@@ -142,6 +172,12 @@ const Header = styled.header`
     left: 78%;
     width: 20%;
     z-index: 4;
+
+    @media only screen and (orientation: landscape) {
+      top: 90%;
+      left: 81%;
+      width: 10%;
+    }
   }
 `;
 
@@ -150,6 +186,12 @@ const StyledArticle = styled(Article)`
   margin: 20px auto 50px;
   visibility: hidden;
   will-change: transform, opacity;
+  @media only screen and (orientation: landscape) {
+    margin: 70px auto 50px;
+  }
+  @media only screen and (orientation: landscape) and (min-width: 667px) {
+    margin: 40px auto 50px;
+  }
   p {
     padding-bottom: 40px;
   }
@@ -170,46 +212,6 @@ const StyledArticle = styled(Article)`
   }
 `;
 
-const ContactInfo = styled.div`
-  font-family: "Montserrat", sans-serif;
-  color: #666;
-  margin: 50px 20px;
-
-  .hours p:nth-of-type(1) {
-    margin-bottom: 15px;
-  }
-  .phone,
-  .mail {
-    margin-top: 40px;
-  }
-  h2 {
-    padding-bottom: 20px;
-  }
-
-  p,
-  a {
-    font-weight: 600;
-    font-size: 14px;
-  }
-
-  a {
-    position: relative;
-    text-decoration: none;
-    color: #666;
-    padding-bottom: 5px;
-    ::after {
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      content: "";
-      display: block;
-      background-color: #666;
-    }
-  }
-`;
-
 const StyledGM = styled.div`
   position: relative;
   width: 100%;
@@ -222,6 +224,7 @@ class ContactTemplate extends Component {
   state = {};
 
   componentDidMount() {
+    this.props.handleSocialMenuFalse();
     const google = document.querySelector(".google-maps");
     google.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d636.9359390905311!2d19.112312729247897!3d50.31537385509378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4716d08dae05b0e9%3A0xc64a47602ead24ff!2sRewolucjonist%C3%B3w+4%2C+42-500+B%C4%99dzin!5e0!3m2!1spl!2spl!4v1564747713851!5m2!1spl!2spl" zoom="20" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>`;
 
@@ -294,27 +297,7 @@ class ContactTemplate extends Component {
             src={handsWithGrapes}
             alt={"dłonie z winogronami"}
           />
-          <ContactInfo>
-            <div className="hours">
-              <h2>Godziny Otwarcia</h2>
-              <p>
-                Poniedziałek-Piątek <br />
-                16:00 - 20:00
-              </p>
-              <p>
-                Sobota-Niedziela <br />
-                9:00 - 14:00
-              </p>
-            </div>
-            <div className="phone">
-              <h2>Telefon</h2>
-              <a href={"tel:555-666-777"}>555-666-777</a>
-            </div>
-            <div className="mail">
-              <h2>Mail</h2>
-              <a href={"mialto:biuro@aleproste.pl"}>biuro@aleproste.pl</a>
-            </div>
-          </ContactInfo>
+          <ContactInfo />
         </Contact>
         <StyledGM className={"google-maps"} />
         <Footer />

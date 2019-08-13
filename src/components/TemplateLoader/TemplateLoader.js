@@ -24,6 +24,7 @@ const createCSS = () => {
 };
 
 const Loader = styled.div`
+  will-change: transform;
   position: fixed;
   top: 0;
   left: 0;
@@ -48,7 +49,6 @@ const Loader = styled.div`
     margin-right: 2px;
     opacity: 1;
     transform: translateY(0);
-    /* animation: wave-text 0.7s infinite alternate paused; */
   }
 
   ${createCSS()};

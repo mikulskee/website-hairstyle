@@ -12,7 +12,7 @@ import dotted from "../../assets/images/dots.svg";
 import smallDots from "../../assets/images/dots2.svg";
 import certificate from "../../assets/images/certificate1.png";
 import certificate2 from "../../assets/images/certificate2.png";
-import heroImageAbout from "../../assets/images/heroimage-about.jpg";
+import heroImageAbout from "../../assets/images/heroimage-about-min.png";
 import { TimelineMax } from "gsap/TimelineMax";
 import { Power3 } from "gsap/EasePack";
 import Parallax from "react-rellax";
@@ -93,7 +93,7 @@ const StyledWrapper = styled.div`
   max-height: 320px;
 
   @media only screen and (orientation: portrait) and (min-width: 375px) {
-    margin-top: 140px;
+    margin-top: 120px;
   }
 
   @media only screen and (orientation: landscape) and (min-width: 460px) {
@@ -106,6 +106,7 @@ const StyledWrapper = styled.div`
   }
 
   .section-header__parallax {
+    will-change: transform;
     position: relative;
     width: 100%;
     height: 100%;
@@ -176,6 +177,7 @@ const StyledWrapper = styled.div`
     }
   }
   .section-header__parallax--blob {
+    will-change: transform;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -293,7 +295,11 @@ const StyledArticle1 = styled(Article)`
     margin-top: 0px;
   }
 
+  p {
+    will-change: opacity, transform;
+  }
   span {
+    will-change: transform;
     position: absolute;
     visibility: hidden;
     display: block;
@@ -315,9 +321,11 @@ const StyledArticle2 = styled(Article)`
     margin: 50px auto 50px;
   }
   p {
+    will-change: opacity, transform;
     padding: 40px 10px;
   }
   span {
+    will-change: transform;
     position: absolute;
     visibility: hidden;
     display: block;
@@ -394,17 +402,26 @@ const StyledWrapper2 = styled.div`
 
 const Header = styled.div`
   position: relative;
-  height: 85vh;
+  height: 408px;
   width: 100vw;
   overflow: hidden;
   z-index: 1;
 
+  @media only screen and (min-width: 360px) {
+    height: 544px;
+  }
+  @media only screen and (min-width: 375px) {
+    height: 612px;
+  }
+
   .header__parallax {
     width: 100%;
     height: 100%;
+    will-change: transform;
   }
 
   .header__span {
+    will-change: transform, opacity;
     display: block;
     visibility: hidden;
     width: 100%;
@@ -418,6 +435,7 @@ const Header = styled.div`
     }
   }
   .header__span-cover {
+    will-change: opacity;
     position: absolute;
     visibility: hidden;
     top: 0;
@@ -430,6 +448,7 @@ const Header = styled.div`
 `;
 
 const AboutTitle = styled(Title)`
+  will-change: transform, opacity;
   margin: 0;
   top: 33%;
   left: 40%;
@@ -443,6 +462,7 @@ const AboutTitle = styled(Title)`
   }
 
   .about-title__span {
+    will-change: transform;
     position: absolute;
     top: 55%;
     right: 0;
@@ -470,6 +490,8 @@ class AboutTemplate extends Component {
   state = {};
 
   componentDidMount() {
+    this.props.handleSocialMenuFalse();
+
     const aboutTitle = document.querySelector(".about-title");
     const headerSpan = document.querySelector(".header__span");
     const headerSpanCover = document.querySelector(".header__span-cover");

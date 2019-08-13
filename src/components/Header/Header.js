@@ -11,12 +11,18 @@ import { TimelineMax } from "gsap/TimelineMax";
 
 const StyledWrapper = styled.header`
   position: relative;
-  height: 88vh;
+  height: 422px;
   width: 100vw;
   overflow: hidden;
   top: 0;
   left: 0;
-  z-index: -10;
+
+  @media only screen and (min-width: 360px) {
+    height: 563px;
+  }
+  @media only screen and (min-width: 375px) {
+    height: 640px;
+  }
 
   .cover-photo {
     will-change: transform, opacity;
@@ -26,14 +32,12 @@ const StyledWrapper = styled.header`
     background-image: url(${HeroPhotoMin});
     background-size: cover;
     background-position-x: 45%;
-    /* transition: transform 0.65s ease-out; */
     @media only screen and (orientation: portrait) and (min-width: 375px) {
       background-position-x: 50%;
     }
   }
   ::after {
     position: absolute;
-    z-index: 2;
     top: 0;
     left: 0;
     content: "";
@@ -84,6 +88,11 @@ const Wrapper = styled.div`
   .button {
     will-change: transform, opacity;
     visibility: hidden;
+    cursor: pointer;
+    margin-top: 30px;
+    button {
+      margin-top: 0;
+    }
   }
 
   .logo-main {
@@ -140,33 +149,25 @@ const Wrapper = styled.div`
   @media only screen and (min-width: 1024px) {
     width: 70%;
   }
-
-  @media only screen and (min-width: 375px) and (min-height: 812px) and (orientation: portrait) {
-    transform: translate(-5%, -5%);
-  }
-
-  @media only screen and (min-width: 1024px) {
-    transform: translate(-5%, 0);
-  }
 `;
 
 class Header extends Component {
   state = {
-    isVisible: false
+    isVisitOpen: false
   };
 
   componentDidMount() {
+    /////// About template mount \/ ////////
     const coverPhoto = document.querySelector(".cover-photo");
     const logo = document.querySelector(".logo-main");
     const button = document.querySelector(".button");
-
     const tlHomeMount = new TimelineMax({
       reversed: false
     });
 
     tlHomeMount
       .addPause()
-      // .set(coverPhoto, { visibility: "visible" })
+      .set(coverPhoto, { visibility: "visible" })
       .set(logo, { visibility: "visible" })
       .set(button, { visibility: "visible" })
       .from(coverPhoto, 0.7, {
@@ -182,8 +183,55 @@ class Header extends Component {
       tlHomeMount.play();
     }, 1800);
 
-    this.setState({
-      isVisible: true
+    /////// About template mount /\ ////////
+    const visit = document.querySelector(".visit");
+    const visitButton = document.querySelector(".button");
+    const phone = document.querySelectorAll(".phone");
+    const mail = document.querySelector(".mail");
+    const x = document.querySelector(".visit button");
+    const title = document.querySelector(".visit h1");
+
+    const tlVisitOpen = new TimelineMax({
+      reversed: false
+    });
+    const tlVisitClose = new TimelineMax({
+      reversed: false
+    });
+
+    tlVisitOpen
+      .addPause()
+      .set(visit, { visibility: "visible" })
+      .set(phone, { visibility: "visible" })
+      .set(mail, { visibility: "visible" })
+      .set(title, { visibility: "visible" })
+      .from(visit, 0.4, { opacity: 0 })
+      .from(title, 0.4, { opacity: 0 }, "-=0.4")
+      .from(phone, 0.5, { opacity: 0, y: 60 })
+      .from(mail, 0.5, { opacity: 0, y: 60 }, "-=0.4");
+
+    tlVisitClose
+      .addPause()
+      .set(visit, { visibility: "visible" })
+      .set(phone, { visibility: "visible" })
+      .set(mail, { visibility: "visible" })
+      .set(title, { visibility: "visible" })
+      .to(visit, 0.5, { opacity: 0 })
+      .set(phone, { clearProps: "all" })
+      .set(title, { clearProps: "all" })
+      .set(mail, { clearProps: "all" })
+      .set(visit, { clearProps: "all" });
+
+    visitButton.addEventListener("click", () => {
+      tlVisitOpen.play(false);
+      this.setState({
+        isVisitOpen: true
+      });
+    });
+    x.addEventListener("click", () => {
+      tlVisitClose.play(false);
+      this.setState({
+        isVisitOpen: false
+      });
     });
   }
 
@@ -193,7 +241,7 @@ class Header extends Component {
         <Parallax className={"cover-photo"} speed={-1.8} />
         <Wrapper>
           <IconSVG className={"logo-main"} src={logoMain} />
-          <div className="button">
+          <div className="button" onClick={this.handleButton}>
             <Button content={"umów się na wizytę"} />
           </div>
         </Wrapper>

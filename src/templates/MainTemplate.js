@@ -21,38 +21,40 @@ const StyledUpperWrapper = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  z-index: 9;
 
   div:nth-child(1) {
     display: flex;
   }
 `;
 
-const RouterWrapper = styled.div`
-  overflow: hidden;
-  width: 100vw;
-`;
-
 class MainTemplate extends Component {
   state = {
     isOpen: false,
     isScrollable: true,
-    aboutTemplateMounted: ""
+    socialMenu: ""
   };
 
-  handleAboutTemplateMount = () => {
+  handleSocialMenuFalse = () => {
     this.setState({
-      aboutTemplateMounted: ""
+      socialMenu: false
+    });
+  };
+  handleSocialMenuTrue = () => {
+    this.setState({
+      socialMenu: true
     });
   };
 
   componentDidMount() {
-    ////// Burger Menu Animation
     const burger = document.querySelector(".burger");
     const li = document.querySelectorAll("li");
     const burgerMenu = document.querySelector(".burgerMenu");
     const burgerMenuLogo = document.querySelector(".burgerMenu .logo");
     const burgers = document.querySelectorAll(".burger div");
+    const socialMenu = document.querySelector(".upperWrapper div");
 
+    ////// Burger Menu Animation
     const tlBurger = new TimelineMax({
       reversed: true
     });
@@ -71,6 +73,7 @@ class MainTemplate extends Component {
       .to(burgers[2], 0.15, { rotation: -45 }, "endTransform")
       .addLabel("endTransformMenu")
       .to(burgerMenu, 0.25, { css: { transform: "translatex(0)" } }, "start")
+      .to(socialMenu, 0.15, { opacity: 0 }, "start")
       .to(
         burgerMenuLogo,
         0.15,
@@ -145,58 +148,56 @@ class MainTemplate extends Component {
           <IconSVG className={"logo"} src={Logo} />
         </Loader> */}
         <TemplateLoader className={"template-loader"} />
-
-        <RouterWrapper>
-          <Router basename={process.env.PUBLIC_URL}>
-            <BurgerMenu setLoader={this.setLoader} />
-            <StyledUpperWrapper className={"upperWrapper"}>
-              <div>
-                <SocialMenu />
-              </div>
-              <div>
-                <Burger />
-              </div>
-            </StyledUpperWrapper>
-            <Switch>
-              <Route
-                path="/"
-                exact
-                render={props => (
-                  <HomeTemplate
-                    {...props}
-                    isScrollable={this.state.isScrollable}
-                    // showAbout={this.state.showAbout}
-                    // handleAboutMount={this.handleAboutMount}
-                  />
-                )}
-              />
-              <Route
-                path="/about"
-                exact
-                render={props => (
-                  <AboutTemplate
-                    {...props}
-                    isScrollable={this.state.isScrollable}
-                    aboutTemplateMounted={this.state.aboutTemplateMounted}
-                    handleAboutTemplateMount={this.handleAboutTemplateMount}
-                    // showAbout={this.state.showAbout}
-                    // handleAboutMount={this.handleAboutMount}
-                  />
-                )}
-              />
-              <Route
-                path="/contact"
-                exact
-                render={props => (
-                  <ContactTemplate
-                    {...props}
-                    isScrollable={this.state.isScrollable}
-                  />
-                )}
-              />
-            </Switch>
-          </Router>
-        </RouterWrapper>
+        <Router basename={process.env.PUBLIC_URL}>
+          <BurgerMenu setLoader={this.setLoader} />
+          <StyledUpperWrapper className={"upperWrapper"}>
+            <div>
+              <SocialMenu socialMenu={this.state.socialMenu} />
+            </div>
+            <div>
+              <Burger />
+            </div>
+          </StyledUpperWrapper>
+          <Switch>
+            <Route
+              path="/"
+              exact
+              render={props => (
+                <HomeTemplate
+                  {...props}
+                  isScrollable={this.state.isScrollable}
+                  handleSocialMenuTrue={this.handleSocialMenuTrue}
+                  // showAbout={this.state.showAbout}
+                  // handleAboutMount={this.handleAboutMount}
+                />
+              )}
+            />
+            <Route
+              path="/about"
+              exact
+              render={props => (
+                <AboutTemplate
+                  {...props}
+                  isScrollable={this.state.isScrollable}
+                  handleSocialMenuFalse={this.handleSocialMenuFalse}
+                  // showAbout={this.state.showAbout}
+                  // handleAboutMount={this.handleAboutMount}
+                />
+              )}
+            />
+            <Route
+              path="/contact"
+              exact
+              render={props => (
+                <ContactTemplate
+                  {...props}
+                  isScrollable={this.state.isScrollable}
+                  handleSocialMenuFalse={this.handleSocialMenuFalse}
+                />
+              )}
+            />
+          </Switch>
+        </Router>
       </>
     );
   }

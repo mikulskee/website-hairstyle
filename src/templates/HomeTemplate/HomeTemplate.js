@@ -5,10 +5,13 @@ import Header from "../../components/Header/Header";
 import Main from "../SectionMain/Main";
 import SectionMotto from "../SectionMotto/SectionMotto";
 import Footer from "../Footer/Footer";
+import Visit from "../../components/Visit/Visit";
 
 class HomeTemplate extends Component {
   state = {};
-
+  componentDidMount() {
+    this.props.handleSocialMenuTrue();
+  }
   render() {
     return (
       <>
@@ -20,6 +23,7 @@ class HomeTemplate extends Component {
         <Main />
         <SectionMotto />
         <Footer />
+        <Visit />
       </>
     );
   }

@@ -21,7 +21,6 @@ import Parallax from "react-rellax";
 let StyledMain = styled.main`
   position: relative;
   background-color: #c1c9d0;
-  z-index: -3;
 
   @media only screen and (orientation: landscape) and (min-width: 667px) {
     padding-bottom: 40px;
@@ -191,6 +190,7 @@ const StyledArticle = styled(Article)`
   align-items: center;
   justify-content: center;
   p {
+    visibility: hidden;
     will-change: transform, opacity;
   }
   span {
@@ -251,6 +251,7 @@ const StyledArticle2 = styled(Article)`
   position: relative;
   p {
     will-change: transform, opacity;
+    visibility: hidden;
   }
   h1.picswrapper {
     will-change: transform, opacity;
@@ -263,6 +264,20 @@ const StyledArticle2 = styled(Article)`
       top: -70px;
       left: -25px;
     }
+    span {
+      ::after {
+        position: absolute;
+        top: 77%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+        display: block;
+        background-color: #cd97c4;
+        width: 60%;
+        height: 3px;
+        content: "";
+      }
+    }
     ::before {
       display: none;
     }
@@ -271,6 +286,10 @@ const StyledArticle2 = styled(Article)`
     margin: 0 auto;
     width: 40%;
     order: 4;
+  }
+
+  .articletwo__parallax {
+    will-change: transform;
   }
 `;
 
@@ -372,7 +391,7 @@ class Main extends Component {
 
   render() {
     return (
-      <StyledMain>
+      <StyledMain className={"home-template"}>
         <Parallax className={"parallax-main"} speed={1}>
           <Parallax className={"parallax-girls"} speed={0.35} percentage={0.7}>
             <Title className={"main"}>
@@ -430,7 +449,11 @@ class Main extends Component {
             <Title className={"picswrapper"}>
               naturalność jest dla nas <span>priorytetem</span>
             </Title>
-            <Parallax speed={-0.6} percentage={0.2}>
+            <Parallax
+              className={"articletwo__parallax"}
+              speed={-0.2}
+              percentage={-1.4}
+            >
               <p>
                 <strong>Preparaty keratynowe</strong>, używane podczas zabiegu,
                 zawierają nie tylko keratynę, lecz także{" "}
