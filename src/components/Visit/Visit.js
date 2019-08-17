@@ -31,6 +31,9 @@ const Container = styled.div`
       margin: 0;
       padding: 18% 0 0;
     }
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      padding-left: 54%;
+    }
 
     .hours {
       display: none;
@@ -50,9 +53,15 @@ const Container = styled.div`
       }
       h2 {
         font-size: 30px;
+        @media only screen and (min-width: 768px) and (orientation: portrait) {
+          font-size: 40px;
+        }
       }
       a {
         color: white;
+        @media only screen and (min-width: 768px) and (orientation: portrait) {
+          font-size: 20px;
+        }
       }
     }
   }
@@ -63,22 +72,27 @@ const X = styled.button`
   right: 0;
   background: none;
   border: none;
-  height: 42px;
-  width: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 11px;
-  margin-right: 32px;
+  margin-top: 10px;
+  padding: 21px 46px;
+  @media only screen and (min-width: 768px) and (orientation: portrait) {
+    padding: 21px 47px;
+    margin-top: 13px;
+  }
   ::after,
   ::before {
     position: absolute;
     transform: rotate(45deg);
     content: "";
     display: block;
-    width: 100%;
+    width: 28px;
     height: 2px;
     background-color: #fff;
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      width: 30px;
+    }
   }
 
   ::before {
@@ -93,6 +107,9 @@ const StyledTitle = styled(Title)`
   font-weight: 800;
   font-size: 20px;
   text-align: center;
+  @media only screen and (min-width: 768px) and (orientation: portrait) {
+    font-size: 26px;
+  }
 `;
 
 const Visit = () => {

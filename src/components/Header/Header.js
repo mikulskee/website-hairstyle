@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-// import HeroPhoto from "../../assets/images/hero-image.png";
 import HeroPhotoMin from "../../assets/images/hero-image-min.png";
 import Button from "../Button/Button";
-import linesPattern from "../../assets/images/lines-pattern.svg";
-import IconSVG from "../IconSVG/IconSVG";
-import logoMain from "../../assets/images/logo-main.svg";
+import logoImage from "../../assets/images/straightener.png";
 import Parallax from "react-rellax";
 import { TimelineMax } from "gsap/TimelineMax";
 
@@ -23,6 +20,12 @@ const StyledWrapper = styled.header`
   @media only screen and (min-width: 375px) {
     height: 640px;
   }
+  @media only screen and (min-width: 480px) and (orientation: landscape) {
+    height: 100vh;
+  }
+  @media only screen and (min-width: 768px) and (orientation: portrait) {
+    height: 100vh;
+  }
 
   .cover-photo {
     will-change: transform, opacity;
@@ -31,9 +34,15 @@ const StyledWrapper = styled.header`
     height: 100%;
     background-image: url(${HeroPhotoMin});
     background-size: cover;
-    background-position-x: 45%;
+    background-position-x: 40%;
+    @media only screen and (min-width: 360px) {
+      background-position-x: 47%;
+    }
     @media only screen and (orientation: portrait) and (min-width: 375px) {
       background-position-x: 50%;
+    }
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      background-position-x: 44%;
     }
   }
   ::after {
@@ -46,31 +55,6 @@ const StyledWrapper = styled.header`
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
   }
-
-  /* DESKTOP */
-
-  .lines {
-    position: absolute;
-    bottom: -2%;
-    left: 0;
-    margin: 0;
-    opacity: 0;
-
-    @media only screen and (min-width: 640px) and (orientation: landscape) {
-      opacity: 1;
-    }
-
-    svg {
-      width: 180px;
-
-      @media only screen and (min-width: 730px) and (orientation: landscape) {
-        width: 220px;
-      }
-      @media only screen and (min-width: 1024px) and (orientation: landscape) {
-        width: 400px;
-      }
-    }
-  }
 `;
 const Wrapper = styled.div`
   position: absolute;
@@ -79,11 +63,21 @@ const Wrapper = styled.div`
   display: flex;
   width: 70%;
   height: 70%;
-  margin-top: 55px;
+  margin: 60px 0 0 46px;
   align-items: center;
   justify-content: center;
   z-index: 1;
   flex-direction: column;
+  @media only screen and (min-width: 360px) {
+    margin: 60px 0 0 38px;
+  }
+  @media only screen and (min-width: 414px) {
+    margin: 60px 0 0 24px;
+  }
+  @media only screen and (min-width: 480px) and (orientation: landscape) {
+    width: 60%;
+    margin: 60px 0 0 19px;
+  }
 
   .button {
     will-change: transform, opacity;
@@ -98,56 +92,39 @@ const Wrapper = styled.div`
   .logo-main {
     will-change: transform, opacity;
     visibility: hidden;
-    width: 270px;
-    transform: translate(-10%, 0);
 
-    .e,
-    .f,
-    .g,
-    .h,
-    .i,
-    .j,
-    .k,
-    .l,
-    .m,
-    .n,
-    .o {
-      opacity: 0;
-      transition: opacity 0.2s ease-in-out;
-
-      @media only screen and (min-width: 568px) and (orientation: landscape) {
-        opacity: 1;
+    div {
+      position: relative;
+      h1 {
+        font-family: "Lato", sans-serif;
+        color: #000;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 26px;
+        @media only screen and (min-width: 768px) and (orientation: portrait) {
+          font-size: 46px;
+        }
       }
-      @media only screen and (min-width: 768px) {
-        opacity: 1;
+      img {
+        position: absolute;
+        height: 100%;
+        left: 50%;
+        top: 0;
+        transform: translate(-250%, 10%);
       }
     }
 
-    @media only screen and (min-width: 375px) and (min-height: 812px) and (orientation: portrait) {
-      width: 310px;
+    h3 {
+      font-family: "Just Another Hand", serif;
+      text-align: center;
+      color: #de617a;
+      font-size: 18px;
+      letter-spacing: 2px;
+      font-weight: 300;
+      @media only screen and (min-width: 768px) and (orientation: portrait) {
+        font-size: 36px;
+      }
     }
-    @media only screen and (min-width: 731px) {
-      width: 300px;
-    }
-    @media only screen and (min-width: 736px) and (orientation: portrait) {
-      width: 410px;
-    }
-    @media only screen and (min-width: 1024px) {
-      width: 520px;
-    }
-    @media only screen and (min-width: 1024px) and (orientation: portrait) {
-      width: 570px;
-    }
-  }
-
-  @media only screen and (min-width: 480px) and (orientation: landscape) {
-    width: 60%;
-  }
-  @media only screen and (min-width: 736px) {
-    margin-left: 30px;
-  }
-  @media only screen and (min-width: 1024px) {
-    width: 70%;
   }
 `;
 
@@ -240,12 +217,22 @@ class Header extends Component {
       <StyledWrapper>
         <Parallax className={"cover-photo"} speed={-1.8} />
         <Wrapper>
-          <IconSVG className={"logo-main"} src={logoMain} />
+          <div className={"logo-main"}>
+            <div>
+              <img src={logoImage} alt="logo" />
+              <h1>
+                prostowanie
+                <br />
+                keratynowe
+              </h1>
+            </div>
+
+            <h3>styled with style</h3>
+          </div>
           <div className="button" onClick={this.handleButton}>
             <Button content={"umów się na wizytę"} />
           </div>
         </Wrapper>
-        <IconSVG className={"lines"} src={linesPattern} />
       </StyledWrapper>
     );
   }

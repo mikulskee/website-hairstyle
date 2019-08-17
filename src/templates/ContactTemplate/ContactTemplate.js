@@ -28,104 +28,45 @@ const Contact = styled.section`
     width: 90%;
     margin: 0 auto;
     box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
-    @media only screen and (orientation: landscape) {
-      width: 70%;
-    }
   }
 `;
 
 const Header = styled.header`
-  height: 364px;
+  height: 90vw;
   position: relative;
   width: 100%;
   margin-top: 70px;
-  @media only screen and (min-width: 360px) {
-    height: 390px;
-  }
-  @media only screen and (min-width: 375px) {
-    height: 420px;
-  }
-  @media only screen and (orientation: landscape) {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-  }
 
-  div.contact-girl {
-    will-change: transform, opacity;
-    visibility: hidden;
-    background-image: url(${contactGirl});
-    position: relative;
-    background-size: cover;
-    width: 90%;
-    width: 288px;
-    height: 60%;
-    height: 222px;
-    z-index: 3;
-    box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
-    @media only screen and (min-width: 375px) {
-      width: 338px;
-      height: 260px;
-    }
-    @media only screen and (min-width: 414px) {
-      width: 372px;
-      height: 287px;
-    }
-    @media only screen and (orientation: landscape) {
-      width: 385px;
-      height: 257px;
-      top: -8px;
-      left: -60px;
-    }
-  }
-  div.grapes-girl {
+  .contact-girl {
     will-change: transform, opacity;
     visibility: hidden;
     position: absolute;
-    background-image: url(${grapesGirl});
-    background-size: cover;
-    background-position: center;
-    top: 75px;
-    right: 0;
-    width: 50%;
-    width: 160px;
-    height: 55%;
-    height: 203px;
+    top: 0px;
+    left: 0;
+    width: 95vw;
     z-index: 3;
     box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
-    @media only screen and (min-width: 375px) {
-      width: 188px;
-      height: 238px;
-    }
-    @media only screen and (min-width: 414px) {
-      width: 207px;
-      height: 263px;
-    }
-    @media only screen and (orientation: landscape) {
-      top: 6px;
-      right: 60px;
-    }
-    @media only screen and (orientation: landscape) and (min-width: 812px) {
-      right: 113px;
-    }
-
+  }
+  .grapes-girl {
+    will-change: transform, opacity;
+    background-image: url(${grapesGirl});
+    background-size: cover;
+    background-repeat: no-repeat;
+    visibility: hidden;
+    position: absolute;
+    top: 48px;
+    left: 51vw;
+    width: 49vw;
+    height: 60vw;
+    z-index: 3;
+    box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
     h1 {
       will-change: transform, opacity;
       position: absolute;
-      bottom: -90px;
-      left: -85%;
+      bottom: -89px;
+      left: -145px;
       font-size: 27px;
       visibility: hidden;
-      @media only screen and (min-width: 360px) {
-        font-size: 32px;
-        bottom: -106px;
-        left: -113%;
-      }
-      @media only screen and (min-width: 375px) {
-        font-size: 32px;
-        bottom: -106px;
-        left: -85%;
-      }
 
       span {
         position: relative;
@@ -144,61 +85,45 @@ const Header = styled.header`
       }
     }
   }
+
   .blob {
     will-change: transform, opacity;
     position: absolute;
     width: 80%;
-    top: 50%;
-    left: 20%;
+    bottom: 0;
+    left: 10%;
     visibility: hidden;
-    @media only screen and (orientation: landscape) {
-      width: 51%;
-      max-width: 330px;
-    }
   }
 
   .blob.orange {
     will-change: transform, opacity;
+    bottom: auto;
     top: 0;
     left: 30%;
     transform: rotate(90deg);
-    max-width: 320px;
   }
 
   .dots {
     will-change: transform, opacity;
     position: absolute;
-    top: 81%;
+    bottom: 0;
     left: 78%;
-    width: 20%;
+    width: 16%;
     z-index: 4;
-
-    @media only screen and (orientation: landscape) {
-      top: 90%;
-      left: 81%;
-      width: 10%;
-    }
   }
 `;
 
 const StyledArticle = styled(Article)`
   position: relative;
-  margin: 20px auto 50px;
+  margin: 50px auto 50px;
   visibility: hidden;
   will-change: transform, opacity;
-  @media only screen and (orientation: landscape) {
-    margin: 70px auto 50px;
-  }
-  @media only screen and (orientation: landscape) and (min-width: 667px) {
-    margin: 40px auto 50px;
-  }
   p {
     padding-bottom: 40px;
   }
 
   span {
     position: absolute;
-    /* visibility: visible; */
     display: block;
     bottom: 0;
     left: 0;
@@ -217,7 +142,6 @@ const StyledGM = styled.div`
   width: 100%;
   height: 400px;
   background-color: #666;
-  content: "lalalalala";
 `;
 
 class ContactTemplate extends Component {
@@ -268,8 +192,12 @@ class ContactTemplate extends Component {
         <Contact>
           <GlobalStyles isScrollable={this.props.isScrollable} />
           <Header>
-            <div className="contact-girl" />
-            <div className="grapes-girl">
+            <img
+              className={"contact-girl"}
+              src={contactGirl}
+              alt="contact girl"
+            />
+            <div className={"grapes-girl"} src={grapesGirl} alt="grapes girl">
               <Title className={"title"}>
                 najwyższa jakość usług
                 <br /> w najdogodniejszy

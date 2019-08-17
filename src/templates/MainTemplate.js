@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomeTemplate from "./HomeTemplate/HomeTemplate";
 import AboutTemplate from "./AboutTemplate/AboutTemplate";
-// import IconSVG from "../components/IconSVG/IconSVG";
-// import { Loader } from "../components/Loader/Loader";
-// import Logo from "../assets/images/logo-main-white.svg";
 import ContactTemplate from "./ContactTemplate/ContactTemplate";
 import TemplateLoader from "../components/TemplateLoader/TemplateLoader";
 import BurgerMenu from "../components/BurgerMenu/BurgerMenu";
@@ -144,9 +141,6 @@ class MainTemplate extends Component {
   render() {
     return (
       <>
-        {/* <Loader>
-          <IconSVG className={"logo"} src={Logo} />
-        </Loader> */}
         <TemplateLoader className={"template-loader"} />
         <Router basename={process.env.PUBLIC_URL}>
           <BurgerMenu setLoader={this.setLoader} />
@@ -167,8 +161,6 @@ class MainTemplate extends Component {
                   {...props}
                   isScrollable={this.state.isScrollable}
                   handleSocialMenuTrue={this.handleSocialMenuTrue}
-                  // showAbout={this.state.showAbout}
-                  // handleAboutMount={this.handleAboutMount}
                 />
               )}
             />
@@ -180,8 +172,6 @@ class MainTemplate extends Component {
                   {...props}
                   isScrollable={this.state.isScrollable}
                   handleSocialMenuFalse={this.handleSocialMenuFalse}
-                  // showAbout={this.state.showAbout}
-                  // handleAboutMount={this.handleAboutMount}
                 />
               )}
             />

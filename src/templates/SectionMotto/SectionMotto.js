@@ -4,7 +4,6 @@ import mottoGirl from "../../assets/images/motto-girl.png";
 
 const Aside = styled.aside`
   position: relative;
-  /* overflow: hidden; */
   background-image: url(${mottoGirl});
   background-size: cover;
   background-repeat: no-repeat;
@@ -38,6 +37,9 @@ const Motto = styled.h2`
   letter-spacing: 2px;
   position: relative;
   font-size: 20px;
+  @media only screen and (min-width: 768px) and (orientation: portrait) {
+    font-size: 30px;
+  }
 `;
 
 const DotsWrapper = styled.div`
@@ -53,6 +55,10 @@ const DotsWrapper = styled.div`
   @media only screen and (orientation: landscape) and (min-width: 667px) {
     width: 300%;
   }
+  @media only screen and (min-width: 768px) and (orientation: portrait) {
+    width: 200%;
+  }
+
   span {
     display: block;
     width: 10px;

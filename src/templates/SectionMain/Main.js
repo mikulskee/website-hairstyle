@@ -21,26 +21,8 @@ import Parallax from "react-rellax";
 let StyledMain = styled.main`
   position: relative;
   background-color: #c1c9d0;
-
-  @media only screen and (orientation: landscape) and (min-width: 667px) {
-    padding-bottom: 40px;
-  }
-  @media only screen and (orientation: landscape) and (min-width: 812px) {
-    height: 200vh;
-  }
-
-  .parallax-main {
-    will-change: transform;
-    display: flex;
-    flex-direction: column;
-    @media only screen and (orientation: landscape) and (min-width: 667px) {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-    @media only screen and (orientation: landscape) and (min-width: 812px) {
-      justify-content: space-between;
-    }
-  }
+  display: flex;
+  flex-direction: column;
 
   .parallax-girls {
     will-change: transform;
@@ -48,26 +30,26 @@ let StyledMain = styled.main`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh;
-    min-height: 300px;
+    height: 82vw;
     padding: 0 5px 0;
     margin-top: 60px;
-
-    @media only screen and (orientation: landscape) and (min-width: 667px) {
-      width: 55%;
-      order: 2;
-      margin-bottom: 50px;
+    @media only screen and (orientation: landscape) {
+      height: 60vw;
+      margin: 60px 40px 0;
     }
 
     h1.main {
       will-change: transform, opacity;
       visibility: hidden;
       text-align: center;
-      @media only screen and (orientation: landscape) and (min-width: 568px) {
-        font-size: 34px;
-      }
-      @media only screen and (orientation: portrait) and (min-width: 375px) {
-        font-size: 37px;
+      top: 28vw;
+      font-size: 9vw;
+      left: 50%;
+      margin-left: -24vw;
+      @media only screen and (orientation: landscape) {
+        top: 18vw;
+        font-size: 6vw;
+        margin-left: -15vw;
       }
       ::before,
       ::after {
@@ -104,20 +86,17 @@ let StyledMain = styled.main`
     div.dotted {
       position: absolute;
       width: 35%;
-      bottom: 10%;
+      top: 54vw;
       left: 5%;
       z-index: -3;
       @media only screen and (orientation: landscape) {
-        bottom: 0;
-      }
-      @media only screen and (orientation: landscape) and (min-width: 667px) {
-        bottom: 10%;
+        top: 44vw;
       }
     }
     div.dotted2 {
       position: absolute;
       width: 12%;
-      top: -15%;
+      top: -45px;
       right: 5%;
       z-index: -3;
     }
@@ -131,33 +110,17 @@ let StyledMain = styled.main`
       z-index: 3;
       box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
       visibility: hidden;
-      @media only screen and (orientation: landscape) and (min-width: 568px) {
-        width: 30%;
-      }
-      @media only screen and (orientation: landscape) and (min-width: 667px) {
-        top: 0;
-        left: 0;
-        width: 43%;
-      }
-      @media only screen and (orientation: landscape) and (min-width: 812px) {
-        width: 39%;
-      }
     }
     .girl-two {
       will-change: transform, opacity;
       position: absolute;
+      top: 90px;
+      left: 50%;
+      margin-left: -33%;
       width: 70%;
       z-index: 2;
       box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
       visibility: hidden;
-      @media only screen and (orientation: landscape) and (min-width: 568px) {
-        width: 60%;
-      }
-      @media only screen and (orientation: landscape) and (min-width: 667px) {
-        width: 70%;
-        bottom: 25%;
-        left: 20%;
-      }
     }
     .girl-three {
       will-change: transform, opacity;
@@ -168,27 +131,16 @@ let StyledMain = styled.main`
       width: 30%;
       z-index: 3;
       box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
-      @media only screen and (orientation: landscape) and (min-width: 568px) {
-        width: 26%;
-      }
-      @media only screen and (orientation: landscape) and (min-width: 667px) {
-        width: 33%;
-        right: 0;
-      }
-      @media only screen and (orientation: landscape) and (min-width: 812px) {
-        width: 29%;
-        top: 37px;
-      }
     }
   }
 `;
 
 const StyledArticle = styled(Article)`
   position: relative;
-  margin-top: -15px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0px auto 60px;
   p {
     visibility: hidden;
     will-change: transform, opacity;
@@ -204,15 +156,9 @@ const StyledArticle = styled(Article)`
     height: 3px;
     background-color: #fff;
   }
-  span:nth-child(2) {
-    transform: translateY(-250%);
-  }
 
-  @media only screen and (orientation: landscape) and (min-width: 667px) {
-    width: 40%;
-    order: 1;
-    margin: 0 10px 70px 10px;
-    align-items: flex-end;
+  span:nth-of-type(2) {
+    transform: translateY(-250%);
   }
 `;
 
@@ -222,16 +168,10 @@ const PicsWrapper = styled.div`
   justify-content: center;
   height: 40vh;
   width: 100%;
-
-  @media only screen and (orientation: landscape) and (min-width: 480px) {
+  @media only screen and (orientation: landscape) {
     height: 70vh;
   }
-  @media only screen and (orientation: landscape) and (min-width: 667px) {
-    order: 3;
-    width: 50%;
-    align-self: center;
-    margin-left: 10px;
-  }
+
   div {
     position: relative;
     width: 50%;
@@ -249,6 +189,7 @@ const PicsWrapper = styled.div`
 const StyledArticle2 = styled(Article)`
   margin-top: 60px;
   position: relative;
+
   p {
     will-change: transform, opacity;
     visibility: hidden;
@@ -259,11 +200,7 @@ const StyledArticle2 = styled(Article)`
     left: 0;
     visibility: hidden;
     margin: 0;
-    @media only screen and (orientation: landscape) and (min-width: 667px) {
-      font-size: 30px;
-      top: -70px;
-      left: -25px;
-    }
+
     span {
       ::after {
         position: absolute;
@@ -281,11 +218,6 @@ const StyledArticle2 = styled(Article)`
     ::before {
       display: none;
     }
-  }
-  @media only screen and (orientation: landscape) and (min-width: 667px) {
-    margin: 0 auto;
-    width: 40%;
-    order: 4;
   }
 
   .articletwo__parallax {
@@ -392,80 +324,73 @@ class Main extends Component {
   render() {
     return (
       <StyledMain className={"home-template"}>
-        <Parallax className={"parallax-main"} speed={1}>
-          <Parallax className={"parallax-girls"} speed={0.35} percentage={0.7}>
-            <Title className={"main"}>
-              prostowanie
-              <br /> keratynowe
-            </Title>
-            <IconIMG
-              src={girlOne}
-              className={"girl-one"}
-              alt={"dziewczyna z prostymi włosami"}
-            />
-            <IconIMG
-              src={girlTwo}
-              className={"girl-two"}
-              alt={"dziewczyna z prostymi włosami"}
-            />
-            <IconIMG
-              src={girlThree}
-              className={"girl-three"}
-              alt={"dziewczyna z prostymi włosami"}
-            />
-            <IconSVG className={"blob"} src={blob} />
-            <IconSVG className={"blob2"} src={blob2} />
-            <IconSVG className={"dotted"} src={dotted} />
-            <IconSVG className={"dotted2"} src={dotted2} />
-          </Parallax>
-          <StyledArticle className={"articleone"}>
-            <p>
-              <strong>Amazon Keratin</strong> to zabieg keratynowy, którego
-              celem jest odbudowa struktury włosów, ich intensywne odżywienie i
-              wygładzenie. Polega na uzupełnieniu w strukturze włosa niedoboru
-              keratyny, będącej naturalnym składnikiem budulcowym włosów.
-            </p>
-            <span />
-            <span />
-          </StyledArticle>
-          <PicsWrapper className={"picswrapper"}>
-            <div>
-              <IconIMG
-                className={"casual"}
-                src={casualOne}
-                alt={"Dziewczyna po prostowaniu włosów"}
-              />
-            </div>
-            <div>
-              <IconIMG
-                className={"casual"}
-                src={casualTwo}
-                alt={"Dziewczyna po prostowaniu włosów"}
-              />
-            </div>
-          </PicsWrapper>
-
-          <StyledArticle2 className={"articletwo"}>
-            <Title className={"picswrapper"}>
-              naturalność jest dla nas <span>priorytetem</span>
-            </Title>
-            <Parallax
-              className={"articletwo__parallax"}
-              speed={-0.2}
-              percentage={-1.4}
-            >
-              <p>
-                <strong>Preparaty keratynowe</strong>, używane podczas zabiegu,
-                zawierają nie tylko keratynę, lecz także{" "}
-                <strong>antyoksydanty, wyciągi z roślin i witaminy</strong> ,
-                które trwale nawilżają włosy i dostarczają niezbędnych
-                składników odżywczych oraz kwasy tłuszczowe, które tworzą na
-                włosach niewidoczna barierę ochronna przed szkodliwymi
-                czynnikami zewnętrznymi.
-              </p>
-            </Parallax>
-          </StyledArticle2>
+        <Parallax className={"parallax-girls"} speed={0.35} percentage={0.7}>
+          <Title className={"main"}>
+            prostowanie
+            <br /> keratynowe
+          </Title>
+          <IconIMG
+            src={girlOne}
+            className={"girl-one"}
+            alt={"dziewczyna z prostymi włosami"}
+          />
+          <IconIMG
+            src={girlTwo}
+            className={"girl-two"}
+            alt={"dziewczyna z prostymi włosami"}
+          />
+          <IconIMG
+            src={girlThree}
+            className={"girl-three"}
+            alt={"dziewczyna z prostymi włosami"}
+          />
+          <IconSVG className={"blob"} src={blob} />
+          <IconSVG className={"blob2"} src={blob2} />
+          <IconSVG className={"dotted"} src={dotted} />
+          <IconSVG className={"dotted2"} src={dotted2} />
         </Parallax>
+        <StyledArticle className={"articleone"}>
+          <p>
+            <strong>Amazon Keratin</strong> to zabieg keratynowy, którego celem
+            jest odbudowa struktury włosów, ich intensywne odżywienie i
+            wygładzenie. Polega na uzupełnieniu w strukturze włosa niedoboru
+            keratyny, będącej naturalnym składnikiem budulcowym włosów.
+          </p>
+          <span />
+          <span />
+        </StyledArticle>
+        <PicsWrapper className={"picswrapper"}>
+          <div>
+            <IconIMG
+              className={"casual"}
+              src={casualOne}
+              alt={"Dziewczyna po prostowaniu włosów"}
+            />
+          </div>
+          <div>
+            <IconIMG
+              className={"casual"}
+              src={casualTwo}
+              alt={"Dziewczyna po prostowaniu włosów"}
+            />
+          </div>
+        </PicsWrapper>
+
+        <StyledArticle2 className={"articletwo"}>
+          <Title className={"picswrapper"}>
+            naturalność jest dla nas <span>priorytetem</span>
+          </Title>
+
+          <p>
+            <strong>Preparaty keratynowe</strong>, używane podczas zabiegu,
+            zawierają nie tylko keratynę, lecz także{" "}
+            <strong>antyoksydanty, wyciągi z roślin i witaminy</strong> , które
+            trwale nawilżają włosy i dostarczają niezbędnych składników
+            odżywczych oraz kwasy tłuszczowe, które tworzą na włosach
+            niewidoczna barierę ochronna przed szkodliwymi czynnikami
+            zewnętrznymi.
+          </p>
+        </StyledArticle2>
       </StyledMain>
     );
   }

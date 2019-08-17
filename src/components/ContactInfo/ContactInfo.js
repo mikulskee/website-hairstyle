@@ -10,6 +10,9 @@ const Contact = styled.div`
     font-weight: 600;
     font-size: 14px;
     padding: 20px 10px;
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      font-size: 18px;
+    }
   }
 
   .hours p:nth-of-type(1) {
@@ -21,6 +24,9 @@ const Contact = styled.div`
   }
   h2 {
     padding: 20px 10px;
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      font-size: 36px;
+    }
   }
 
   a {

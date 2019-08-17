@@ -8,9 +8,6 @@ const StyledLink = styled.a`
   visibility: ${({ socialMenu }) => (socialMenu ? "visible" : "hidden")};
   cursor: pointer;
   padding: 10px 20px;
-  @media only screen and (min-width: 1024px) and (orientation: portrait) {
-    padding: 15px 25px;
-  }
 
   span {
     display: flex;
@@ -19,15 +16,8 @@ const StyledLink = styled.a`
 
     svg {
       width: 25px;
-
-      @media only screen and (min-width: 768px) {
+      @media only screen and (min-width: 768px) and (orientation: portrait) {
         width: 30px;
-      }
-      @media only screen and (min-width: 1024px) {
-        width: 40px;
-      }
-      @media only screen and (min-width: 1024px) and (orientation: portrait) {
-        width: 50px;
       }
     }
   }

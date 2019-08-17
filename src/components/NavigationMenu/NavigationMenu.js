@@ -111,7 +111,6 @@ const StyledLink = styled.li`
     }
     @media only screen and (min-width: 768px) and (min-height: 700px) {
       font-size: 22px;
-      padding: 5px 0;
     }
   }
 

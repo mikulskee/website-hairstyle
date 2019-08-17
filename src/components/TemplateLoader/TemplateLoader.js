@@ -41,6 +41,7 @@ const Loader = styled.div`
   }
 
   h2 span {
+    will-change: transform, color;
     display: inline-block;
     color: #de617a;
     font-family: "Just Another Hand", sans-serif;
@@ -49,6 +50,9 @@ const Loader = styled.div`
     margin-right: 2px;
     opacity: 1;
     transform: translateY(0);
+    @media only screen and (min-width: 768px) and (orientation: portrait) {
+      font-size: 56px;
+    }
   }
 
   ${createCSS()};
