@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/website-hairstyle/static/js/main.fa7f9631.chunk.js",
-    "main.js.map": "/website-hairstyle/static/js/main.fa7f9631.chunk.js.map",
+    "main.js": "/website-hairstyle/static/js/main.a3b21d68.chunk.js",
+    "main.js.map": "/website-hairstyle/static/js/main.a3b21d68.chunk.js.map",
     "runtime~main.js": "/website-hairstyle/static/js/runtime~main.235c998d.js",
     "runtime~main.js.map": "/website-hairstyle/static/js/runtime~main.235c998d.js.map",
-    "static/js/2.39042650.chunk.js": "/website-hairstyle/static/js/2.39042650.chunk.js",
-    "static/js/2.39042650.chunk.js.map": "/website-hairstyle/static/js/2.39042650.chunk.js.map",
+    "static/js/2.d162307b.chunk.js": "/website-hairstyle/static/js/2.d162307b.chunk.js",
+    "static/js/2.d162307b.chunk.js.map": "/website-hairstyle/static/js/2.d162307b.chunk.js.map",
     "index.html": "/website-hairstyle/index.html",
-    "precache-manifest.aa024420c14313ed7ea67ac78b739eac.js": "/website-hairstyle/precache-manifest.aa024420c14313ed7ea67ac78b739eac.js",
+    "precache-manifest.72a88a8f6ac0736805aae7f6b81ee4c5.js": "/website-hairstyle/precache-manifest.72a88a8f6ac0736805aae7f6b81ee4c5.js",
     "service-worker.js": "/website-hairstyle/service-worker.js",
     "static/media/blob.svg": "/website-hairstyle/static/media/blob.41fda4ff.svg",
     "static/media/blob2.svg": "/website-hairstyle/static/media/blob2.b0b9dd1f.svg",
@@ -25,14 +25,14 @@
     "static/media/girl-two-min.png": "/website-hairstyle/static/media/girl-two-min.45c00865.png",
     "static/media/hands-with-grapes.jpg": "/website-hairstyle/static/media/hands-with-grapes.3a38ade4.jpg",
     "static/media/hero-image-min.png": "/website-hairstyle/static/media/hero-image-min.17c00f80.png",
-    "static/media/heroimage-about.jpg": "/website-hairstyle/static/media/heroimage-about.f45ea3ed.jpg",
+    "static/media/heroimage-about-min.png": "/website-hairstyle/static/media/heroimage-about-min.78688743.png",
     "static/media/icon-facebook.svg": "/website-hairstyle/static/media/icon-facebook.9625cf5e.svg",
     "static/media/icon-instagram2.svg": "/website-hairstyle/static/media/icon-instagram2.351e3d87.svg",
-    "static/media/lines-pattern.svg": "/website-hairstyle/static/media/lines-pattern.19ccb419.svg",
     "static/media/logo-main-white.svg": "/website-hairstyle/static/media/logo-main-white.bf4166ea.svg",
     "static/media/logo-main.svg": "/website-hairstyle/static/media/logo-main.c6784122.svg",
     "static/media/motto-girl.png": "/website-hairstyle/static/media/motto-girl.b0ef79e2.png",
     "static/media/owner.png": "/website-hairstyle/static/media/owner.cdc5457f.png",
-    "static/media/owner2.png": "/website-hairstyle/static/media/owner2.734484af.png"
+    "static/media/owner2.png": "/website-hairstyle/static/media/owner2.734484af.png",
+    "static/media/straightener.png": "/website-hairstyle/static/media/straightener.2742a55f.png"
   }
 }

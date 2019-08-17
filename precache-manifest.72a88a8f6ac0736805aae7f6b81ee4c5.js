@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d3e7726642533b8f9cae8617862d3108",
+    "revision": "a491e1c2aa5f5604ce44d54f468f7c6f",
     "url": "/website-hairstyle/index.html"
   },
   {
-    "revision": "1e0cd9b32581abdac5de",
-    "url": "/website-hairstyle/static/js/2.39042650.chunk.js"
+    "revision": "4b3dd6f392c2a1b83aec",
+    "url": "/website-hairstyle/static/js/2.d162307b.chunk.js"
   },
   {
-    "revision": "227d23638f65650f1a9b",
-    "url": "/website-hairstyle/static/js/main.fa7f9631.chunk.js"
+    "revision": "341b560770b9c5b46ed1",
+    "url": "/website-hairstyle/static/js/main.a3b21d68.chunk.js"
   },
   {
     "revision": "143d2c65843dcc6e13a9",
@@ -80,8 +80,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/website-hairstyle/static/media/hero-image-min.17c00f80.png"
   },
   {
-    "revision": "f45ea3eddc6c08a1b2f73fd624fe59db",
-    "url": "/website-hairstyle/static/media/heroimage-about.f45ea3ed.jpg"
+    "revision": "7868874360f321105dfd06fde707e763",
+    "url": "/website-hairstyle/static/media/heroimage-about-min.78688743.png"
   },
   {
     "revision": "9625cf5e9b447964167da9278eb8d629",
@@ -90,10 +90,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "351e3d87975e1eaa23f62d5c7e3c150c",
     "url": "/website-hairstyle/static/media/icon-instagram2.351e3d87.svg"
-  },
-  {
-    "revision": "19ccb4190677dee2de394e3869598fe2",
-    "url": "/website-hairstyle/static/media/lines-pattern.19ccb419.svg"
   },
   {
     "revision": "bf4166ea1f39a1c55e96cd8722b65dc7",
@@ -114,5 +110,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "734484afcc7e5df76609585b3b906069",
     "url": "/website-hairstyle/static/media/owner2.734484af.png"
+  },
+  {
+    "revision": "2742a55ffb6c77b8b13833a2d702ea80",
+    "url": "/website-hairstyle/static/media/straightener.2742a55f.png"
   }
 ]);
