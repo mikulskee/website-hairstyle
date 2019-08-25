@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/website-hairstyle/static/js/main.a3b21d68.chunk.js",
-    "main.js.map": "/website-hairstyle/static/js/main.a3b21d68.chunk.js.map",
+    "main.js": "/website-hairstyle/static/js/main.4884bb5d.chunk.js",
+    "main.js.map": "/website-hairstyle/static/js/main.4884bb5d.chunk.js.map",
     "runtime~main.js": "/website-hairstyle/static/js/runtime~main.235c998d.js",
     "runtime~main.js.map": "/website-hairstyle/static/js/runtime~main.235c998d.js.map",
-    "static/js/2.d162307b.chunk.js": "/website-hairstyle/static/js/2.d162307b.chunk.js",
-    "static/js/2.d162307b.chunk.js.map": "/website-hairstyle/static/js/2.d162307b.chunk.js.map",
+    "static/js/2.0aea1748.chunk.js": "/website-hairstyle/static/js/2.0aea1748.chunk.js",
+    "static/js/2.0aea1748.chunk.js.map": "/website-hairstyle/static/js/2.0aea1748.chunk.js.map",
     "index.html": "/website-hairstyle/index.html",
-    "precache-manifest.72a88a8f6ac0736805aae7f6b81ee4c5.js": "/website-hairstyle/precache-manifest.72a88a8f6ac0736805aae7f6b81ee4c5.js",
+    "precache-manifest.5ea115b5bbf4976693610cbd51f87317.js": "/website-hairstyle/precache-manifest.5ea115b5bbf4976693610cbd51f87317.js",
     "service-worker.js": "/website-hairstyle/service-worker.js",
     "static/media/blob.svg": "/website-hairstyle/static/media/blob.41fda4ff.svg",
     "static/media/blob2.svg": "/website-hairstyle/static/media/blob2.b0b9dd1f.svg",
@@ -23,6 +23,7 @@
     "static/media/girl-one-min.png": "/website-hairstyle/static/media/girl-one-min.d7a11663.png",
     "static/media/girl-three-min.png": "/website-hairstyle/static/media/girl-three-min.a087e80e.png",
     "static/media/girl-two-min.png": "/website-hairstyle/static/media/girl-two-min.45c00865.png",
+    "static/media/hair-and-hand.jpg": "/website-hairstyle/static/media/hair-and-hand.c053628d.jpg",
     "static/media/hands-with-grapes.jpg": "/website-hairstyle/static/media/hands-with-grapes.3a38ade4.jpg",
     "static/media/hero-image-min.png": "/website-hairstyle/static/media/hero-image-min.17c00f80.png",
     "static/media/heroimage-about-min.png": "/website-hairstyle/static/media/heroimage-about-min.78688743.png",
@@ -33,6 +34,7 @@
     "static/media/motto-girl.png": "/website-hairstyle/static/media/motto-girl.b0ef79e2.png",
     "static/media/owner.png": "/website-hairstyle/static/media/owner.cdc5457f.png",
     "static/media/owner2.png": "/website-hairstyle/static/media/owner2.734484af.png",
+    "static/media/pinky-head.jpg": "/website-hairstyle/static/media/pinky-head.3b883ef2.jpg",
     "static/media/straightener.png": "/website-hairstyle/static/media/straightener.2742a55f.png"
   }
 }
