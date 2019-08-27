@@ -25,13 +25,14 @@ const createCSS = () => {
 
 const Loader = styled.div`
   will-change: transform;
+  visibility: hidden;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background-color: black;
-  z-index: 6;
+  z-index: 10;
   transform: translateY(100%);
   display: flex;
   justify-content: center;
@@ -50,7 +51,7 @@ const Loader = styled.div`
     margin-right: 2px;
     opacity: 1;
     transform: translateY(0);
-    @media only screen and (min-width: 768px) and (orientation: portrait) {
+    @media only screen and (min-width: 768px) {
       font-size: 56px;
     }
   }

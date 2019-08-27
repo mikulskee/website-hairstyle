@@ -15,8 +15,26 @@ const Wrapper = styled.div`
   margin: 120px 0 0;
   width: 100vw;
   height: 75vw;
+  max-width: 700px;
+  max-height: 420px;
   @media only screen and (orientation: landscape) {
     padding: 45px 40px 0;
+  }
+  @media only screen and (min-width: 768px) {
+    margin: 15vw 0 0 6vw;
+    width: 50vw;
+    height: 20vw;
+    padding: 0;
+  }
+  @media only screen and (min-width: 1024px) {
+    height: 25vw;
+  }
+  @media only screen and (min-width: 1024px) {
+    height: 30vw;
+  }
+  @media only screen and (min-width: 1400px) {
+    margin: 190px auto 0;
+    left: -306px;
   }
 
   .about-main__parallax-title-img {
@@ -32,8 +50,16 @@ const Wrapper = styled.div`
       top: -69px;
       left: 0;
       width: 53%;
+      max-width: 370px;
       box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
+      @media only screen and (min-width: 768px) {
+        top: -9vw;
+      }
+      @media only screen and (min-width: 1400px) {
+        top: -120px;
+      }
     }
+
     .marta2 {
       will-change: transform, opacity;
       visibility: hidden;
@@ -41,7 +67,14 @@ const Wrapper = styled.div`
       top: -41px;
       right: 0;
       width: 53%;
+      max-width: 370px;
       box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
+      @media only screen and (min-width: 768px) {
+        top: -5vw;
+      }
+      @media only screen and (min-width: 1400px) {
+        top: -65px;
+      }
     }
     .blob-orange {
       position: absolute;
@@ -49,7 +82,11 @@ const Wrapper = styled.div`
       left: 10vw;
       transform: rotate(100deg);
       width: 72%;
+      max-width: 504px;
       z-index: -1;
+      @media only screen and (min-width: 1400px) {
+        left: 140px;
+      }
     }
     .blob-blue {
       position: absolute;
@@ -57,7 +94,11 @@ const Wrapper = styled.div`
       left: -1vw;
       transform: rotate(118deg);
       width: 102%;
+      max-width: 714px;
       z-index: -1;
+      @media only screen and (min-width: 1400px) {
+        left: -14px;
+      }
     }
     .dots {
       position: absolute;
@@ -65,6 +106,19 @@ const Wrapper = styled.div`
       left: 5vw;
       width: 40%;
       z-index: -1;
+      max-width: 280px;
+      @media only screen and (min-width: 768px) {
+        top: 200px;
+      }
+      @media only screen and (min-width: 1024px) {
+        top: 246px;
+      }
+      @media only screen and (min-width: 1280px) {
+        top: 312px;
+      }
+      @media only screen and (min-width: 1400px) {
+        left: 70pxpx;
+      }
     }
     .small-dots {
       position: absolute;
@@ -72,6 +126,13 @@ const Wrapper = styled.div`
       left: 80vw;
       width: 14%;
       z-index: -1;
+      max-width: 280px;
+      @media only screen and (min-width: 1280px) {
+        top: -156px;
+      }
+      @media only screen and (min-width: 1400px) {
+        left: 1120px;
+      }
     }
   }
 `;
@@ -83,6 +144,19 @@ const AboutMainTitle = styled(Title)`
     top: -124px;
     left: 30vw;
   }
+  @media only screen and (min-width: 768px) {
+    top: -14vw;
+    left: 56vw;
+    width: 60%;
+  }
+  @media only screen and (min-width: 1024px) {
+    top: -11vw;
+  }
+  @media only screen and (min-width: 1400px) {
+    top: -154px;
+    left: 784px;
+    width: 420px;
+  }
   .about-main-title__span {
     will-change: transform, opacity;
     visibility: hidden;
@@ -90,6 +164,12 @@ const AboutMainTitle = styled(Title)`
     display: block;
     @media only screen and (orientation: landscape) {
       font-size: 72px;
+    }
+    @media only screen and (min-width: 768px) {
+      font-size: 7vw;
+    }
+    @media only screen and (min-width: 1400px) {
+      font-size: 98px;
     }
   }
   .about-main-title__span-nd {
@@ -101,6 +181,12 @@ const AboutMainTitle = styled(Title)`
     justify-content: center;
     @media only screen and (orientation: landscape) {
       font-size: 26px;
+    }
+    @media only screen and (min-width: 768px) {
+      font-size: 3.3vw;
+    }
+    @media only screen and (min-width: 1400px) {
+      font-size: 46px;
     }
     ::after {
       position: absolute;

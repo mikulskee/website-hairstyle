@@ -11,6 +11,10 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
 
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+
   .certificate {
     position: relative;
     transform: translate(4%, 0);
@@ -18,6 +22,14 @@ const Wrapper = styled.div`
     box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
     @media only screen and (orientation: landscape) {
       width: 60%;
+    }
+    @media only screen and (min-width: 768px) {
+      width: 40%;
+      transform: translate(0, 0);
+      margin-right: 20px;
+    }
+    @media only screen and (min-width: 1400px) {
+      width: 549px;
     }
   }
   .certificate2 {
@@ -28,6 +40,14 @@ const Wrapper = styled.div`
     box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
     @media only screen and (orientation: landscape) {
       width: 60%;
+    }
+    @media only screen and (min-width: 768px) {
+      width: 40%;
+      transform: translate(0, 0);
+      margin-top: 0;
+    }
+    @media only screen and (min-width: 1400px) {
+      width: 549px;
     }
   }
 `;

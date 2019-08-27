@@ -14,7 +14,15 @@ const Container = styled.div`
   left: 0;
   background-color: #c1c9d0;
   z-index: 99999;
-  overflow: hidden;
+  /* overflow: hidden; */
+  @media only screen and (min-width: 1024px) {
+    border-radius: 30px;
+    width: 740px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  }
 
   .contact-info {
     margin: 0;
@@ -34,6 +42,11 @@ const Container = styled.div`
     @media only screen and (min-width: 768px) and (orientation: portrait) {
       padding-left: 54%;
     }
+    @media only screen and (min-width: 1024px) {
+      padding: 0;
+      align-items: center;
+      flex-direction: row;
+    }
 
     .hours {
       display: none;
@@ -41,6 +54,15 @@ const Container = styled.div`
     .phone {
       @media only screen and (orientation: landscape) {
         margin-right: 40px;
+      }
+      @media only screen and (min-width: 1024px) {
+        margin-left: 0;
+        margin-right: 40px;
+      }
+    }
+    .mail {
+      @media only screen and (min-width: 1024px) {
+        margin-left: 0;
       }
     }
     div {
@@ -111,18 +133,31 @@ const StyledTitle = styled(Title)`
     font-size: 26px;
   }
 `;
+const Filter = styled.div`
+  visibility: hidden;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 99998;
+  top: 0;
+  left: 0;
+`;
 
 const Visit = () => {
   return (
-    <Container className={"visit"}>
-      <StyledTitle>
-        Prostowanie
-        <br />
-        keratynowe
-      </StyledTitle>
-      <X />
-      <ContactInfo className={"contact-info"} />
-    </Container>
+    <>
+      <Filter className={"filter"} />
+      <Container className={"visit"}>
+        <StyledTitle>
+          Prostowanie
+          <br />
+          keratynowe
+        </StyledTitle>
+        <X />
+        <ContactInfo className={"contact-info"} />
+      </Container>
+    </>
   );
 };
 

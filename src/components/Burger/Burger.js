@@ -18,7 +18,7 @@ const StyledBurger = styled.button`
   div {
     width: 28px;
     height: 2px;
-    background-color: black;
+    background-color: #fff;
     display: block;
     @media (min-width: 768px) and (orientation: portrait) {
       width: 30px;

@@ -75,8 +75,13 @@ const AboutTitle = styled(Title)`
   @media only screen and (orientation: portrait) and (min-width: 375px) {
     font-size: 37px;
   }
-  @media only screen and (min-width: 768px) and (orientation: portrait) {
-    font-size: 60px;
+  @media only screen and (min-width: 768px) {
+    font-size: 6vw;
+    top: 40%;
+    left: 52vw;
+  }
+  @media only screen and (min-width: 1024px) {
+    font-size: 62px;
   }
 
   .about-header__title__span {

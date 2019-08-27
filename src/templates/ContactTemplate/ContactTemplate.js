@@ -28,6 +28,7 @@ const Contact = styled.section`
     width: 90%;
     margin: 0 auto;
     box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
+    max-width: 923px;
   }
 `;
 
@@ -35,38 +36,63 @@ const Header = styled.header`
   height: 90vw;
   position: relative;
   width: 100%;
-  margin-top: 70px;
+  margin: 70px auto 0;
+  @media only screen and (min-width: 768px) {
+    width: 50%;
+    margin: 9vw auto 10vw 30px;
+    height: 25vw;
+  }
+  @media only screen and (min-width: 1200px) {
+    margin: 120px auto 120px;
+    height: 300px;
+    width: 600px;
+    left: -270px;
+  }
 
   .contact-girl {
     will-change: transform, opacity;
     visibility: hidden;
     position: absolute;
     top: 0px;
-    left: 0;
-    width: 95vw;
+    left: 0%;
+    width: 95%;
     z-index: 3;
     box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
   }
+
   .grapes-girl {
     will-change: transform, opacity;
-    background-image: url(${grapesGirl});
-    background-size: cover;
-    background-repeat: no-repeat;
     visibility: hidden;
     position: absolute;
+    width: 49%;
     top: 48px;
-    left: 51vw;
-    width: 49vw;
-    height: 60vw;
-    z-index: 3;
+    left: 51%;
     box-shadow: 6px 6px 8px 0px rgba(0, 0, 0, 0.29);
+    z-index: 4;
+    img {
+      display: block;
+      width: 100%;
+    }
+
     h1 {
       will-change: transform, opacity;
       position: absolute;
-      bottom: -89px;
-      left: -145px;
-      font-size: 27px;
+      bottom: -27vw;
+      left: -93%;
+      font-size: 8vw;
       visibility: hidden;
+      @media only screen and (min-width: 768px) {
+        bottom: 20vw;
+        left: 112%;
+        font-size: 4vw;
+        width: 171%;
+      }
+      @media only screen and (min-width: 1200px) {
+        bottom: 240px;
+        left: 330px;
+        font-size: 48px;
+        width: 494px;
+      }
 
       span {
         position: relative;
@@ -90,26 +116,44 @@ const Header = styled.header`
     will-change: transform, opacity;
     position: absolute;
     width: 80%;
-    bottom: 0;
+    top: 44vw;
     left: 10%;
     visibility: hidden;
+    z-index: 1;
+    @media only screen and (min-width: 768px) {
+      top: 21vw;
+    }
+    @media only screen and (min-width: 1200px) {
+      top: 255px;
+      width: 480px;
+    }
   }
 
   .blob.orange {
     will-change: transform, opacity;
-    bottom: auto;
-    top: 0;
+    top: -5vw;
     left: 30%;
     transform: rotate(90deg);
+    @media only screen and (min-width: 1200px) {
+      top: -61px;
+    }
   }
 
   .dots {
     will-change: transform, opacity;
     position: absolute;
-    bottom: 0;
+    top: 82vw;
     left: 78%;
     width: 16%;
-    z-index: 4;
+    z-index: 2;
+    @media only screen and (min-width: 768px) {
+      left: 172%;
+      top: 12vw;
+    }
+    @media only screen and (min-width: 1200px) {
+      width: 96px;
+      top: 144px;
+    }
   }
 `;
 
@@ -118,6 +162,16 @@ const StyledArticle = styled(Article)`
   margin: 50px auto 50px;
   visibility: hidden;
   will-change: transform, opacity;
+  @media only screen and (min-width: 768px) {
+    width: 40%;
+    top: -14vw;
+    left: 26%;
+    z-index: 1;
+  }
+  @media only screen and (min-width: 1200px) {
+    top: -168px;
+    left: 312px;
+  }
   p {
     padding-bottom: 40px;
   }
@@ -148,6 +202,7 @@ class ContactTemplate extends Component {
   state = {};
 
   componentDidMount() {
+    this.props.findPath();
     this.props.handleSocialMenuFalse();
     const google = document.querySelector(".google-maps");
     google.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d636.9359390905311!2d19.112312729247897!3d50.31537385509378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4716d08dae05b0e9%3A0xc64a47602ead24ff!2sRewolucjonist%C3%B3w+4%2C+42-500+B%C4%99dzin!5e0!3m2!1spl!2spl!4v1564747713851!5m2!1spl!2spl" zoom="20" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>`;
@@ -197,7 +252,12 @@ class ContactTemplate extends Component {
               src={contactGirl}
               alt="contact girl"
             />
-            <div className={"grapes-girl"} src={grapesGirl} alt="grapes girl">
+            <div className={"grapes-girl"}>
+              <img
+                className={"grapes-girl-photo"}
+                src={grapesGirl}
+                alt="grapes girl"
+              />
               <Title className={"title"}>
                 najwyższa jakość usług
                 <br /> w najdogodniejszy

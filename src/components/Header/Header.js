@@ -101,7 +101,13 @@ const Wrapper = styled.div`
         text-transform: uppercase;
         text-align: center;
         font-size: 26px;
-        @media only screen and (min-width: 768px) and (orientation: portrait) {
+        @media only screen and (min-width: 768px) {
+          font-size: 4vw;
+        }
+        @media only screen and (min-width: 1024px) {
+          font-size: 3.7vw;
+        }
+        @media only screen and (min-width: 1024px) {
           font-size: 46px;
         }
       }
@@ -121,8 +127,14 @@ const Wrapper = styled.div`
       font-size: 18px;
       letter-spacing: 2px;
       font-weight: 300;
-      @media only screen and (min-width: 768px) and (orientation: portrait) {
-        font-size: 36px;
+      @media only screen and (min-width: 768px) {
+        font-size: 3vw;
+      }
+      @media only screen and (min-width: 1024px) {
+        font-size: 2.7vw;
+      }
+      @media only screen and (min-width: 1280px) {
+        font-size: 32px;
       }
     }
   }
@@ -167,6 +179,7 @@ class Header extends Component {
     const mail = document.querySelector(".mail");
     const x = document.querySelector(".visit button");
     const title = document.querySelector(".visit h1");
+    const filter = document.querySelector(".filter");
 
     const tlVisitOpen = new TimelineMax({
       reversed: false
@@ -181,7 +194,9 @@ class Header extends Component {
       .set(phone, { visibility: "visible" })
       .set(mail, { visibility: "visible" })
       .set(title, { visibility: "visible" })
-      .from(visit, 0.4, { opacity: 0 })
+      .set(filter, { visibility: "visible" })
+      .from(filter, 0.4, { opacity: 0 })
+      .from(visit, 0.4, { opacity: 0 }, "-=0.4")
       .from(title, 0.4, { opacity: 0 }, "-=0.4")
       .from(phone, 0.5, { opacity: 0, y: 60 })
       .from(mail, 0.5, { opacity: 0, y: 60 }, "-=0.4");
@@ -192,7 +207,10 @@ class Header extends Component {
       .set(phone, { visibility: "visible" })
       .set(mail, { visibility: "visible" })
       .set(title, { visibility: "visible" })
+      .set(filter, { visibility: "visible" })
       .to(visit, 0.5, { opacity: 0 })
+      .to(filter, 0.5, { opacity: 0 }, "-=0.5")
+      .set(filter, { clearProps: "all" })
       .set(phone, { clearProps: "all" })
       .set(title, { clearProps: "all" })
       .set(mail, { clearProps: "all" })

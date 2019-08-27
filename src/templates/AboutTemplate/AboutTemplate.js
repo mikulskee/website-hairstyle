@@ -29,6 +29,7 @@ class AboutTemplate extends Component {
 
   componentDidMount() {
     this.props.handleSocialMenuFalse();
+    this.props.findPath();
 
     const aboutTitle = document.querySelector(".about-header__title");
     const headerSpan = document.querySelector(".about-header__hero-image");
@@ -68,7 +69,6 @@ class AboutTemplate extends Component {
     });
 
     tlSectionTitle
-      .addPause()
       .set(sectionTitleSpans, { visibility: "visible" })
       .set(marta, { visibility: "visible" })
       .set(marta2, { visibility: "visible" })
@@ -144,6 +144,35 @@ class AboutTemplate extends Component {
     setTimeout(() => {
       tlAboutMount.play();
     }, 1800);
+    ////////////////////////////NavDesktopAnimation \/ ////////////////////
+    // const navSpan = document.querySelector(".upperWrapper span");
+    // const sectionTwo = document.querySelector(".section-two");
+    // const parallax = document.querySelector(".parallax-girls");
+    // const tlNavDesktopHome = new TimelineMax({ reversed: true });
+
+    // tlNavDesktopHome
+    //   .set(navSpan, { clearProps: "all" })
+    //   .set(navSpan, { css: { backgroundColor: "#c1c9d0" } })
+    //   .to(navSpan, 0.3, { y: 51 });
+
+    // const NavAnimaionHandler = () => {
+    //   let topParallax = parallax.getBoundingClientRect().top - 90;
+    //   let bottomParallax = parallax.getBoundingClientRect().bottom - 35;
+    //   let topSectionTwo = sectionTwo.getBoundingClientRect().top - 50;
+    //   let bottomSectionTwo = sectionTwo.getBoundingClientRect().bottom;
+    //   console.log(bottomParallax);
+
+    //   if (topParallax < 0 && bottomParallax > 0) {
+    //     tlNavDesktopHome.play();
+    //   } else if (topSectionTwo < 0 && bottomSectionTwo > 0) {
+    //     tlNavDesktopHome.play();
+    //   } else {
+    //     tlNavDesktopHome.reverse();
+    //   }
+    // };
+
+    // window.addEventListener("scroll", NavAnimaionHandler);
+    ////////////////////////////NavDesktopAnimation /\ ////////////////////
   }
   render() {
     return (

@@ -8,12 +8,15 @@ const Aside = styled.aside`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 50vh;
+  height: 50vw;
   min-height: 300px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  @media only screen and (min-width: 1024px) {
+    height: 37vw;
+  }
   ::before {
     content: "";
     position: absolute;
@@ -37,7 +40,7 @@ const Motto = styled.h2`
   letter-spacing: 2px;
   position: relative;
   font-size: 20px;
-  @media only screen and (min-width: 768px) and (orientation: portrait) {
+  @media only screen and (min-width: 768px) {
     font-size: 30px;
   }
 `;
@@ -46,17 +49,16 @@ const DotsWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  z-index: 10;
   width: 400%;
   /* to shirnk - change width to smaller */
   transform: translateY(-100%);
   flex-wrap: nowrap;
 
-  @media only screen and (orientation: landscape) and (min-width: 667px) {
-    width: 300%;
-  }
-  @media only screen and (min-width: 768px) and (orientation: portrait) {
+  @media only screen and (min-width: 768px) {
     width: 200%;
+  }
+  @media only screen and (min-width: 1400px) {
+    width: 100%;
   }
 
   span {

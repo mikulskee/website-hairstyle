@@ -17,8 +17,9 @@ import { TweenMax } from "gsap/TweenMax";
 import { TimelineMax } from "gsap/TimelineMax";
 import { Power3 } from "gsap/EasePack";
 import Parallax from "react-rellax";
+import HomeSectionTwo from "../../components/HomeSectionTwo/HomeSectionTwo";
 
-let StyledMain = styled.main`
+const StyledMain = styled.main`
   position: relative;
   background-color: #c1c9d0;
   display: flex;
@@ -31,25 +32,49 @@ let StyledMain = styled.main`
     justify-content: center;
     align-items: center;
     height: 82vw;
-    padding: 0 5px 0;
     margin-top: 60px;
     @media only screen and (orientation: landscape) {
       height: 60vw;
       margin: 60px 40px 0;
+    }
+    @media only screen and (min-width: 768px) {
+      width: 55%;
+      margin: 90px 0 0 20px;
+      height: 60vw;
+    }
+    @media only screen and (min-width: 1024px) {
+      height: 50vw;
+    }
+    @media only screen and (min-width: 1400px) {
+      max-width: 760px;
+      max-height: 700px;
+      margin: 90px auto -156px;
+      left: -251px;
     }
 
     h1.main {
       will-change: transform, opacity;
       visibility: hidden;
       text-align: center;
-      top: 28vw;
+      top: 102px;
       font-size: 9vw;
-      left: 50%;
-      margin-left: -24vw;
+      left: 27vw;
       @media only screen and (orientation: landscape) {
-        top: 18vw;
+        top: 120px;
         font-size: 6vw;
-        margin-left: -15vw;
+      }
+      @media only screen and (min-width: 768px) {
+        font-size: 6vw;
+        top: 0;
+        left: 57vw;
+      }
+      @media only screen and (min-width: 1024px) {
+        font-size: 5vw;
+        left: 59vw;
+      }
+      @media only screen and (min-width: 1400px) {
+        font-size: 64px;
+        left: 790px;
       }
       ::before,
       ::after {
@@ -91,6 +116,12 @@ let StyledMain = styled.main`
       z-index: -3;
       @media only screen and (orientation: landscape) {
         top: 44vw;
+      }
+      @media only screen and (min-width: 768px) {
+        top: 29vw;
+      }
+      @media only screen and (min-width: 1280px) {
+        top: 360px;
       }
     }
     div.dotted2 {
@@ -141,11 +172,29 @@ const StyledArticle = styled(Article)`
   align-items: center;
   justify-content: center;
   margin: 0px auto 60px;
+  @media only screen and (min-width: 768px) {
+    position: absolute;
+    width: 38%;
+    top: 32vw;
+    left: 60vw;
+  }
+  @media only screen and (min-width: 1024px) {
+    top: 25vw;
+  }
+  @media only screen and (min-width: 1400px) {
+    position: relative;
+    top: -290px;
+    max-width: 400px;
+    left: 347px;
+    margin: 0 auto;
+  }
   p {
     visibility: hidden;
+    opacity: 1;
     will-change: transform, opacity;
   }
   span {
+    visibility: hidden;
     will-change: transform;
     position: absolute;
     display: block;
@@ -166,10 +215,16 @@ const PicsWrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  height: 40vh;
+  height: 70vw;
   width: 100%;
   @media only screen and (orientation: landscape) {
-    height: 70vh;
+    height: 40vw;
+  }
+  @media only screen and (min-width: 768px) {
+    height: 40vw;
+  }
+  @media only screen and (min-width: 1400px) {
+    height: 37vw;
   }
 
   div {
@@ -180,48 +235,26 @@ const PicsWrapper = styled.div`
     align-items: center;
     justify-content: center;
     img {
+      position: absolute;
       will-change: transform;
       height: 100%;
       display: block;
     }
   }
-`;
-const StyledArticle2 = styled(Article)`
-  margin-top: 60px;
-  position: relative;
 
-  p {
-    will-change: transform, opacity;
-    visibility: hidden;
-  }
-  h1.picswrapper {
-    will-change: transform, opacity;
-    top: -85px;
-    left: 0;
-    visibility: hidden;
-    margin: 0;
-
-    span {
-      ::after {
-        position: absolute;
-        top: 77%;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -1;
-        display: block;
-        background-color: #cd97c4;
-        width: 60%;
-        height: 3px;
-        content: "";
+  div:nth-child(1) {
+    img {
+      @media only screen and (min-width: 1400px) {
+        right: 0;
       }
     }
-    ::before {
-      display: none;
-    }
   }
-
-  .articletwo__parallax {
-    will-change: transform;
+  div:nth-child(2) {
+    img {
+      @media only screen and (min-width: 1400px) {
+        left: 0;
+      }
+    }
   }
 `;
 
@@ -242,6 +275,7 @@ class Main extends Component {
 
     const tlGirls = new TimelineMax({ reversed: true });
     const tlArticleOne = new TimelineMax({ reversed: true });
+    const tlArticleOne768 = new TimelineMax({ reversed: true });
     const tlArticleTwo = new TimelineMax({ reversed: true });
 
     const tweenCasual = TweenMax.from(casual, 0.7, {
@@ -270,8 +304,9 @@ class Main extends Component {
       );
 
     tlArticleOne
+      .addPause()
       .set(articleOne, { visibility: "visible" })
-      .set(spans, { scaleX: 0 })
+      .set(spans, { visibility: "visible", scaleX: 0 })
       .from(articleOne, 0.5, {
         ease: Power3.easeOut,
         opacity: 0,
@@ -281,6 +316,23 @@ class Main extends Component {
       .to(spans[0], 0.35, { scaleX: 1, transformOrigin: 0 })
       .to(spans[1], 0.5, { scaleX: 1.1, transformOrigin: 0 }, "-=0.25")
       .to(spans[1], 0.35, { scaleX: 1, transformOrigin: 0 });
+
+    tlArticleOne768
+      .set(articleOne, { visibility: "visible" })
+      .set(spans, { visibility: "visible", scaleX: 0 });
+
+    tlArticleOne768
+      .addLabel("start")
+      .to(articleOne, 1, {
+        ease: Power3.easeOut,
+        opacity: 1,
+        y: 0,
+        delay: 0.55
+      })
+      .to(spans[1], 0.4, { scaleX: 1.1, transformOrigin: 0 }, "-=0.55")
+      .to(spans[1], 0.25, { scaleX: 1, transformOrigin: 0 })
+      .to(spans[0], 0.4, { scaleX: 1.1, transformOrigin: 0 }, "-=0.45")
+      .to(spans[0], 0.25, { scaleX: 1, transformOrigin: 0 });
 
     tlArticleTwo
       .set(articleTwo, { visibility: "visible" })
@@ -312,9 +364,17 @@ class Main extends Component {
       topPicsWrapper <= window.innerHeight
         ? tweenCasual.play()
         : tweenCasual.reverse();
-      topArticleOne <= window.innerHeight
-        ? tlArticleOne.play()
-        : tlArticleOne.reverse();
+
+      if (window.innerWidth >= 768) {
+        topArticleOne <= window.innerHeight
+          ? tlArticleOne768.play()
+          : tlArticleOne768.reverse();
+      } else {
+        topArticleOne <= window.innerHeight
+          ? tlArticleOne.play()
+          : tlArticleOne.reverse();
+      }
+
       topH1Article <= window.innerHeight
         ? tlArticleTwo.play()
         : tlArticleTwo.reverse();
@@ -375,22 +435,7 @@ class Main extends Component {
             />
           </div>
         </PicsWrapper>
-
-        <StyledArticle2 className={"articletwo"}>
-          <Title className={"picswrapper"}>
-            naturalność jest dla nas <span>priorytetem</span>
-          </Title>
-
-          <p>
-            <strong>Preparaty keratynowe</strong>, używane podczas zabiegu,
-            zawierają nie tylko keratynę, lecz także{" "}
-            <strong>antyoksydanty, wyciągi z roślin i witaminy</strong> , które
-            trwale nawilżają włosy i dostarczają niezbędnych składników
-            odżywczych oraz kwasy tłuszczowe, które tworzą na włosach
-            niewidoczna barierę ochronna przed szkodliwymi czynnikami
-            zewnętrznymi.
-          </p>
-        </StyledArticle2>
+        <HomeSectionTwo />
       </StyledMain>
     );
   }

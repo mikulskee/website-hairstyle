@@ -33,19 +33,6 @@ const StyledButton = styled.button`
     width: 100%;
     height: 100%;
   }
-
-  @media only screen and (min-width: 768px) and (orientation: portrait) {
-    margin-top: 73px;
-    font-size: 22px;
-  }
-  @media only screen and (min-width: 1024px) {
-    font-size: 24px;
-    margin-top: 50px;
-  }
-  @media only screen and (min-width: 1024px) and (orientation: portrait) {
-    font-size: 32px;
-    margin-top: 50px;
-  }
 `;
 
 const Button = ({ content }) => {

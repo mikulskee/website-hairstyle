@@ -4,7 +4,17 @@ import styled from "styled-components";
 const Contact = styled.div`
   font-family: "Montserrat", sans-serif;
   color: #666;
-  margin: 50px 20px;
+  margin: 50px 20px 50px;
+  max-width: 770px;
+
+  @media only screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
+  @media only screen and (min-width: 1024px) {
+    margin: 120px auto;
+  }
+
   p,
   a {
     font-weight: 600;
@@ -21,6 +31,9 @@ const Contact = styled.div`
   .phone,
   .mail {
     margin-top: 40px;
+    @media only screen and (min-width: 768px) {
+      margin-top: 0;
+    }
   }
   h2 {
     padding: 20px 10px;

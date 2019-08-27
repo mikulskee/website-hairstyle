@@ -14,6 +14,9 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   z-index: 5;
+  @media only screen and (min-width: 1024px) {
+    display: none;
+  }
 `;
 
 const BurgerMenu = props => {

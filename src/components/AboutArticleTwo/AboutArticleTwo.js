@@ -5,10 +5,22 @@ import { Article } from "../../components/Article/Article";
 const StyledArticle = styled(Article)`
   margin: 60px auto 50px;
   position: relative;
+  @media only screen and (min-width: 1280px) {
+    max-width: none;
+    width: 40%;
+  }
+  @media only screen and (min-width: 1400px) {
+    width: 550px;
+  }
 
   p {
     will-change: opacity, transform;
     padding: 40px 10px;
+    @media only screen and (min-width: 1280px) {
+      font-size: 14px;
+      line-height: 1.5rem;
+      margin: 120px auto 50px;
+    }
   }
 
   span {
