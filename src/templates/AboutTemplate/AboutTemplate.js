@@ -29,7 +29,6 @@ class AboutTemplate extends Component {
 
   componentDidMount() {
     this.props.handleSocialMenuFalse();
-    this.props.findPath();
 
     const aboutTitle = document.querySelector(".about-header__title");
     const headerSpan = document.querySelector(".about-header__hero-image");

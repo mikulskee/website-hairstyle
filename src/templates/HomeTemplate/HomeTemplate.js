@@ -11,7 +11,6 @@ class HomeTemplate extends Component {
 
   componentDidMount() {
     this.props.handleSocialMenuTrue();
-    this.props.findPath();
   }
   render() {
     return (

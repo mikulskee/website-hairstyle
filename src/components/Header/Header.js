@@ -104,9 +104,7 @@ const Wrapper = styled.div`
         @media only screen and (min-width: 768px) {
           font-size: 4vw;
         }
-        @media only screen and (min-width: 1024px) {
-          font-size: 3.7vw;
-        }
+
         @media only screen and (min-width: 1024px) {
           font-size: 46px;
         }
@@ -232,7 +230,7 @@ class Header extends Component {
 
   render() {
     return (
-      <StyledWrapper>
+      <StyledWrapper className={"home-header"}>
         <Parallax className={"cover-photo"} speed={-1.8} />
         <Wrapper>
           <div className={"logo-main"}>

@@ -14,14 +14,7 @@ class MainTemplate extends Component {
   state = {
     isOpen: false,
     isScrollable: true,
-    socialMenu: "",
-    path: ""
-  };
-
-  findPath = () => {
-    this.setState({
-      path: window.location.pathname
-    });
+    socialMenu: ""
   };
 
   handleSocialMenuFalse = () => {
@@ -48,6 +41,7 @@ class MainTemplate extends Component {
     const socialMenu = document.querySelector(".upperWrapper div");
     const upperWrapper = document.querySelector(".upperWrapper");
     const navSpan = document.querySelector(".upperWrapper span");
+    const navSpanHeight = navSpan.getBoundingClientRect().height;
 
     ////// Burger Menu Animation
     const tlBurger = new TimelineMax({
@@ -56,6 +50,7 @@ class MainTemplate extends Component {
 
     tlBurger
       .addPause()
+      .to(socialMenu, 0.1, { opacity: 0 })
       .set(burgerMenu, { clearProps: "all" })
       .set(burgers, { clearProps: "all" })
       .set(burgerMenuLogo, { clearProps: "all" })
@@ -69,7 +64,6 @@ class MainTemplate extends Component {
       .to(burgers[2], 0.15, { rotation: -45 }, "endTransform")
       .addLabel("endTransformMenu")
       .to(burgerMenu, 0.25, { css: { transform: "translatex(0)" } }, "start")
-      .to(socialMenu, 0.15, { opacity: 0 })
       .to(
         burgerMenuLogo,
         0.15,
@@ -195,15 +189,31 @@ class MainTemplate extends Component {
     });
 
     ///////////////////////////NavDesktopAnimation \/ ///////////////////////////////////
-
-    // const navSpan = document.querySelector(".upperWrapper span");
     const tlNav = new TimelineMax({ reversed: true });
 
-    tlNav.to(navSpan, 0.3, { y: 65 });
+    tlNav.addPause().to(navSpan, 0.3, { y: 65 });
 
     const NavAnimaionHandler = () => {
       if (window.innerWidth >= 1024) {
-        if (this.state.path === "/") {
+        if (window.location.href.includes("/about")) {
+          const aboutMain = document.querySelector(".about-main");
+          let aboutMainTop = aboutMain.getBoundingClientRect().top - 50;
+          let aboutMainBottom = aboutMain.getBoundingClientRect().bottom;
+          if (aboutMainTop < 0 && aboutMainBottom > 0) {
+            tlNav.play();
+          } else {
+            tlNav.reverse();
+          }
+        } else if (window.location.href.includes("/contact")) {
+          const grapesHands = document.querySelector(".grapes-hands");
+          let grapesHandsTop = grapesHands.getBoundingClientRect().top - 50;
+          let grapesHandsBottom = grapesHands.getBoundingClientRect().bottom;
+          if (grapesHandsTop < 0 && grapesHandsBottom > 0) {
+            tlNav.reverse();
+          } else {
+            tlNav.play();
+          }
+        } else {
           const sectionTwo = document.querySelector(".section-two");
           const parallax = document.querySelector(".parallax-girls");
           let topParallax = parallax.getBoundingClientRect().top - 90;
@@ -218,40 +228,29 @@ class MainTemplate extends Component {
           } else {
             tlNav.reverse();
           }
-        } else if (this.state.path === "/about") {
-          const aboutMain = document.querySelector(".about-main");
-          let aboutMainTop = aboutMain.getBoundingClientRect().top - 50;
-          let aboutMainBottom = aboutMain.getBoundingClientRect().bottom;
-          if (aboutMainTop < 0 && aboutMainBottom > 0) {
-            tlNav.play();
-          } else {
-            tlNav.reverse();
-          }
-        } else if (this.state.path === "/contact") {
-          const grapesHands = document.querySelector(".grapes-hands");
-          let grapesHandsTop = grapesHands.getBoundingClientRect().top - 50;
-          let grapesHandsBottom = grapesHands.getBoundingClientRect().bottom;
-          if (grapesHandsTop < 0 && grapesHandsBottom > 0) {
-            tlNav.reverse();
-          } else {
-            tlNav.play();
-          }
         }
       } else if (window.innerWidth < 1024) {
-        if (
-          window.location.pathname === "/" ||
-          window.location.pathname === "/about"
-        ) {
-          if (window.scrollY >= window.innerHeight) {
+        if (window.location.href.includes("/about")) {
+          const aboutHeader = document.querySelector(".about-header");
+          let aboutHeaderBottom = aboutHeader.getBoundingClientRect().bottom;
+          if (aboutHeaderBottom - navSpanHeight >= 0) {
+            tlNav.reverse();
+          } else {
+            tlNav.play();
+          }
+        } else if (window.location.href.includes("/contact")) {
+          if (window.scrollY >= 50) {
             tlNav.play();
           } else {
             tlNav.reverse();
           }
         } else {
-          if (window.scrollY >= 50) {
-            tlNav.play();
-          } else {
+          const homeHeader = document.querySelector(".home-header");
+          let homeHeaderBottom = homeHeader.getBoundingClientRect().bottom;
+          if (homeHeaderBottom - navSpanHeight >= 0) {
             tlNav.reverse();
+          } else {
+            tlNav.play();
           }
         }
       }
@@ -283,7 +282,6 @@ class MainTemplate extends Component {
                   {...props}
                   isScrollable={this.state.isScrollable}
                   handleSocialMenuTrue={this.handleSocialMenuTrue}
-                  findPath={this.findPath}
                 />
               )}
             />
@@ -295,7 +293,6 @@ class MainTemplate extends Component {
                   {...props}
                   isScrollable={this.state.isScrollable}
                   handleSocialMenuFalse={this.handleSocialMenuFalse}
-                  findPath={this.findPath}
                 />
               )}
             />
@@ -307,7 +304,6 @@ class MainTemplate extends Component {
                   {...props}
                   isScrollable={this.state.isScrollable}
                   handleSocialMenuFalse={this.handleSocialMenuFalse}
-                  findPath={this.findPath}
                 />
               )}
             />

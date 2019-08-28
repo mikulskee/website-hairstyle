@@ -22,9 +22,6 @@ const StyledUpperWrapper = styled.div`
     display: flex;
     z-index: 9;
 
-    a {
-      display: ${({ isOpen }) => (isOpen ? "none" : "block")};
-    }
     .bfacebook {
       fill: #fff;
     }
@@ -67,7 +64,7 @@ const StyledUpperWrapper = styled.div`
     top: -100%;
     left: 0;
     background-color: ${({ path }) =>
-      path === "/" || path === "/about" ? "#c1c9d0" : "#e5dede"};
+      !window.location.href.includes("/contact") ? "#c1c9d0" : "#e5dede"};
     h1 {
       position: relative;
       visibility: visible;
