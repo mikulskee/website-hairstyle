@@ -5,54 +5,10 @@ import AboutTemplate from "./AboutTemplate/AboutTemplate";
 import ContactTemplate from "./ContactTemplate/ContactTemplate";
 import TemplateLoader from "../components/TemplateLoader/TemplateLoader";
 import BurgerMenu from "../components/BurgerMenu/BurgerMenu";
-import Burger from "../components/Burger/Burger";
-import SocialMenu from "../components/SocialMenu/SocialMenu";
-import NavDesktop from "../components/NavDesktop/NavDesktop";
-import styled from "styled-components";
+import TopBar from "../components/TopBar/TopBar";
+
 import { TimelineMax } from "gsap/TweenMax";
 import { Power1 } from "gsap/EasePack";
-
-const StyledUpperWrapper = styled.div`
-  position: fixed;
-  padding: 10px 0;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 9;
-  @media only screen and (min-width: 1024px) {
-    justify-content: unset;
-    position: fixed;
-  }
-  .upperWrapper__socials {
-    display: flex;
-  }
-  .upperWrapper__nav-desktop {
-    width: 100%;
-    @media only screen and (max-width: 1023px) {
-      display: none;
-    }
-  }
-
-  div {
-    .burger {
-      @media only screen and (min-width: 1024px) {
-        display: none;
-      }
-    }
-  }
-
-  span {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: -100%;
-
-    left: 0;
-    background-color: ${({ path }) =>
-      path === "/" || path === "/about" ? "#c1c9d0" : "#e5dede"};
-  }
-`;
 
 class MainTemplate extends Component {
   state = {
@@ -230,9 +186,8 @@ class MainTemplate extends Component {
 
     navDesktopLi.forEach(li => {
       li.addEventListener("click", e => {
-        console.log(e.target.classList.contains("active"));
         if (e.target.classList.contains("active")) {
-          window.scrollTo(0, 0);
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         } else {
           handleTemplateLoaderDesktop();
         }
@@ -242,43 +197,62 @@ class MainTemplate extends Component {
     ///////////////////////////NavDesktopAnimation \/ ///////////////////////////////////
 
     // const navSpan = document.querySelector(".upperWrapper span");
-    const tlNavDesktopHome = new TimelineMax({ reversed: true });
+    const tlNav = new TimelineMax({ reversed: true });
 
-    tlNavDesktopHome.to(navSpan, 0.3, { y: 51 });
+    tlNav.to(navSpan, 0.3, { y: 65 });
 
     const NavAnimaionHandler = () => {
-      if (this.state.path === "/") {
-        const sectionTwo = document.querySelector(".section-two");
-        const parallax = document.querySelector(".parallax-girls");
-        let topParallax = parallax.getBoundingClientRect().top - 90;
-        let bottomParallax = parallax.getBoundingClientRect().bottom - 35;
-        let topSectionTwo = sectionTwo.getBoundingClientRect().top - 50;
-        let bottomSectionTwo = sectionTwo.getBoundingClientRect().bottom;
+      if (window.innerWidth >= 1024) {
+        if (this.state.path === "/") {
+          const sectionTwo = document.querySelector(".section-two");
+          const parallax = document.querySelector(".parallax-girls");
+          let topParallax = parallax.getBoundingClientRect().top - 90;
+          let bottomParallax = parallax.getBoundingClientRect().bottom - 35;
+          let topSectionTwo = sectionTwo.getBoundingClientRect().top - 50;
+          let bottomSectionTwo = sectionTwo.getBoundingClientRect().bottom;
 
-        if (topParallax < 0 && bottomParallax > 0) {
-          tlNavDesktopHome.play();
-        } else if (topSectionTwo < 0 && bottomSectionTwo > 0) {
-          tlNavDesktopHome.play();
-        } else {
-          tlNavDesktopHome.reverse();
+          if (topParallax < 0 && bottomParallax > 0) {
+            tlNav.play();
+          } else if (topSectionTwo < 0 && bottomSectionTwo > 0) {
+            tlNav.play();
+          } else {
+            tlNav.reverse();
+          }
+        } else if (this.state.path === "/about") {
+          const aboutMain = document.querySelector(".about-main");
+          let aboutMainTop = aboutMain.getBoundingClientRect().top - 50;
+          let aboutMainBottom = aboutMain.getBoundingClientRect().bottom;
+          if (aboutMainTop < 0 && aboutMainBottom > 0) {
+            tlNav.play();
+          } else {
+            tlNav.reverse();
+          }
+        } else if (this.state.path === "/contact") {
+          const grapesHands = document.querySelector(".grapes-hands");
+          let grapesHandsTop = grapesHands.getBoundingClientRect().top - 50;
+          let grapesHandsBottom = grapesHands.getBoundingClientRect().bottom;
+          if (grapesHandsTop < 0 && grapesHandsBottom > 0) {
+            tlNav.reverse();
+          } else {
+            tlNav.play();
+          }
         }
-      } else if (this.state.path === "/about") {
-        const aboutMain = document.querySelector(".about-main");
-        let aboutMainTop = aboutMain.getBoundingClientRect().top - 50;
-        let aboutMainBottom = aboutMain.getBoundingClientRect().bottom;
-        if (aboutMainTop < 0 && aboutMainBottom > 0) {
-          tlNavDesktopHome.play();
+      } else if (window.innerWidth < 1024) {
+        if (
+          window.location.pathname === "/" ||
+          window.location.pathname === "/about"
+        ) {
+          if (window.scrollY >= window.innerHeight) {
+            tlNav.play();
+          } else {
+            tlNav.reverse();
+          }
         } else {
-          tlNavDesktopHome.reverse();
-        }
-      } else if (this.state.path === "/contact") {
-        const grapesHands = document.querySelector(".grapes-hands");
-        let grapesHandsTop = grapesHands.getBoundingClientRect().top - 50;
-        let grapesHandsBottom = grapesHands.getBoundingClientRect().bottom;
-        if (grapesHandsTop < 0 && grapesHandsBottom > 0) {
-          tlNavDesktopHome.reverse();
-        } else {
-          tlNavDesktopHome.play();
+          if (window.scrollY >= 50) {
+            tlNav.play();
+          } else {
+            tlNav.reverse();
+          }
         }
       }
     };
@@ -294,25 +268,12 @@ class MainTemplate extends Component {
         <TemplateLoader className={"template-loader"} />
         <Router basename={process.env.PUBLIC_URL}>
           <BurgerMenu setLoader={this.setLoader} />
-          <StyledUpperWrapper
-            className={"upperWrapper"}
+          <TopBar
+            setLoader={this.setLoader}
+            socialMenu={this.state.socialMenu}
             path={this.state.path}
             isOpen={this.state.isOpen}
-          >
-            <span />
-            <div className={"upperWrapper__socials"}>
-              <SocialMenu socialMenu={this.state.socialMenu} />
-            </div>
-            <div className={"upperWrapper__burger"}>
-              <Burger className={"burger"} />
-            </div>
-            <div className={"upperWrapper__nav-desktop"}>
-              <NavDesktop
-                className={"nav-desktop"}
-                setLoader={this.setLoader}
-              />
-            </div>
-          </StyledUpperWrapper>
+          />
           <Switch>
             <Route
               path="/"

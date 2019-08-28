@@ -6,6 +6,7 @@ import iconInstagram from "../../assets/images/icon-instagram2.svg";
 
 const StyledLink = styled.a`
   visibility: ${({ socialMenu }) => (socialMenu ? "visible" : "hidden")};
+
   cursor: pointer;
   padding: 10px 20px;
 
@@ -16,9 +17,6 @@ const StyledLink = styled.a`
 
     svg {
       width: 25px;
-      @media only screen and (min-width: 768px) and (orientation: portrait) {
-        width: 30px;
-      }
     }
   }
 `;

@@ -99,6 +99,7 @@ const X = styled.button`
   justify-content: center;
   margin-top: 10px;
   padding: 21px 46px;
+  cursor: pointer;
   @media only screen and (min-width: 768px) and (orientation: portrait) {
     padding: 21px 47px;
     margin-top: 13px;

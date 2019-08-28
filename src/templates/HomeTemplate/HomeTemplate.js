@@ -6,8 +6,6 @@ import Main from "../SectionMain/Main";
 import SectionMotto from "../SectionMotto/SectionMotto";
 import Footer from "../Footer/Footer";
 import Visit from "../../components/Visit/Visit";
-// import TimelineMax from "gsap/TimelineMax";
-
 class HomeTemplate extends Component {
   state = {};
 

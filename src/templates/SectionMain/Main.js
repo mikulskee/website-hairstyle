@@ -336,7 +336,6 @@ class Main extends Component {
 
     tlArticleTwo
       .set(articleTwo, { visibility: "visible" })
-      .set(h1, { clearProps: "all" })
       .set(h1, { visibility: "visible" })
       .from(h1, 1, {
         y: 100,

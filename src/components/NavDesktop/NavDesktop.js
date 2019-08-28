@@ -63,40 +63,6 @@ const StyledLink = styled.li`
 
 class NavDesktop extends Component {
   state = {};
-
-  componentDidMount() {
-    // const tlNavDesktop = new TimelineMax();
-    // const navBefore = document.querySelector(".upperWrapper span");
-    // const navigationAnimation = () => {
-    //   const aboutHeader = document.querySelector(".about-header");
-    //   let aboutHeaderBottom = aboutHeader.getBoundingClientRect().bottom;
-    //   if (aboutHeaderBottom <= 0) {
-    //     tlNavDesktop.play();
-    //   } else {
-    //     tlNavDesktop.reverse();
-    //   }
-    // };
-    // window.onhashchange = () => {
-    //   console.log("zmiana");
-    // };
-    // const findColor = () => {
-    //   if (window.location.pathname === "/about") {
-    //     return "#c1c9d0";
-    //   } else if (window.location.pathname === "/contact") {
-    //     return "#e5dede";
-    //   }
-    // };
-    // tlNavDesktop
-    //   .set(navBefore, { css: { backgroundColor: findColor() } })
-    //   .addPause()
-    //   .to(navBefore, 0.25, { y: 50 });
-    // if (window.location.pathname === "/about") {
-    //   console.log("Działamy");
-    //   window.addEventListener("scroll", navigationAnimation);
-    // } else {
-    //   window.removeEventListener("scroll", navigationAnimation);
-    // }
-  }
   render() {
     return (
       <StyledUl>
