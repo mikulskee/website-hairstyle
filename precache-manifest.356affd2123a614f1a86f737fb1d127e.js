@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2748abd6df9ee7f5552920f0e5eab409",
+    "revision": "70b4bd8f5cfaf2b66980d1e2466cd36d",
     "url": "/website-hairstyle/index.html"
   },
   {
-    "revision": "bb2b1a83dadcdb017989",
-    "url": "/website-hairstyle/static/js/2.442a54a3.chunk.js"
+    "revision": "82591dd91266dda50734",
+    "url": "/website-hairstyle/static/js/2.7cfa4dd8.chunk.js"
   },
   {
-    "revision": "aa25ad75c77eba08d4d7",
-    "url": "/website-hairstyle/static/js/main.35a37a56.chunk.js"
+    "revision": "b00367f21d514a3cd259",
+    "url": "/website-hairstyle/static/js/main.c80f37b5.chunk.js"
   },
   {
     "revision": "143d2c65843dcc6e13a9",
@@ -92,8 +92,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/website-hairstyle/static/media/icon-facebook.9625cf5e.svg"
   },
   {
-    "revision": "351e3d87975e1eaa23f62d5c7e3c150c",
-    "url": "/website-hairstyle/static/media/icon-instagram2.351e3d87.svg"
+    "revision": "520ee889e5efdd41756328996a232801",
+    "url": "/website-hairstyle/static/media/icon-instagram2.520ee889.svg"
   },
   {
     "revision": "bf4166ea1f39a1c55e96cd8722b65dc7",
