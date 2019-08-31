@@ -14,7 +14,8 @@ class MainTemplate extends Component {
   state = {
     isOpen: false,
     isScrollable: true,
-    socialMenu: ""
+    socialMenu: "",
+    navSpan: ""
   };
 
   handleSocialMenuFalse = () => {
@@ -50,13 +51,14 @@ class MainTemplate extends Component {
 
     tlBurger
       .addPause()
-      .to(socialMenu, 0.1, { opacity: 0 })
+
       .set(burgerMenu, { clearProps: "all" })
       .set(burgers, { clearProps: "all" })
       .set(burgerMenuLogo, { clearProps: "all" })
-      .set(navSpan, { clearProps: "all" })
       .addLabel("start")
-      .to(burgers[0], 0.15, { css: { transform: "translatey(0)" } })
+      .to(socialMenu, 0.2, { opacity: 0 })
+      .to(navSpan, 0.2, { opacity: 0 }, "start")
+      .to(burgers[0], 0.15, { css: { transform: "translatey(0)" } }, "start")
       .to(burgers[2], 0.15, { css: { transform: "translatey(0)" } }, "start")
       .to(burgers[1], 0.1, { opacity: 0 })
       .addLabel("endTransform")
@@ -84,7 +86,6 @@ class MainTemplate extends Component {
 
     tlTemplateLoader
       .addPause()
-      .set(navSpan, { clearProps: "all" })
       .set(templateLoader, { visibility: "visible" })
       .set(spans, {
         css: { animation: "wave-text 0.7s infinite alternate paused" }
@@ -115,7 +116,6 @@ class MainTemplate extends Component {
 
     tlTemplateLoaderDesktop
       .addPause()
-      .set(navSpan, { clearProps: "all" })
       .set(templateLoader, { visibility: "visible" })
       .set(spans, {
         css: { animation: "wave-text 0.7s infinite alternate paused" }
@@ -191,13 +191,14 @@ class MainTemplate extends Component {
     ///////////////////////////NavDesktopAnimation \/ ///////////////////////////////////
     const tlNav = new TimelineMax({ reversed: true });
 
-    tlNav.addPause().to(navSpan, 0.3, { y: 65 });
+    tlNav.addPause().to(navSpan, 0.3, { y: 96 });
 
     const NavAnimaionHandler = () => {
       if (window.innerWidth >= 1024) {
         if (window.location.href.includes("/about")) {
           const aboutMain = document.querySelector(".about-main");
-          let aboutMainTop = aboutMain.getBoundingClientRect().top - 50;
+          let aboutMainTop =
+            aboutMain.getBoundingClientRect().top - navSpanHeight;
           let aboutMainBottom = aboutMain.getBoundingClientRect().bottom;
           if (aboutMainTop < 0 && aboutMainBottom > 0) {
             tlNav.play();
@@ -206,7 +207,8 @@ class MainTemplate extends Component {
           }
         } else if (window.location.href.includes("/contact")) {
           const grapesHands = document.querySelector(".grapes-hands");
-          let grapesHandsTop = grapesHands.getBoundingClientRect().top - 50;
+          let grapesHandsTop =
+            grapesHands.getBoundingClientRect().top - navSpanHeight;
           let grapesHandsBottom = grapesHands.getBoundingClientRect().bottom;
           if (grapesHandsTop < 0 && grapesHandsBottom > 0) {
             tlNav.reverse();
@@ -217,8 +219,10 @@ class MainTemplate extends Component {
           const sectionTwo = document.querySelector(".section-two");
           const parallax = document.querySelector(".parallax-girls");
           let topParallax = parallax.getBoundingClientRect().top - 90;
-          let bottomParallax = parallax.getBoundingClientRect().bottom - 35;
-          let topSectionTwo = sectionTwo.getBoundingClientRect().top - 50;
+          let bottomParallax =
+            parallax.getBoundingClientRect().bottom - navSpanHeight;
+          let topSectionTwo =
+            sectionTwo.getBoundingClientRect().top - navSpanHeight;
           let bottomSectionTwo = sectionTwo.getBoundingClientRect().bottom;
 
           if (topParallax < 0 && bottomParallax > 0) {

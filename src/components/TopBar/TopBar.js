@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Title } from "../../components/Title/Title";
+import logoSmall from "../../assets/images/Logo-white-small.png";
 import SocialMenu from "../../components/SocialMenu/SocialMenu";
 import Burger from "../../components/Burger/Burger";
 import NavDesktop from "../../components/NavDesktop/NavDesktop";
@@ -32,23 +32,7 @@ const StyledUpperWrapper = styled.div`
       display: none;
     }
   }
-  .upperWrapper__logo {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    img {
-      height: 60px;
-      margin: auto;
-    }
-    h1 {
-      position: static;
-      visibility: visible;
-    }
-  }
+
   .upperWrapper__burger {
     .burger {
       @media only screen and (min-width: 1024px) {
@@ -58,18 +42,31 @@ const StyledUpperWrapper = styled.div`
   }
 
   span.cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
     position: absolute;
-    top: -100%;
+    top: -150%;
     left: 0;
+
     background-color: ${({ path }) =>
       !window.location.href.includes("/contact") ? "#c1c9d0" : "#e5dede"};
-    h1 {
+    ::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      content: "";
+      width: 46%;
+      height: 100%;
+      box-shadow: 0px 31px 13px -29px rgb(142, 142, 142);
+    }
+    img {
       position: relative;
-      visibility: visible;
-      text-align: center;
-      line-height: 65px;
+      height: 50px;
+      z-index: 1;
       @media only screen and (min-width: 1024px) {
         display: none;
       }
@@ -77,14 +74,17 @@ const StyledUpperWrapper = styled.div`
   }
 `;
 const TopBar = props => {
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
   return (
     <StyledUpperWrapper
       className={"upperWrapper"}
       path={props.path}
       isOpen={props.isOpen}
     >
-      <span className={"cover"}>
-        <Title>styled</Title>
+      <span className={"cover"} isOpen={props}>
+        <img src={logoSmall} alt="straightener" onClick={handleLogoClick} />
       </span>
       <div className={"upperWrapper__socials"}>
         <SocialMenu socialMenu={props.socialMenu} isOpen={props.isOpen} />
