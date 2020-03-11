@@ -13,6 +13,7 @@ const StyledUpperWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   z-index: 9;
+  max-width: 2100px;
   @media only screen and (min-width: 1024px) {
     justify-content: unset;
     position: fixed;

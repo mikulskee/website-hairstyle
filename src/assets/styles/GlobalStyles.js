@@ -12,11 +12,15 @@ const GlobalStyle = createGlobalStyle`
 }
 body {
     height: 100vh;
-    overflow: ${({ isScrollable }) => (isScrollable ? "visible" : "hidden")}
+    overflow: ${({ isScrollable }) => (isScrollable ? "visible" : "hidden")};
+    background-color: #c1c9d0;
 }
 
 #root {
-    overflow:hidden;
+    position: relative;
+    max-width: 2100px;
+    margin:0 auto;
+    overflow: hidden;
 }
 ::-webkit-scrollbar { 
     /* display: none;  */

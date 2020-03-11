@@ -14,6 +14,8 @@ const Aside = styled.aside`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  max-height: 600px;
+
   @media only screen and (min-width: 1024px) {
     height: 37vw;
   }

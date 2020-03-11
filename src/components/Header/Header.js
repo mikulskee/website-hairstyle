@@ -9,11 +9,11 @@ import { TimelineMax } from "gsap/TimelineMax";
 const StyledWrapper = styled.header`
   position: relative;
   height: 422px;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   top: 0;
   left: 0;
-
+  max-height: 1200px;
   @media only screen and (min-width: 360px) {
     height: 563px;
   }

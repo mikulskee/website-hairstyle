@@ -217,6 +217,7 @@ const PicsWrapper = styled.div`
   justify-content: center;
   height: 70vw;
   width: 100%;
+  max-height: 600px;
   @media only screen and (orientation: landscape) {
     height: 40vw;
   }

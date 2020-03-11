@@ -52,6 +52,9 @@ const Paragraph = styled.p`
   text-align: center;
   padding-top: 20px;
   font-size: 10px;
+  a {
+    color: white;
+  }
 `;
 
 const Footer = () => {
@@ -66,7 +69,10 @@ const Footer = () => {
           <IconSVG src={iconInstagram} className={"instagram"} />
         </StyledLink>
       </StyledWrapper>
-      <Paragraph>© 2019 Mateusz Mikulski. All rights reserved.</Paragraph>
+      <Paragraph>
+        © 2019 Designed {"&"} Coded by{" "}
+        <a href="https://codeverse.pl">Codeverse</a>. All rights reserved.
+      </Paragraph>
     </StyledFooter>
   );
 };

@@ -7,9 +7,10 @@ import Parallax from "react-rellax";
 const Wrapper = styled.header`
   position: relative;
   height: 408px;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   z-index: 1;
+  max-height: 1200px;
   @media only screen and (min-width: 320px) and (min-height: 568px) {
     height: 490px;
   }
