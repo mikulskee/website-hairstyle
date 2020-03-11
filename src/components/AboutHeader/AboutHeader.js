@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import heroImageAbout from "../../assets/images/heroimage-about-min.png";
+import heroImageAbout from "../../assets/images/heroimage-about-min.jpg";
 import { Title } from "../../components/Title/Title";
 import Parallax from "react-rellax";
 

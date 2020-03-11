@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import girlOne from "../../assets/images/girl-one-min.png";
-import girlTwo from "../../assets/images/girl-two-min.png";
-import girlThree from "../../assets/images/girl-three-min.png";
+import girlOne from "../../assets/images/girl-one-min.jpg";
+import girlTwo from "../../assets/images/girl-two-min.jpg";
+import girlThree from "../../assets/images/girl-three-min.jpg";
 import blob from "../../assets/images/blob.svg";
 import blob2 from "../../assets/images/blob2.svg";
 import IconSVG from "../../components/IconSVG/IconSVG";

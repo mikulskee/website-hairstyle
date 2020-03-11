@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import mottoGirl from "../../assets/images/motto-girl.png";
+import mottoGirl from "../../assets/images/motto-girl.jpg";
 
 const Aside = styled.aside`
   position: relative;

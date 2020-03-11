@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import certificate from "../../assets/images/certificate1.png";
-import certificate2 from "../../assets/images/certificate2.png";
+import certificate from "../../assets/images/certificate1.jpg";
+import certificate2 from "../../assets/images/certificate2.jpg";
 
 const Wrapper = styled.div`
   position: relative;

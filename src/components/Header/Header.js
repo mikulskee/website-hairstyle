@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import HeroPhotoMin from "../../assets/images/hero-image-min.png";
+import HeroPhotoMin from "../../assets/images/hero-image-min.jpg";
 import Button from "../Button/Button";
 import logoImage from "../../assets/images/straightener.png";
 import Parallax from "react-rellax";
